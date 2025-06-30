@@ -1,0 +1,22 @@
+{
+  "name": "gc-stream",
+  "version": "1.0.0",
+  "description": "Game processor for streaming data",
+  "main": "dist/game_processor.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/game_processor.js",
+    "dev": "ts-node game_processor.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.44.0",
+    "prettier": "^3.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

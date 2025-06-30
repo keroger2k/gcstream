@@ -1,0 +1,275 @@
+[
+  {
+    "id": "a1669784-2548-44ef-9f88-d0ee24752848",
+    "first_name": "Zach",
+    "last_name": "M",
+    "number": "7",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "a1669784-2548-44ef-9f88-d0ee24752848",
+      "batting_side": "both",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "a1669784-2548-44ef-9f88-d0ee24752848"
+  },
+  {
+    "id": "1962cb79-5213-4985-a67f-66a70ffa9cb2",
+    "first_name": "Kyler",
+    "last_name": "I",
+    "number": "1",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "1962cb79-5213-4985-a67f-66a70ffa9cb2",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "1962cb79-5213-4985-a67f-66a70ffa9cb2"
+  },
+  {
+    "id": "19de7a90-858b-4bdd-a04c-9eadd6f4d2c2",
+    "first_name": "Hamza",
+    "last_name": "Z",
+    "number": "13",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "19de7a90-858b-4bdd-a04c-9eadd6f4d2c2",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "19de7a90-858b-4bdd-a04c-9eadd6f4d2c2"
+  },
+  {
+    "id": "97524a55-359e-4d3f-ac68-5cbf726c82e7",
+    "first_name": "Jacob",
+    "last_name": "E",
+    "number": "00",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "97524a55-359e-4d3f-ac68-5cbf726c82e7",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "97524a55-359e-4d3f-ac68-5cbf726c82e7"
+  },
+  {
+    "id": "ceb2bbb7-f8fb-40f6-b543-2a8fff65cf81",
+    "first_name": "Zack",
+    "last_name": "W",
+    "number": "34",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "ceb2bbb7-f8fb-40f6-b543-2a8fff65cf81",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "ceb2bbb7-f8fb-40f6-b543-2a8fff65cf81"
+  },
+  {
+    "id": "d26b76b5-e1dc-40ca-bde7-aff02078026f",
+    "first_name": "Aaden",
+    "last_name": "K",
+    "number": "99",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "d26b76b5-e1dc-40ca-bde7-aff02078026f",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "d26b76b5-e1dc-40ca-bde7-aff02078026f"
+  },
+  {
+    "id": "91d7b6e4-bdc8-4968-91f8-c7741be18c29",
+    "first_name": "Gabe",
+    "last_name": "P",
+    "number": "6",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "91d7b6e4-bdc8-4968-91f8-c7741be18c29",
+      "batting_side": "left",
+      "throwing_hand": "left",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "91d7b6e4-bdc8-4968-91f8-c7741be18c29"
+  },
+  {
+    "id": "a650f37f-0f83-4aed-ba14-f07cf69669fa",
+    "first_name": "Jack",
+    "last_name": "K",
+    "number": "12",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "a650f37f-0f83-4aed-ba14-f07cf69669fa",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "a650f37f-0f83-4aed-ba14-f07cf69669fa"
+  },
+  {
+    "id": "4ea56c51-20a2-4eb2-8d43-6a27dc6c334d",
+    "first_name": "Audi",
+    "last_name": "H",
+    "number": "9",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "4ea56c51-20a2-4eb2-8d43-6a27dc6c334d",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "4ea56c51-20a2-4eb2-8d43-6a27dc6c334d"
+  },
+  {
+    "id": "eaa9b403-f9bf-4729-8945-1cddb9bc9610",
+    "first_name": "Collin",
+    "last_name": "K",
+    "number": "8",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "eaa9b403-f9bf-4729-8945-1cddb9bc9610",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "eaa9b403-f9bf-4729-8945-1cddb9bc9610"
+  },
+  {
+    "id": "e57f92bd-26b1-4361-9c94-444ba031c33e",
+    "first_name": "Sean",
+    "last_name": "L",
+    "number": "11",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "e57f92bd-26b1-4361-9c94-444ba031c33e",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "e57f92bd-26b1-4361-9c94-444ba031c33e"
+  },
+  {
+    "id": "7678c2dc-0195-4687-87ee-ee1f4cd88bd3",
+    "first_name": "Jude",
+    "last_name": "W",
+    "number": "10",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "7678c2dc-0195-4687-87ee-ee1f4cd88bd3",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "7678c2dc-0195-4687-87ee-ee1f4cd88bd3"
+  },
+  {
+    "id": "cc48d0e4-8683-4586-a879-1985c09bd9cc",
+    "first_name": "Roger",
+    "last_name": "D",
+    "number": "24",
+    "status": "active",
+    "team_id": "36cd9067-12d8-439a-8f2e-695e939e7968",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "cc48d0e4-8683-4586-a879-1985c09bd9cc",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "cc48d0e4-8683-4586-a879-1985c09bd9cc"
+  }
+]

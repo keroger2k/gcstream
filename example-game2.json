@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "82e6d428-de80-414c-945a-58f2d9f0a809",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 0,
+    "event_data": "{\"id\":\"6F3A6F05-5622-4780-9D12-D1D288289B89\",\"compactorAttributes\":{\"stream\":\"head\"},\"code\":\"set_teams\",\"attributes\":{\"aniFT\":true,\"homeId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"awayId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403249}"
+  },
+  {
+    "id": "38640ed4-8290-43d9-bb22-6680911723c1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 1,
+    "event_data": "{\"code\":\"transaction\",\"events\":[{\"code\":\"fill_position\",\"id\":\"445524CD-7207-421D-94F7-BFA002DB1832\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\",\"position\":\"2B\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"239089C4-5A05-4D7E-8A3C-41A284235028\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"257bf19d-0c93-4029-8aef-48087a47bcd2\",\"position\":\"1B\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"6AB58854-5CAC-41BF-991B-B172F8909638\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"position\":\"3B\",\"playerId\":\"f397f78b-d840-447c-a7c6-7108cefffe57\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"FA4EF84F-779C-4F65-A66B-3614B8CCFED7\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"0becc8e5-b63a-4e31-a7c7-c5d8332f6d81\",\"position\":\"P\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"6014BA3C-69A2-4D3B-A934-9EE94084EFDE\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"position\":\"CF\",\"playerId\":\"2f883e7e-3514-49f1-9931-5d6a64695e09\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"FD8C6E27-0999-4E7E-B554-5A56357FCB4F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"8da8ca75-1844-405f-ad1b-f0b065561470\",\"position\":\"LF\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"5DA5385C-B262-4B51-AAC6-DB952806D186\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"93d66dda-ce4d-48df-b22c-d726050805ee\",\"position\":\"C\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"2044B391-3803-4AE6-B271-151EA69F0236\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"45adfd9e-4f0f-4c01-b1f3-eeaac577c197\",\"position\":\"SS\"},\"createdAt\":1749315403249},{\"code\":\"fill_position\",\"id\":\"392FB1D7-CF8F-48B2-8325-3D21235AED5F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"position\":\"RF\",\"playerId\":\"a8398b03-a0ce-40d5-bbc2-fd8a2d146f95\"},\"createdAt\":1749315403249},{\"code\":\"fill_lineup_index\",\"id\":\"9C1AED69-0D3B-4068-9F2B-DD5EF165AEF8\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"a8398b03-a0ce-40d5-bbc2-fd8a2d146f95\",\"index\":0,\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"CF46C6F8-1D24-40E3-8350-653E001C6171\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"45adfd9e-4f0f-4c01-b1f3-eeaac577c197\",\"index\":1},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"DE01ADB9-8777-4673-8CA6-22CBC082B55B\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"index\":2,\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"257bf19d-0c93-4029-8aef-48087a47bcd2\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"F870D212-4F23-4B94-B429-478696A3925C\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"f397f78b-d840-447c-a7c6-7108cefffe57\",\"index\":3},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"F2FDD563-3381-4584-9CD3-1E3F20129DE8\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"2f883e7e-3514-49f1-9931-5d6a64695e09\",\"index\":4},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"72070CF0-5D15-444C-9B7C-56CB3D751B29\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"index\":5,\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"3CA74EBB-5B54-4C2C-B1B9-04050336FDB5\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"index\":6,\"playerId\":\"0becc8e5-b63a-4e31-a7c7-c5d8332f6d81\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"7EAAE6D6-B4F3-4AB4-AFE6-82A6F0F6BD56\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"93d66dda-ce4d-48df-b22c-d726050805ee\",\"index\":7},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"9D363DD5-3096-4B59-B00F-BD9D5AC6C6FD\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"index\":8,\"playerId\":\"3c9b976d-c7eb-49d4-81ed-119300de2f24\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"7D023251-4D15-478C-B3BC-A9353F81E95D\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"8da8ca75-1844-405f-ad1b-f0b065561470\",\"index\":9},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"1CB5CA44-773B-4965-99A2-28AC74029E66\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"eaa9b403-f9bf-4729-8945-1cddb9bc9610\",\"position\":\"RF\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"13245BFF-79AC-4C0F-A908-B633FEC68F78\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"1962cb79-5213-4985-a67f-66a70ffa9cb2\",\"position\":\"SS\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"EC2909EB-7E2A-405B-A443-60F9EAA7B8A7\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"a650f37f-0f83-4aed-ba14-f07cf69669fa\",\"position\":\"1B\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"0C057DF9-107C-405A-A522-74CE50BDFF1F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"playerId\":\"ceb2bbb7-f8fb-40f6-b543-2a8fff65cf81\",\"position\":\"2B\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"D31F7B44-FF37-4837-8B2E-BF9E658695B4\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"position\":\"3B\",\"playerId\":\"19de7a90-858b-4bdd-a04c-9eadd6f4d2c2\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"D9E82D45-A749-4CAC-86E7-E27F70C88DBA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"playerId\":\"97524a55-359e-4d3f-ac68-5cbf726c82e7\",\"position\":\"CF\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"4F3D549B-EDAB-4D06-B36A-8D28B97A4DC9\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"a1669784-2548-44ef-9f88-d0ee24752848\",\"position\":\"P\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"A26C24C1-D9FD-4E67-B26E-A48328DA8012\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"d26b76b5-e1dc-40ca-bde7-aff02078026f\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"position\":\"C\"},\"createdAt\":1749315403250},{\"code\":\"fill_position\",\"id\":\"4FE8FA5E-7D97-49ED-A60D-09F17CDF965E\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"4ea56c51-20a2-4eb2-8d43-6a27dc6c334d\",\"position\":\"LF\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"154C8367-3A59-4F8B-9829-BDBDD1E22720\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"index\":0,\"playerId\":\"91d7b6e4-bdc8-4968-91f8-c7741be18c29\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"4E3D7B3E-BAB8-439B-9AC9-58D697FB4BBB\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"index\":1,\"playerId\":\"19de7a90-858b-4bdd-a04c-9eadd6f4d2c2\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"ED70FA84-073F-481D-9266-2FA900B58556\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"ceb2bbb7-f8fb-40f6-b543-2a8fff65cf81\",\"index\":2,\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"ED54347D-D7BF-4DAB-8D3A-542E1C014F8C\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"playerId\":\"a650f37f-0f83-4aed-ba14-f07cf69669fa\",\"index\":3},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"74F32F7D-BF02-47C9-941B-3FD66E52074B\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"d26b76b5-e1dc-40ca-bde7-aff02078026f\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"index\":4},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"847CD8B3-4C8A-438E-B06A-10FF0575BD93\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"index\":5,\"playerId\":\"a1669784-2548-44ef-9f88-d0ee24752848\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"34372D12-9352-40F5-9557-59248C0F0360\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"playerId\":\"1962cb79-5213-4985-a67f-66a70ffa9cb2\",\"index\":6},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"16278614-F35D-45D8-877D-492A16964F47\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"index\":7,\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"playerId\":\"e57f92bd-26b1-4361-9c94-444ba031c33e\"},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"26637245-A8D0-4F09-8C83-D191FEC3881A\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"eaa9b403-f9bf-4729-8945-1cddb9bc9610\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"index\":8},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"3BB02706-4A4B-4BCE-87BD-0D8E1508D1DE\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"playerId\":\"97524a55-359e-4d3f-ac68-5cbf726c82e7\",\"index\":9},\"createdAt\":1749315403250},{\"code\":\"fill_lineup_index\",\"id\":\"B07FE1BE-F08D-446F-BCBD-8B2133400CA4\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"4ea56c51-20a2-4eb2-8d43-6a27dc6c334d\",\"index\":10,\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749315403250}],\"compactorAttributes\":{\"stream\":\"head\"},\"id\":\"963CBF80-6DCD-49AD-A2EF-6F6B51F564D7\"}"
+  },
+  {
+    "id": "d8b70720-d72e-4611-81ab-5d167a889424",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 2,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749315582654,\"id\":\"89157835-06AA-4C11-BD2F-CCC974773975\"}"
+  },
+  {
+    "id": "84e9b9b3-cf0c-4d8a-be95-f2648bf7d045",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 3,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"16A68141-9DF2-45DA-9524-5B35FC6FF192\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749315604424},{\"code\":\"ball_in_play\",\"id\":\"C7AD49A3-BF1F-4CDF-8E48-235A4B602884\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":160,\"y\":66.625000000000043}}],\"playType\":\"line_drive\"},\"createdAt\":1749315604053}],\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"15ED8F2C-915C-412D-B1A9-2C5A549AC0A5\",\"code\":\"transaction\"}"
+  },
+  {
+    "id": "9bab6c9c-0426-455f-9fd5-8854b7d669dd",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 4,
+    "event_data": "{\"createdAt\":1749315657001,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"A3CB9C53-EB21-4F26-8619-4DD625BE9799\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_looking\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "c4776e95-c585-454b-867a-204c7f3150eb",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 5,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"9784419C-E13A-40ED-B1D7-C0F691F6709F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749315679895},{\"code\":\"ball_in_play\",\"id\":\"58261980-50D2-4FFF-9846-F6B631ABB9E1\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":160,\"y\":66.625000000000043}}],\"playType\":\"line_drive\"},\"createdAt\":1749315679524}],\"code\":\"transaction\",\"id\":\"7B48FB2D-4F8F-496B-A602-D2F4C651284B\"}"
+  },
+  {
+    "id": "b0974f1e-0a59-482c-822f-add887d158f5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 6,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"AD81520A-64E6-4D92-BDBB-583B05DB235A\",\"createdAt\":1749315706216,\"code\":\"pitch\"}"
+  },
+  {
+    "id": "d8bbd627-ff9b-4ae6-b792-9838a207fc0f",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 7,
+    "event_data": "{\"createdAt\":1749315720798,\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"id\":\"743AB189-D485-4B33-8833-BFECF1116DF3\"}"
+  },
+  {
+    "id": "99078d1c-fbc8-413b-b244-981bb9ca40e5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 8,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749315735431,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"3D3083F0-016C-4001-B188-A9F63E36DDED\"}"
+  },
+  {
+    "id": "32ab47ee-4e3e-40bf-b2af-41ae8db5e713",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 9,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"84037C36-06AF-4026-AE72-1C1F10515CCE\",\"createdAt\":1749315750912,\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_looking\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "c25125fc-eaf4-4e86-b354-aaa39a38626a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 10,
+    "event_data": "{\"createdAt\":1749315768194,\"id\":\"7C1A67F4-B774-4476-8D86-71D5100AA776\",\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "c8c93f95-d5b3-4deb-bbec-168c6aa2f2e6",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 11,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"E24A4D27-D202-493F-A61D-19C89E6C4DC0\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749315794807},{\"code\":\"ball_in_play\",\"id\":\"B35B0A5D-81E7-4D6B-A346-3535B3A1B66F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":160,\"y\":66.625000000000043}}],\"playType\":\"line_drive\"},\"createdAt\":1749315794250}],\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"id\":\"4A358D71-DDBF-4E00-9CC6-CF070C562CE9\"}"
+  },
+  {
+    "id": "46efd0ee-0a64-4b31-9709-e9feae2fcc1d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 12,
+    "event_data": "{\"code\":\"pitch\",\"createdAt\":1749315816660,\"id\":\"C43BA9A8-B65C-4EFE-AB3A-05340C718A39\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "1310bc08-8274-408f-a0b2-87e6f1e7592a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 13,
+    "event_data": "{\"createdAt\":1749315830793,\"id\":\"06B0F47C-8625-494D-A2D4-DAD1C1EC24CF\",\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "b1f35af3-9a4b-4af4-abee-95b4fbe017b4",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 14,
+    "event_data": "{\"createdAt\":1749315852758,\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"283077EC-DC29-44CF-939B-B478239815AD\"}"
+  },
+  {
+    "id": "d49d132b-1c89-4a11-9fb3-acfbcf0788a7",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 15,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749315856031,\"id\":\"37F7CE09-46B3-44E2-AC77-7DE5D5FE0798\",\"attributes\":{\"defenders\":[],\"playType\":\"wild_pitch\",\"runnerId\":\"91d7b6e4-bdc8-4968-91f8-c7741be18c29\",\"base\":3},\"code\":\"base_running\"}"
+  },
+  {
+    "id": "29eb1572-a2fa-474b-9449-cfe73fda5ae0",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 16,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"base_running\",\"id\":\"D470D0D4-4667-4677-A1FD-EA836D200EBC\",\"createdAt\":1749315859077,\"attributes\":{\"defenders\":[],\"playType\":\"on_same_pitch\",\"runnerId\":\"19de7a90-858b-4bdd-a04c-9eadd6f4d2c2\",\"base\":2}}"
+  },
+  {
+    "id": "8c1a939f-63f1-4071-9a72-a3e50834d1bb",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 17,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"8E3F0067-414E-48DF-81FB-C7B6EFE8B273\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":false},\"createdAt\":1749315886077},{\"code\":\"ball_in_play\",\"id\":\"2AFAF23F-2234-4C4A-B1AE-BC3D60C7F7EA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"dropped_third_strike_batter_out\",\"defenders\":[{\"error\":false,\"position\":\"C\",\"location\":{\"x\":160,\"y\":329.64166666666665}},{\"error\":false,\"position\":\"1B\",\"location\":{\"y\":188.95833333333337,\"x\":265.59999999999997}}],\"cause\":\"unspecified\"},\"createdAt\":1749315885177}],\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"349AE611-9AAC-4E5F-B973-F9770882B303\",\"code\":\"transaction\"}"
+  },
+  {
+    "id": "d5ee1547-18db-40f6-9ba1-b7a716d6a0b9",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 18,
+    "event_data": "{\"createdAt\":1749315891037,\"id\":\"8A68B665-D727-45FE-8238-C97652D4AAFE\",\"attributes\":{\"defenders\":[],\"playType\":\"advanced_on_last_play\",\"runnerId\":\"91d7b6e4-bdc8-4968-91f8-c7741be18c29\",\"base\":4},\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"base_running\"}"
+  },
+  {
+    "id": "54e70a65-b0f3-4b20-b6f2-2cfed5be5ffd",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 19,
+    "event_data": "{\"attributes\":{\"defenders\":[],\"playType\":\"advanced_on_last_play\",\"runnerId\":\"19de7a90-858b-4bdd-a04c-9eadd6f4d2c2\",\"base\":3},\"createdAt\":1749315894341,\"code\":\"base_running\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"40E53373-E137-42CF-8A0D-998AB1A16B51\"}"
+  },
+  {
+    "id": "1dccf245-a1e0-4d39-9c86-f7f1202139ee",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 20,
+    "event_data": "{\"createdAt\":1749315907092,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"E99D472E-BA57-4AF9-BB32-B8CC129692D3\"}"
+  },
+  {
+    "id": "cf359b73-c70f-4074-a7fc-6c70392eb6a3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 21,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749315920674,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"C7069051-28A2-4721-BEB5-E6D3BD44AD82\"}"
+  },
+  {
+    "id": "4e9544d8-8a53-4630-93f1-381210a22616",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 22,
+    "event_data": "{\"id\":\"49EB9723-1C41-4506-8915-AB334B65A55A\",\"createdAt\":1749315935957,\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "10a0255e-3e70-4d31-ad13-796b63581f38",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 23,
+    "event_data": "{\"id\":\"944AC208-AC54-4991-97FF-307D6D8BE92C\",\"code\":\"pitch\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749315951238,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "434cb7f2-af6c-4f70-aee8-59c58149b438",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 24,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"createdAt\":1749315969087,\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"BA0F04D5-93EE-4E67-83CD-F780E55A6C42\"}"
+  },
+  {
+    "id": "fefbcbe8-4d75-4d62-9735-93801a9d78f3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 25,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"1E2CCAF4-B684-407F-825C-451B29B1FAA5\",\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749315985920}"
+  },
+  {
+    "id": "7f21c713-3151-4316-9070-9fa0a0c69dd5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 26,
+    "event_data": "{\"createdAt\":1749316172526,\"id\":\"210EF310-35F2-4F84-B318-D69F7AB9C089\",\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "19d4de5c-20fd-49c2-8471-06ca2be4947f",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 27,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749316186757,\"id\":\"C9396214-A0D3-4085-98FC-D6558D866399\"}"
+  },
+  {
+    "id": "322e8baa-acbc-40aa-80a8-fe913adbd150",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 28,
+    "event_data": "{\"id\":\"D47E81A3-FCA7-4927-A445-0BEF8BBDB032\",\"createdAt\":1749316201371,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "cef67d63-4094-43d0-a1cc-7a3d9456d7e0",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 29,
+    "event_data": "{\"createdAt\":1749316218320,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"61231638-B2BC-4AFC-87CC-2BDA95E5FA4F\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "04af7685-c049-4d81-9673-8582bfefe15d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 30,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"id\":\"DFA1E98D-B5A4-4FA5-984B-6857DFE081B9\",\"events\":[{\"code\":\"pitch\",\"id\":\"9A164228-FCBB-4B4B-9D4F-277857EFD0A9\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749316242692},{\"code\":\"ball_in_play\",\"id\":\"E0B5E481-7370-4128-8B77-2108830B38B3\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"SS\",\"location\":{\"x\":96,\"y\":130.85000000000005}}],\"playType\":\"pop_fly\"},\"createdAt\":1749316242133}]}"
+  },
+  {
+    "id": "b4414f69-5a54-4a86-a1b5-a224e572036d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 31,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"3C0BD0C4-5CC2-4671-A036-87A19CA62495\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749316267208},{\"code\":\"ball_in_play\",\"id\":\"8A17B452-BD6C-4ABA-B827-AC016865573F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"LF\",\"location\":{\"x\":6.0762811916977588,\"y\":122.49156605861278}}],\"playType\":\"line_drive\"},\"createdAt\":1749316266836}],\"id\":\"0F8F0601-6280-45DA-87DB-BA9BCE3FFD62\",\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "037db2d6-33b1-4423-a256-5a96b9ce7d16",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 32,
+    "event_data": "{\"createdAt\":1749316291946,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"7CC6BD56-3ABB-40C2-BFA0-81311AA08A3C\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "547c1306-511c-4bdb-848f-ba7a0073dd50",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 33,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"B9F3BA93-9498-4702-B5C7-0DD5FE6865B4\",\"createdAt\":1749316307039,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "3c02f910-e289-4280-8dec-50fc0546c23a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 34,
+    "event_data": "{\"code\":\"transaction\",\"events\":[{\"code\":\"pitch\",\"id\":\"2E19420B-47F5-4D66-9415-07648C44974A\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749316336358},{\"code\":\"ball_in_play\",\"id\":\"D13FD594-0957-49AD-BE73-E8EF3E6381E6\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"fielders_choice\",\"defenders\":[{\"error\":false,\"position\":\"SS\",\"location\":{\"x\":96,\"y\":130.85000000000005}},{\"error\":false,\"position\":\"2B\",\"location\":{\"y\":132.11796959644531,\"x\":162.70646766169153}}],\"playType\":\"ground_ball\"},\"createdAt\":1749316334199},{\"code\":\"base_running\",\"id\":\"E13B2869-78F6-4007-BF25-39514EC4F08B\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"out_on_last_play\",\"runnerId\":\"45adfd9e-4f0f-4c01-b1f3-eeaac577c197\",\"base\":2},\"createdAt\":1749316335790}],\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"E3A22AFA-6D33-4C3F-BD77-9349713606C6\"}"
+  },
+  {
+    "id": "183fb68d-7098-422a-ad88-c098cc944be5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 35,
+    "event_data": "{\"createdAt\":1749316368212,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"175E5880-CE57-4EF0-9996-47697472F4BC\",\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "c9d3cfdc-bd3f-44aa-ad4d-c007e6b3ec33",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 36,
+    "event_data": "{\"createdAt\":1749316387495,\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"F709AFD7-0ABB-4D67-8A0D-A37D37DFF177\"}"
+  },
+  {
+    "id": "7ad71051-0b53-47b9-9552-37dea6efeb45",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 37,
+    "event_data": "{\"createdAt\":1749316392318,\"code\":\"base_running\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"wild_pitch\",\"runnerId\":\"257bf19d-0c93-4029-8aef-48087a47bcd2\",\"base\":2},\"id\":\"E42E5C4D-2F27-41C6-BF0A-B180950402F8\"}"
+  },
+  {
+    "id": "9d5e186a-6d61-4ef8-8f76-b60b208dff4d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 38,
+    "event_data": "{\"code\":\"pitch\",\"createdAt\":1749316404995,\"id\":\"2363F686-E065-42C0-B28C-95DFB9471CBA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "633b54e8-5169-4e36-a8aa-b1fe223f8248",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 39,
+    "event_data": "{\"id\":\"A3D1C7CB-FB85-48B4-8F03-B47B23F6189D\",\"attributes\":{\"defenders\":[],\"playType\":\"wild_pitch\",\"runnerId\":\"257bf19d-0c93-4029-8aef-48087a47bcd2\",\"base\":3},\"code\":\"base_running\",\"createdAt\":1749316410383,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "22502b42-576d-440b-b0a5-52f30409c5d1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 40,
+    "event_data": "{\"id\":\"96C18AA7-B8C2-4E65-B55A-9FBFC515760A\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749316425674,\"code\":\"pitch\"}"
+  },
+  {
+    "id": "a9c6dc5c-79e1-4134-8377-d447d49d9807",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 41,
+    "event_data": "{\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"id\":\"C3AD745D-9F8F-4F98-A60F-D9468B3BA593\",\"createdAt\":1749316447856}"
+  },
+  {
+    "id": "6bc223fd-c731-4ff5-a63c-1ce8c48ca612",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 42,
+    "event_data": "{\"id\":\"8DD259F3-BF76-49D4-96E6-B711AEF14118\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749316514796,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "caa21e92-f03a-42c2-9d95-56a33733ecf3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 43,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"142AE520-0DCB-4DF1-B5EE-D796A0A8CCFE\",\"attributes\":{\"defenders\":[],\"playType\":\"defensive_indifference\",\"runnerId\":\"f397f78b-d840-447c-a7c6-7108cefffe57\",\"base\":2},\"code\":\"base_running\",\"createdAt\":1749316517269}"
+  },
+  {
+    "id": "48592261-e472-468d-844c-37fb4105dc4c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 44,
+    "event_data": "{\"id\":\"F053D665-6A3F-47DF-9CCC-E3018AB0430B\",\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749316532849,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "12cc85f7-e371-4232-a53e-f0900d602f91",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 45,
+    "event_data": "{\"code\":\"transaction\",\"id\":\"B20A5BC2-B2AE-40AF-B421-62FBE90E5002\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"655AC286-3EDB-4971-88BA-F0FBFDD034CD\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749316558920},{\"code\":\"ball_in_play\",\"id\":\"AD9DEC89-7BDA-4457-B596-1D6F575B3E6E\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out_advance_runners\",\"defenders\":[{\"error\":false,\"position\":\"P\",\"location\":{\"x\":160,\"y\":179.78333333333336}},{\"error\":false,\"position\":\"1B\",\"location\":{\"y\":188.95833333333337,\"x\":265.59999999999997}}],\"playType\":\"ground_ball\"},\"createdAt\":1749316558020}]}"
+  },
+  {
+    "id": "c12f7d6b-1565-4810-9b90-b2f390ad1de0",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 46,
+    "event_data": "{\"createdAt\":1749316586102,\"id\":\"6ED8723C-4A4B-401D-B25E-EB66998FED33\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"3c9b976d-c7eb-49d4-81ed-119300de2f24\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"position\":\"RF\"},\"code\":\"fill_position\"}"
+  },
+  {
+    "id": "4c5c7126-0f66-42d6-991c-f8a8d77f7bb3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 47,
+    "event_data": "{\"createdAt\":1749316587727,\"id\":\"CC53111A-22A1-40CA-A41F-0A14EBF29603\",\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"position\":\"2B\",\"playerId\":\"a8398b03-a0ce-40d5-bbc2-fd8a2d146f95\"},\"code\":\"fill_position\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "3e3eb4a7-d5db-4a05-88d7-99b48f39a7c1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 48,
+    "event_data": "{\"code\":\"transaction\",\"id\":\"81DB696A-777F-457B-A79C-4B149094E3CE\",\"events\":[{\"code\":\"pitch\",\"id\":\"01969530-BBF8-4516-91CD-EB01CB22C7BB\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749316703903},{\"code\":\"ball_in_play\",\"id\":\"A4D0519E-ACC1-4CDD-A279-BC447D7394E9\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"P\",\"location\":{\"x\":186.53399263448384,\"y\":218.07589441682174}}],\"playType\":\"bunt\"},\"createdAt\":1749316703532}],\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "ea01d4b2-9953-4e85-a283-c2995ab393fc",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 49,
+    "event_data": "{\"createdAt\":1749316722956,\"id\":\"70EF58BA-6877-4F95-BB5E-CA18E93596AB\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "b25db6d4-a749-46bb-a8c0-d9566b5bd967",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 50,
+    "event_data": "{\"attributes\":{\"defenders\":[],\"playType\":\"attempted_pickoff\",\"runnerId\":\"a1669784-2548-44ef-9f88-d0ee24752848\",\"base\":1},\"code\":\"base_running\",\"id\":\"F9BA0DF1-8C1B-44E1-9A0F-0F67F1C5D4D9\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749316761051}"
+  },
+  {
+    "id": "07bf8fe0-c612-40ce-bf94-80a956d60f90",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 51,
+    "event_data": "{\"createdAt\":1749316769831,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"4F53FD68-6A84-4BE5-9D8F-C3E7485BA14C\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "548f6c91-6945-4ff6-807c-ec2b38ce0067",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 52,
+    "event_data": "{\"id\":\"0AF99143-C6A4-42FD-AE1C-2545BED18FCD\",\"attributes\":{\"defenders\":[],\"playType\":\"attempted_pickoff\",\"runnerId\":\"a1669784-2548-44ef-9f88-d0ee24752848\",\"base\":1},\"code\":\"base_running\",\"createdAt\":1749316780288,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "7261f5a4-494e-4b34-8fad-b7b862eddc95",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 53,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"id\":\"25263A60-5D6D-494E-B185-A7C97BD3A34B\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749316791344,\"code\":\"pitch\"}"
+  },
+  {
+    "id": "0be3c35e-33ed-4fd5-b340-0ea0a11e5a10",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 54,
+    "event_data": "{\"id\":\"6AA0C00A-E7E2-4D6D-A883-4F857010C6A7\",\"code\":\"pitch\",\"createdAt\":1749316819939,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "56e75e89-98fc-4b54-9131-5e2a5999e5c9",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 55,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"633E09D6-E9E3-4D2D-922E-EC5E0F0EBE5F\",\"events\":[{\"code\":\"pitch\",\"id\":\"56A8CF89-A33D-450D-AD36-C8082805B0E9\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":false},\"createdAt\":1749316839342},{\"code\":\"end_at_bat\",\"id\":\"81F0EAB3-B31C-4B4E-BD3F-F3F646DF4E54\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"intentional\":false,\"reason\":\"hit_by_pitch\"},\"createdAt\":1749316839342}],\"code\":\"transaction\"}"
+  },
+  {
+    "id": "f06cbbb5-69e5-4e72-83f4-c5b0abed6982",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 56,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"B11572F2-8917-42AA-ADB8-56F126BE14B5\",\"createdAt\":1749316902328,\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "6757e7db-71d0-4d45-9aaa-5f4239581a08",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 57,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749316916261,\"id\":\"D42695D0-FECF-4A77-9ABD-BCD5A3391F09\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "a62d712f-2215-416b-8be5-df78ed790413",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 58,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749316936326,\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"id\":\"07DE728B-6149-4298-8DD0-8BA84CB40B6E\"}"
+  },
+  {
+    "id": "5609ed80-8328-4fdf-9247-0448b1cf85e7",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 59,
+    "event_data": "{\"createdAt\":1749316956394,\"id\":\"41E9681E-9754-4C25-B259-8947F4171BB3\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "e702617b-93a7-48e6-a2a2-0d59202e7b84",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 60,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"createdAt\":1749316976428,\"id\":\"D0B68A10-22C5-4D3F-B78E-FE6DB0B424A7\",\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "8e6b9e93-fc04-49c7-a454-6c4ddf4ec4b1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 61,
+    "event_data": "{\"id\":\"61F4E28E-4499-4381-BD9F-B8F048C1B7C4\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317132007,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "a46359f3-7242-4000-9a11-7c9f8d3a945c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 62,
+    "event_data": "{\"id\":\"C1D0DF31-1F14-4B6E-BC32-025859EA212D\",\"events\":[{\"code\":\"pitch\",\"id\":\"F9B9EEA5-A465-481F-90C4-D555EA95F550\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":false},\"createdAt\":1749317155159},{\"code\":\"end_at_bat\",\"id\":\"76FA9D80-71E5-4347-9CA4-E63380D395B9\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"intentional\":false,\"reason\":\"hit_by_pitch\"},\"createdAt\":1749317155159}],\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "2dd61d98-cc3f-4367-88da-d480d76f1689",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 63,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749317182740,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"6C2D8327-6F5A-4415-A3FC-96E0AA53D5FB\"}"
+  },
+  {
+    "id": "c9e390df-aead-4731-9854-386ca1d28910",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 64,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317197654,\"code\":\"pitch\",\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"6548B080-8FAB-4546-8A54-838E0D69EDAE\"}"
+  },
+  {
+    "id": "7deeb4bc-a656-429c-903f-0cd280b5a459",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 65,
+    "event_data": "{\"id\":\"9B2A06FF-0C0E-43B4-9441-B5B51BB7A4F2\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317213471,\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "67ac02fc-8742-4223-b086-37f87b6bc1bf",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 66,
+    "event_data": "{\"id\":\"20563579-FAE5-472E-930B-F305C0257B81\",\"events\":[{\"code\":\"pitch\",\"id\":\"E08326D6-54E7-464F-94C6-9F4CD29E5253\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749317244033},{\"code\":\"ball_in_play\",\"id\":\"C9A51EC1-2411-4E25-873B-AA10213C0A54\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"RF\",\"location\":{\"x\":234.58706467661696,\"y\":53.26064897730182}}],\"playType\":\"fly_ball\"},\"createdAt\":1749317243459}],\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "a24a4a5f-0aa0-4471-8bb5-8698dc983f9e",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 67,
+    "event_data": "{\"id\":\"05AFB919-809D-4F62-87DD-F53D7B85ADB8\",\"code\":\"pitch\",\"createdAt\":1749317391384,\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "cc70dbc1-8e86-4632-9639-b8fca821dc31",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 68,
+    "event_data": "{\"id\":\"C6E40746-A393-471D-9AB1-BB385DC08CEA\",\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749317408882,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "4fa10efe-bc80-4c8d-b71b-5339180e1fe8",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 69,
+    "event_data": "{\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749317427481,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"0B7E0D8F-415D-4C1E-B989-36A4FEF9A968\"}"
+  },
+  {
+    "id": "5ccc7fe4-b064-4b2e-9e14-b9b9809452c5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 70,
+    "event_data": "{\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"577D5B04-8200-4460-9FFF-6F6AFDDCB84F\",\"createdAt\":1749317448381}"
+  },
+  {
+    "id": "371b90f2-c1a7-4286-8712-a108d43b4455",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 71,
+    "event_data": "{\"code\":\"undo\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"A6317ECE-A26F-4387-B09F-B50A717D4ECE\"}"
+  },
+  {
+    "id": "4eb5350c-95a4-4269-8024-b8304af3fce9",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 72,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749317451677,\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"5BC31CEB-8FAE-449C-A0F5-A8D10493B4CF\"}"
+  },
+  {
+    "id": "fc9fa145-5c82-4ce3-b5f3-c8f2c9081510",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 73,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_looking\",\"advancesCount\":true},\"id\":\"B3585E39-0CE6-4786-906D-86D5262F510F\",\"createdAt\":1749317471443}"
+  },
+  {
+    "id": "83165dab-0e5d-4a3c-bf70-615dfe0f5c42",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 74,
+    "event_data": "{\"createdAt\":1749317487293,\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"70A74845-2F75-4564-B3FC-36A52DD37652\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "88eb3529-74f1-430a-99c8-e0058eb9f8d3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 75,
+    "event_data": "{\"id\":\"8995BE2E-F9D5-4855-BF06-1584306A4B46\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317507619,\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"outgoingPlayerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\",\"incomingPlayerId\":\"2f883e7e-3514-49f1-9931-5d6a64695e09\"},\"code\":\"replace_runner\"}"
+  },
+  {
+    "id": "c5cff5ab-2e18-489a-8382-1d61be8dd128",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 76,
+    "event_data": "{\"createdAt\":1749317523528,\"id\":\"76A49277-0DC1-4743-9963-63762CDF1AA4\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "38dda2e8-90d3-42d2-9cf7-862d0ed35c9e",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 77,
+    "event_data": "{\"attributes\":{\"defenders\":[],\"playType\":\"stole_base\",\"runnerId\":\"2f883e7e-3514-49f1-9931-5d6a64695e09\",\"base\":2},\"code\":\"base_running\",\"id\":\"958DA989-BA9D-42CF-9D77-79FF8016BD9B\",\"createdAt\":1749317525700,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "55f59c03-1b0b-46f1-9ab2-59082b615b00",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 78,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317549386,\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"B43A1896-F744-4102-AFC4-639F87C21F33\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "95244afd-b761-4c4b-bbe2-5e00d6326429",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 79,
+    "event_data": "{\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"102E6A0E-EB7C-4E91-B9A6-BFE30406DEC1\",\"createdAt\":1749317567981,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "ac8ad1c0-2cea-4ec1-9f8c-83471a35ca5e",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 80,
+    "event_data": "{\"id\":\"58B64794-0615-4DBF-AEE2-6D66E5546BAE\",\"createdAt\":1749317593257,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"base_running\",\"attributes\":{\"defenders\":[],\"playType\":\"attempted_pickoff\",\"runnerId\":\"2f883e7e-3514-49f1-9931-5d6a64695e09\",\"base\":2}}"
+  },
+  {
+    "id": "0d588705-47ae-4451-8e42-33523aaf9ada",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 81,
+    "event_data": "{\"createdAt\":1749317610897,\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"9A76BC86-A623-4439-9C00-7D13DEFA4746\"}"
+  },
+  {
+    "id": "cd6d2483-3355-4363-9409-ef81f4501884",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 82,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317612259,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"4A5A5AD7-BB05-4078-82B9-D700F2852651\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "9146ac6f-c570-48eb-a1e6-f81063a082bb",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 83,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749317631704,\"code\":\"pitch\",\"id\":\"00350E9B-8333-4F3B-A577-A6F4EE81E552\"}"
+  },
+  {
+    "id": "26b13e0a-564e-412c-8812-8e50104a1831",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 84,
+    "event_data": "{\"createdAt\":1749317633777,\"code\":\"base_running\",\"id\":\"CB59E937-62E8-4A6C-8604-7C26F69CE1FB\",\"attributes\":{\"defenders\":[],\"playType\":\"stole_base\",\"runnerId\":\"2f883e7e-3514-49f1-9931-5d6a64695e09\",\"base\":3},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "f66ff4ea-d0ed-4ad6-8ad1-237427ec64e5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 85,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"id\":\"98B56E7F-54BB-435D-9713-5286013CFF1C\",\"events\":[{\"code\":\"pitch\",\"id\":\"61D67E82-A0F7-43E4-9D00-6462EFFD1FCA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749317660640},{\"code\":\"ball_in_play\",\"id\":\"D047C10C-AD8F-4E4F-99E3-27BD8A01F2E7\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":137.71144278606965,\"y\":72.457634604787785}}],\"playType\":\"line_drive\"},\"createdAt\":1749317658954}]}"
+  },
+  {
+    "id": "9244bbfb-c3ff-481a-9e1d-60df4dbd047b",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 86,
+    "event_data": "{\"createdAt\":1749317685279,\"code\":\"replace_runner\",\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"outgoingPlayerId\":\"93d66dda-ce4d-48df-b22c-d726050805ee\",\"incomingPlayerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\"},\"id\":\"2C857F12-CFF8-4639-9B24-BE9A9E8B9CAF\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "bd801b33-d8ea-4c48-a3db-6ef3f1d593e7",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 87,
+    "event_data": "{\"code\":\"undo\",\"id\":\"FD89C464-9A27-449F-BB9E-7E267CAB2ECC\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "8595646c-30f3-45d5-89bf-e6e6fff2592c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 88,
+    "event_data": "{\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"outgoingPlayerId\":\"93d66dda-ce4d-48df-b22c-d726050805ee\",\"incomingPlayerId\":\"0becc8e5-b63a-4e31-a7c7-c5d8332f6d81\"},\"id\":\"2FD19E1E-8F6B-4B2B-92F0-9C5811D2BCE1\",\"createdAt\":1749317729928,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"replace_runner\"}"
+  },
+  {
+    "id": "6c9ba4ae-38ff-48e0-8135-baab0bab3b9d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 89,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749317765273,\"code\":\"pitch\",\"id\":\"D4129051-F4F6-4F4D-9CB7-F88DA14A70F0\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "6615f5e5-985c-48d4-aeb6-1ff82329ebd2",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 90,
+    "event_data": "{\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"06FDA0F7-DCBF-4946-BAD5-254451E3FE11\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749317795095},{\"code\":\"ball_in_play\",\"id\":\"C9DFCA90-A6CE-4493-9BC3-0592EBE45085\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"fielders_choice\",\"defenders\":[{\"error\":false,\"position\":\"2B\",\"location\":{\"y\":130.85000000000005,\"x\":224}},{\"error\":false,\"position\":\"SS\",\"location\":{\"x\":163.13101970615671,\"y\":151.39104477611943}}],\"playType\":\"ground_ball\"},\"createdAt\":1749317793053},{\"code\":\"base_running\",\"id\":\"0D31AE1C-D32B-4793-9542-136140404BC8\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"out_on_last_play\",\"runnerId\":\"0becc8e5-b63a-4e31-a7c7-c5d8332f6d81\",\"base\":2},\"createdAt\":1749317794548}],\"id\":\"AE738FF4-A07C-4F6A-A761-246C6D9B264D\"}"
+  },
+  {
+    "id": "7842ae2a-b23a-47c7-8309-f1d53b3aa899",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 91,
+    "event_data": "{\"createdAt\":1749317815048,\"code\":\"pitch\",\"id\":\"48441035-F670-4A0C-96FD-BD9C2D1F29F6\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "8ffcc17b-0202-402f-ae7e-5e059a707a54",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 92,
+    "event_data": "{\"id\":\"51E91E7D-B7AD-4BFC-89DC-C81F6E1119DC\",\"events\":[{\"code\":\"pitch\",\"id\":\"7621418C-15CE-4B35-AB62-A1414328FD75\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749317841903},{\"code\":\"ball_in_play\",\"id\":\"09D53849-69BF-44F6-9188-477EB77EA07A\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"RF\",\"location\":{\"y\":67.715458264200663,\"x\":255.01824617148637}}],\"playType\":\"hard_ground_ball\"},\"createdAt\":1749317841515}],\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\"}"
+  },
+  {
+    "id": "05725574-a7a6-4416-b86a-c7f40557f7cd",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 93,
+    "event_data": "{\"events\":[{\"code\":\"goto_lineup_index\",\"id\":\"0FC4B1D7-0356-4CCA-A0E4-6A16435EF0FA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"index\":0},\"createdAt\":1749317844846},{\"code\":\"confirm_end_of_lineup\",\"id\":\"7DFECE7A-9DD7-408C-B437-70DFCE5CCB32\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"createdAt\":1749317844846}],\"id\":\"8256FDD7-8488-4EC1-9280-55B81C8E9E84\",\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "584f9c87-2a20-4aa6-99fd-c6bdf0ffc4a5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 94,
+    "event_data": "{\"id\":\"CBACED2C-7DF2-4212-A0D6-CC85E2513ABA\",\"createdAt\":1749317895112,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "8fd594bc-4399-4377-b769-8dba31747f5d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 95,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"CD15A93D-D3FC-45FE-8031-2CDB66DC1C54\",\"createdAt\":1749317922530,\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_looking\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "31a43f2b-7aa0-4e52-b04f-f4356c10af3b",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 96,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317936744,\"code\":\"pitch\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"F90EDE02-C6CB-41AE-B447-D09AA2558B99\"}"
+  },
+  {
+    "id": "6e644337-dc44-4867-a977-90c9085dc485",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 97,
+    "event_data": "{\"code\":\"transaction\",\"events\":[{\"code\":\"pitch\",\"id\":\"9784F56E-A9F5-467B-A073-D0C074406ED7\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749317966012},{\"code\":\"ball_in_play\",\"id\":\"2B3BEFEA-2D34-442F-ACD4-E58B10C0862F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":160,\"y\":66.625000000000043}}],\"playType\":\"fly_ball\"},\"createdAt\":1749317965624}],\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"2E841418-ED33-44E1-B1ED-8CEBBC58F4AB\"}"
+  },
+  {
+    "id": "35ac015a-eda1-4d89-8b94-5413f49accdc",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 98,
+    "event_data": "{\"createdAt\":1749317971188,\"id\":\"F1FFCDB6-8F01-4EA1-AB0A-64A7073A71FC\",\"attributes\":{\"defenders\":[{\"error\":true,\"position\":\"CF\",\"location\":{\"y\":66.625000000000043,\"x\":160}}],\"playType\":\"advanced_on_error\",\"runnerId\":\"3c9b976d-c7eb-49d4-81ed-119300de2f24\",\"base\":4},\"code\":\"base_running\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "4c302fbb-7bd8-4030-bcbd-465a4ea9aabf",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 99,
+    "event_data": "{\"id\":\"525B0238-AF9D-48F2-A650-E33FC7DF259E\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317974319,\"attributes\":{\"defenders\":[],\"playType\":\"on_same_error\",\"runnerId\":\"8da8ca75-1844-405f-ad1b-f0b065561470\",\"base\":3},\"code\":\"base_running\"}"
+  },
+  {
+    "id": "d33a9430-6117-40b7-99fc-b11308971051",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 100,
+    "event_data": "{\"createdAt\":1749317981078,\"code\":\"base_running\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"other_advance\",\"runnerId\":\"a8398b03-a0ce-40d5-bbc2-fd8a2d146f95\",\"base\":2},\"id\":\"2789811A-74CA-4079-B2B1-82CC31F27236\"}"
+  },
+  {
+    "id": "a3fa4c18-8ef1-4ce2-832c-8591a31626e1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 101,
+    "event_data": "{\"code\":\"undo\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"54E92A74-2E37-4038-AE3C-9640E3B838E8\"}"
+  },
+  {
+    "id": "df2ebdf3-acae-40e9-a9d3-9ba1260ba722",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 102,
+    "event_data": "{\"code\":\"base_running\",\"attributes\":{\"defenders\":[],\"playType\":\"stole_base\",\"runnerId\":\"a8398b03-a0ce-40d5-bbc2-fd8a2d146f95\",\"base\":2},\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749317993305,\"id\":\"0AE9DD6E-BF3A-47BE-968C-3ADA22B6F63A\"}"
+  },
+  {
+    "id": "5a5a8168-1cc2-4a92-b3bb-09fe8a6bba67",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 103,
+    "event_data": "{\"id\":\"99A9F4F4-CEB3-46A0-A38C-1655DFE9EE90\",\"code\":\"fill_position\",\"attributes\":{\"playerId\":\"e57f92bd-26b1-4361-9c94-444ba031c33e\",\"position\":\"P\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749318004492,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "8f037c70-1bfd-4fc0-8bfb-9161a342356b",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 104,
+    "event_data": "{\"id\":\"E2D9AFA1-7194-4693-8465-8B24B07F15EC\",\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"createdAt\":1749318110224}"
+  },
+  {
+    "id": "9a7e790d-e343-43fd-ba82-e4532fc399ec",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 105,
+    "event_data": "{\"code\":\"transaction\",\"id\":\"CAD2C539-AEC1-4D9D-9E2F-69453314FCE2\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"F2CA83A0-32D1-4312-99C5-6A403F864A23\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749318148964},{\"code\":\"ball_in_play\",\"id\":\"AFC88344-CE42-4B2F-9A69-016575DE1757\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out_advance_runners\",\"defenders\":[{\"error\":false,\"position\":\"3B\",\"location\":{\"y\":188.95833333333337,\"x\":54.400000000000013}},{\"error\":false,\"position\":\"1B\",\"location\":{\"x\":254.19038547496885,\"y\":206.96345052513519}}],\"playType\":\"ground_ball\"},\"createdAt\":1749318148048}]}"
+  },
+  {
+    "id": "b2f18d3c-72f4-47ea-b625-69089be2aea5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 106,
+    "event_data": "{\"events\":[{\"code\":\"goto_lineup_index\",\"id\":\"D2A233D0-DFF5-4142-9ACC-2AD4FD3917DC\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"index\":0},\"createdAt\":1749318154975},{\"code\":\"confirm_end_of_lineup\",\"id\":\"D4E5F328-49CF-4DB3-848F-A672C16C6B7D\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"},\"createdAt\":1749318154975}],\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"C4151649-C9F0-4B30-B6A5-B54D99EA3B26\"}"
+  },
+  {
+    "id": "d68cade6-03e1-47ee-9cdc-a87b993ed50b",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 107,
+    "event_data": "{\"id\":\"E707E3AC-AD53-4535-8F7F-B068F16A1DAC\",\"createdAt\":1749318229176,\"attributes\":{\"playerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"position\":\"LF\"},\"code\":\"fill_position\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "8455725a-a64f-4e8e-955f-6ef0ff4bc2ed",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 108,
+    "event_data": "{\"createdAt\":1749318236020,\"attributes\":{\"playerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\",\"position\":\"P\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"},\"code\":\"fill_position\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"AB2E1AD1-CA2E-4B72-860C-41A8D3ED403B\"}"
+  },
+  {
+    "id": "59ca96f3-49ce-44b1-80f5-2713db60bcb2",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 109,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"004F07C9-962D-4595-930A-1E89DCD9A562\",\"code\":\"fill_position\",\"createdAt\":1749318238427,\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"0becc8e5-b63a-4e31-a7c7-c5d8332f6d81\",\"position\":\"LF\"}}"
+  },
+  {
+    "id": "a0ed2bee-1816-4a9a-bc37-e4f6dbf2a0e6",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 110,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"11952319-F65A-4B7C-807E-B36594EAFF0E\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749318254903},{\"code\":\"ball_in_play\",\"id\":\"8223DE08-2B3E-417A-99AE-352C71ACC30E\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":160,\"y\":66.625000000000043}}],\"playType\":\"fly_ball\"},\"createdAt\":1749318254329}],\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"5ED0DCA8-D4AE-473C-A2E8-293200A4F3A3\",\"code\":\"transaction\"}"
+  },
+  {
+    "id": "dd6ee617-cbb8-4de5-9009-b7486538d9c2",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 111,
+    "event_data": "{\"createdAt\":1749318270531,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"BF9805CB-B896-4D0A-A7CA-47351C1C89D0\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "00d92b99-bb1f-4c00-a88a-2ac3c8687afa",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 112,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"CC613EDA-4297-489A-B65B-EB8AFF59D269\",\"createdAt\":1749318285513,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "8e55184c-b559-43ac-b342-0d111ea151d7",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 113,
+    "event_data": "{\"id\":\"840F86D4-C592-4ABE-8DF5-B8163DF05360\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749318299745,\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "318d8072-7bb7-4797-bfa1-048ec964d4ec",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 114,
+    "event_data": "{\"createdAt\":1749318320076,\"id\":\"C111895E-F09B-4D88-B514-33563D8FEFA8\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "6553c130-8285-4c1c-a677-1d6258f956cb",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 115,
+    "event_data": "{\"createdAt\":1749318338043,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"A6017E71-E436-4B7E-8342-50DF0FBB96A4\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "a6ff0c30-33e4-4fea-941e-f4224fdcdb59",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 116,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"id\":\"66243B03-D532-4A28-91D4-0D64B3ACCCC7\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749318353457}"
+  },
+  {
+    "id": "8fd2d26e-b13f-448c-b8e5-276d0f2adf8c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 117,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749318366272,\"code\":\"pitch\",\"id\":\"43531F2D-D720-4629-A339-F78986E1FF5C\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "cafdf00e-2e09-41f0-bfe7-b1c6f854b9b3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 118,
+    "event_data": "{\"code\":\"transaction\",\"id\":\"63591906-609B-44FA-8D9B-3280D8460095\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"34E4AEA2-CD8D-499C-B8EE-6C61FA3CF63F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749318394843},{\"code\":\"ball_in_play\",\"id\":\"682DCB92-664A-43E7-8294-ACE526A3165D\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"LF\",\"location\":{\"x\":48,\"y\":81.916666666666671}}],\"playType\":\"hard_ground_ball\"},\"createdAt\":1749318394456}]}"
+  },
+  {
+    "id": "21e8ace6-fdb5-4c58-9c33-a3a77b894848",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 119,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749318420033,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"7479605E-A925-4F0A-9245-0782EDEC0D0A\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "54bda995-1dbf-43fb-b34d-2bd09297378a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 120,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"C0A570D4-96BB-4326-93EF-5302EE74993F\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749318456000},{\"code\":\"ball_in_play\",\"id\":\"76AC550B-B0A1-4BF2-A947-DAFCF234A62B\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"extendedPlayResult\":\"double_play\",\"defenders\":[{\"error\":false,\"position\":\"3B\",\"location\":{\"x\":54.400000000000013,\"y\":188.95833333333337}},{\"error\":false,\"position\":\"1B\",\"location\":{\"x\":265.59999999999997,\"y\":188.95833333333337}}],\"playType\":\"pop_fly\",\"playResult\":\"batter_out\"},\"createdAt\":1749318454846},{\"code\":\"base_running\",\"id\":\"680980C3-824B-4743-BE53-055B8C8BF375\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"out_on_last_play\",\"runnerId\":\"19de7a90-858b-4bdd-a04c-9eadd6f4d2c2\",\"base\":1},\"createdAt\":1749318454887}],\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"A96332D1-F88C-4F6C-87F3-C4E3C40C61A8\",\"code\":\"transaction\"}"
+  },
+  {
+    "id": "5c2b6dc9-2713-4232-9ef9-3a949e50e233",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 121,
+    "event_data": "{\"events\":[{\"code\":\"insert\",\"id\":\"395c68a4-5e1a-484d-80a5-6406bc6e53c4\",\"beforeId\":\"61F4E28E-4499-4381-BD9F-B8F048C1B7C4\",\"events\":[{\"code\":\"fill_position\",\"id\":\"5ce40ad5-8fa1-4fc7-a8c9-0d9dd075118e\",\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"playerId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\",\"position\":\"P\"},\"createdAt\":1749317132007}]}],\"id\":\"b6f18622-e09b-45be-adef-7d6054165c37\",\"code\":\"edit_group\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "6ad6f4a9-dc1e-4e58-9744-bbe0329b7ed1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 122,
+    "event_data": "{\"code\":\"fill_position\",\"createdAt\":1749318590815,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"EC6F63FF-A33C-44D8-BCAF-2893957F29B1\",\"attributes\":{\"playerId\":\"91d7b6e4-bdc8-4968-91f8-c7741be18c29\",\"position\":\"LF\",\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\"}}"
+  },
+  {
+    "id": "54cfa6b2-8b37-4460-8133-d9025a490ea3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 123,
+    "event_data": "{\"createdAt\":1749318601781,\"id\":\"92981E86-6902-455F-8EAA-091509A7FC0F\",\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "84d03663-5f7c-4cc5-9ecd-ec23370afe77",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 124,
+    "event_data": "{\"code\":\"transaction\",\"id\":\"34F1B2CD-2E37-4446-9D2B-3915355DDA7D\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"77DE4816-26B6-486A-8132-C3D2DD2DBE38\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749318626623},{\"code\":\"ball_in_play\",\"id\":\"CD87F4E7-CADF-4DA3-B4D8-880BCB722F49\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"LF\",\"location\":{\"y\":81.916666666666671,\"x\":48}}],\"playType\":\"fly_ball\"},\"createdAt\":1749318626047}]}"
+  },
+  {
+    "id": "5c5c475b-ea0f-4432-84e5-4da1c1793389",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 125,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"72436157-36B9-47BB-BECC-220A2F1D5929\",\"code\":\"transaction\",\"events\":[{\"code\":\"pitch\",\"id\":\"7FA45D2E-A1AE-4525-B49C-14A1CDE6B47C\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749318651848},{\"code\":\"ball_in_play\",\"id\":\"276F2123-79E9-41FF-AD80-CB86C5F36B9C\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"RF\",\"location\":{\"y\":74.055283029281085,\"x\":245.73134328358213}}],\"playType\":\"line_drive\"},\"createdAt\":1749318651460}]}"
+  },
+  {
+    "id": "8c941ab5-8393-48aa-b2a4-807720534fdd",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 126,
+    "event_data": "{\"createdAt\":1749318681703,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"59BA4A97-F8AE-4198-B98E-050298332228\"}"
+  },
+  {
+    "id": "8021511a-d9ef-4b3a-9a89-a9e4a65adcfb",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 127,
+    "event_data": "{\"code\":\"base_running\",\"id\":\"340ECA5D-64A0-4489-9D7B-64FDE208EDDE\",\"createdAt\":1749318685209,\"attributes\":{\"defenders\":[],\"playType\":\"stole_base\",\"runnerId\":\"f397f78b-d840-447c-a7c6-7108cefffe57\",\"base\":2},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "bc2f705c-0867-4c68-ae2e-ffbd16a6de12",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 128,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749318698164,\"code\":\"pitch\",\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"EB4FAA51-E7BF-42F0-A6D7-59D7A506E1C7\"}"
+  },
+  {
+    "id": "c81315ec-19f0-4d5a-b2e3-38ee60a6e5a5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 129,
+    "event_data": "{\"createdAt\":1749318722799,\"id\":\"7DD09F5B-D77D-478C-B963-25BFEE55B30C\",\"code\":\"pitch\",\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "75894b91-a26d-4115-9be8-d28af782388b",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 130,
+    "event_data": "{\"createdAt\":1749318748294,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_looking\",\"advancesCount\":true},\"id\":\"984D24CB-969C-478E-A438-6AE82110134F\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "23628189-1f02-4b9c-b9f1-bd58bb5ea360",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 131,
+    "event_data": "{\"code\":\"pitch\",\"id\":\"8B65584F-F80C-48E5-B8E0-A3159FCA3924\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749318766893,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "09b4f45b-a975-4420-9114-09e3c4892186",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 132,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"events\":[{\"code\":\"pitch\",\"id\":\"4B98CF13-088D-41BB-9637-65C905376AF8\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749318797040},{\"code\":\"ball_in_play\",\"id\":\"313FDE44-0AE3-4401-80D9-1E56DC14B2E4\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out_advance_runners\",\"defenders\":[{\"error\":false,\"position\":\"1B\",\"location\":{\"y\":188.95833333333337,\"x\":265.59999999999997}}],\"playType\":\"ground_ball\"},\"createdAt\":1749318796124}],\"id\":\"34D13954-BD0E-4C12-AF95-C31F5C2C00A5\"}"
+  },
+  {
+    "id": "1bb0f854-06c5-4498-8702-1f970466c7d8",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 133,
+    "event_data": "{\"createdAt\":1749318912280,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"AB156BCC-9DCA-4FE8-8E4D-4F92EE353100\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "d31f700a-260f-4ad1-8a7e-f86e836dafcb",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 134,
+    "event_data": "{\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749318931613,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"9047BABD-541B-4334-A102-0EDCC1B622EC\"}"
+  },
+  {
+    "id": "8db6abce-0168-483c-a748-f0ceebaa3746",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 135,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"id\":\"647F10EA-391D-4FC0-9C6D-0D4B01FB377B\",\"events\":[{\"code\":\"pitch\",\"id\":\"C1E7B046-9858-48CE-A4AD-021D635BC430\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749318952454},{\"code\":\"ball_in_play\",\"id\":\"A0CD793B-61E3-4EB0-901C-68A997A16565\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"SS\",\"location\":{\"y\":130.85000000000005,\"x\":96}}],\"playType\":\"line_drive\"},\"createdAt\":1749318951863}]}"
+  },
+  {
+    "id": "95234fa8-6db8-4f73-92ba-131f3fd81d86",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 136,
+    "event_data": "{\"id\":\"DCA41549-7000-4B6B-8FB4-5715BE22A116\",\"createdAt\":1749318979233,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "79ea289c-8539-4a45-8500-161cf476f804",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 137,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"9A2ED917-AADE-4434-8378-239BDC319333\",\"createdAt\":1749318992764,\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "dd3163d4-f864-4e49-9bcd-964aeb388230",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 138,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"5571E19F-1BE5-45C5-B0AF-4DB0E029AC24\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749319005329}"
+  },
+  {
+    "id": "9581b416-0fa8-4075-b5f8-f1be239f5ab7",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 139,
+    "event_data": "{\"createdAt\":1749319020644,\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"FFEB7885-B7EC-4B1B-9DD4-E5DB75C17156\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "9bf6a9ea-8958-4929-947c-34bde1da42c3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 140,
+    "event_data": "{\"code\":\"pitch\",\"id\":\"B41DA5B6-B343-4BB8-A908-E2256E7907DD\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749319035759,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "fef939ba-f378-4971-a616-c93c990a57bd",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 141,
+    "event_data": "{\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319051826,\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true},\"id\":\"E5D943F9-04B0-4B02-AD69-C2E15F551B06\"}"
+  },
+  {
+    "id": "7d02b7ca-52a7-4ac1-a9be-de95ee40b4d2",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 142,
+    "event_data": "{\"id\":\"9D60836A-BE85-4A6F-B8D3-3C3D1163E352\",\"code\":\"pitch\",\"createdAt\":1749319073258,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "f7032c9d-2c0a-4258-b7cb-17417b8e4e6f",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 143,
+    "event_data": "{\"code\":\"transaction\",\"id\":\"143BC8DC-BC64-4552-9644-106229AF2C11\",\"events\":[{\"code\":\"pitch\",\"id\":\"7BCA6BBF-70D7-47A2-86FF-F1B28E4F9BFC\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749319116798},{\"code\":\"ball_in_play\",\"id\":\"1D179513-4331-412E-A55A-729A8D81BAF7\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"P\",\"location\":{\"y\":226.44447982307295,\"x\":132.66997531871891}}],\"playType\":\"ground_ball\"},\"createdAt\":1749319116427}],\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "8b0f1d2b-d342-40f2-8bdf-7e00e3b12cc3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 144,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319150854,\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"27A8E7F6-7441-4155-AF14-F654FE8B69B6\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "c7d28a9c-76e8-4621-9293-830cb1751a5a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 145,
+    "event_data": "{\"id\":\"584D6E61-7559-4D70-88A5-EDAAF7D2D5A9\",\"code\":\"pitch\",\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319180705,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "d62d6d0a-eb39-4909-9d99-ce04017c947d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 146,
+    "event_data": "{\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"9E22AF9F-BF93-4780-98B0-E5C5123DE016\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319203021,\"code\":\"pitch\"}"
+  },
+  {
+    "id": "a3dac0f8-63a0-495f-b42e-ae8937f27196",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 147,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319226137,\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"id\":\"4D122645-2F31-4FEB-BD76-D0219326AE88\"}"
+  },
+  {
+    "id": "d570e8c6-663b-4132-aa35-4efa4929e9a4",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 148,
+    "event_data": "{\"createdAt\":1749319239194,\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"46C0E58F-40CE-4C1B-8A1B-199B091040B6\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "13c895c5-b087-414e-ab0a-22977956ec8d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 149,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749319290883,\"id\":\"1F3F297D-62A9-484D-A39C-AC2DF15EEFB4\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "46bb856c-ff94-4e72-89be-73f99019b81d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 150,
+    "event_data": "{\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319308247,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"0D062474-F7BB-4D22-9B7D-E27EBD6A59AA\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "bd1796b2-b452-4e08-b340-dc9a05887fe6",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 151,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"874AAA5E-F7C2-4CC9-B6F0-06EBF6E900F4\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319325746}"
+  },
+  {
+    "id": "b2ebc273-b966-4c59-bc58-e59da7f9ab1c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 152,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"8BCE82DA-732A-4646-90A5-F3C254E88225\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319357168},{\"code\":\"ball_in_play\",\"id\":\"726DCDB4-A9F4-4CAA-8717-BD705435821A\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"P\",\"location\":{\"x\":201.65837074393656,\"y\":239.63130790495359}}],\"playType\":\"ground_ball\"},\"createdAt\":1749319356780}],\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"id\":\"4C939F27-120B-426F-9367-0D8F528D972D\"}"
+  },
+  {
+    "id": "12862f4a-1690-46cd-b3d2-b06beaf9d562",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 153,
+    "event_data": "{\"createdAt\":1749319380690,\"id\":\"7CCC57E0-27C4-4964-955C-A2B625CCE19E\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "e3ab6d63-64f9-49ac-a42e-51dca7a39efc",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 154,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319393655,\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"code\":\"pitch\",\"id\":\"59D31C24-8B52-4B77-80EC-771C267C9630\"}"
+  },
+  {
+    "id": "5249705b-080d-4787-8c92-410ff32fdca6",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 155,
+    "event_data": "{\"id\":\"D26A317A-E6C0-46DF-8FEE-11501AD6F9D3\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319409337,\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "7f08927f-b33c-4244-a42c-df533ec62877",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 156,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"7C204297-0244-4D68-8497-8D710F726F99\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749319439850},{\"code\":\"ball_in_play\",\"id\":\"517F0889-945F-459A-9201-5DC7733E3BF8\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"RF\",\"location\":{\"x\":241.75124378109456,\"y\":88.510092316179936}}],\"playType\":\"line_drive\"},\"createdAt\":1749319438232}],\"code\":\"transaction\",\"id\":\"C30831B5-358E-4A7F-A551-6ED28A18D42A\"}"
+  },
+  {
+    "id": "da55ae5a-67aa-4b94-8085-8abce997d869",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 157,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"EFAA16D2-594D-4F99-8954-A8ABBC09C967\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319474855},{\"code\":\"ball_in_play\",\"id\":\"03BE1339-8016-46C9-83DB-0D9564484D05\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"LF\",\"location\":{\"y\":114.6301824212272,\"x\":51.184079601990049}}],\"playType\":\"fly_ball\"},\"createdAt\":1749319474281}],\"id\":\"E30030BA-94AC-412C-97D8-CA1886F7518F\",\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "2b15003a-c423-4a7a-a015-2776bead87c1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 158,
+    "event_data": "{\"code\":\"pitch\",\"id\":\"B2AE28F2-6FA3-4A42-AC8A-752ED6C6A489\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true},\"createdAt\":1749319576752}"
+  },
+  {
+    "id": "e547533e-f43d-4f69-8895-2ce674a27512",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 159,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"4B84EB54-0E13-415D-A9C6-272672962A6B\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749319618071},{\"code\":\"ball_in_play\",\"id\":\"26E72DE1-E75C-44FB-AFED-A900D2EED4DA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"double\",\"defenders\":[{\"error\":false,\"position\":\"LF\",\"location\":{\"y\":90.538841348777765,\"x\":12.70978846004353}}],\"playType\":\"hard_ground_ball\"},\"createdAt\":1749319617342}],\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"61F65108-FF9A-47D8-B3BC-058601C063B0\"}"
+  },
+  {
+    "id": "afa29a88-91e6-4ef0-aec6-7139a57e5ed1",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 160,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"EB8EC953-6718-465C-8D90-E84A0E9DCCE7\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_looking\",\"advancesCount\":true},\"createdAt\":1749319634574,\"code\":\"pitch\"}"
+  },
+  {
+    "id": "b2696149-dbe2-4e72-84b4-adefaa81d191",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 161,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"0D5EA501-34CD-41A0-9073-455A42650715\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319665402},{\"code\":\"ball_in_play\",\"id\":\"308EE8CC-6936-455E-A160-857A2AF2CF70\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"double\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"x\":160.26533591806592,\"y\":5.5090558319345275}}],\"playType\":\"fly_ball\"},\"createdAt\":1749319663391}],\"code\":\"transaction\",\"id\":\"3AE7FAF3-CA5E-49E9-AA63-B9513914EA62\"}"
+  },
+  {
+    "id": "efa66501-0dff-4237-ba59-43707179cb16",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 162,
+    "event_data": "{\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"98B7FA4E-1D9A-4676-B13A-D39A9AC88742\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749319694173,\"code\":\"pitch\"}"
+  },
+  {
+    "id": "b3647110-ec6d-4be6-ab72-a82405f86bec",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 163,
+    "event_data": "{\"id\":\"4D112426-F1F7-418E-B9D8-17705B6AD5CC\",\"createdAt\":1749319709737,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "4cc9d4b8-17dd-4f7d-9d49-28f44475df98",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 164,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"9A345563-99AE-4DC2-9B7A-68EF87566587\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319736771},{\"code\":\"ball_in_play\",\"id\":\"3E09822A-35F2-49CE-AD22-89326C3B7530\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out_advance_runners\",\"defenders\":[{\"error\":false,\"position\":\"P\",\"location\":{\"x\":155.75456457944651,\"y\":193.73095245993952}},{\"error\":false,\"position\":\"1B\",\"location\":{\"x\":253.92503741060318,\"y\":219.13592150357633}}],\"playType\":\"ground_ball\"},\"createdAt\":1749319735855}],\"id\":\"90FB1ACB-31CC-4918-BE89-F6956A365AAE\",\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "f932e4d3-0eda-45fa-929e-191a0ffb5f9a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 165,
+    "event_data": "{\"createdAt\":1749319766760,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"F541CDFE-7A47-4FDF-A5D2-6CA2B8B1F01D\"}"
+  },
+  {
+    "id": "6703fa6d-59ef-4b93-bcda-6e8f851480c3",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 166,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"AD5BA227-1D0C-4DEF-8A1C-5C63DCDA72EE\",\"createdAt\":1749319785593}"
+  },
+  {
+    "id": "e6c2b534-cf0a-49b1-bde1-3b2c770edb84",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 167,
+    "event_data": "{\"code\":\"pitch\",\"createdAt\":1749319806874,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"59C7ADE9-EA29-434F-8B2A-0FBAB58B5FDD\",\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "95492b51-0acd-455d-99ab-268fd378ef65",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 168,
+    "event_data": "{\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749319830074,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"A4548F29-758B-49CF-8A6D-35D3AE02FEB0\"}"
+  },
+  {
+    "id": "8b32c6dd-4375-471f-b2f1-97f60011eee2",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 169,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"B55E9D73-6DDE-423F-B346-0B255B031371\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749319868615},{\"code\":\"ball_in_play\",\"id\":\"889CF170-CE46-4EF3-85C1-405187C184A2\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"sacrifice_fly\",\"defenders\":[{\"error\":false,\"position\":\"RF\",\"location\":{\"x\":293.22720139536693,\"y\":98.146624101730524}},{\"error\":false,\"position\":\"C\",\"location\":{\"y\":329.64166666666665,\"x\":160}}],\"playType\":\"fly_ball\"},\"createdAt\":1749319867698}],\"id\":\"35A158BC-5951-4147-9367-0191C9EB6127\",\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "c31ad279-ec18-4ec8-ad1a-ee53cf9c19a7",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 170,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319883551,\"code\":\"pitch\",\"id\":\"9EA3CB7F-F319-4ECF-BC07-9C7DD02B684E\"}"
+  },
+  {
+    "id": "315a56a0-15ef-4a0d-a60b-032594954b75",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 171,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749319899783,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"C7AD4B5A-23BB-44C6-86B8-9190AA5DB260\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "5db8e30d-1761-4f97-8ffd-1ef70af05d15",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 172,
+    "event_data": "{\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"createdAt\":1749319914963,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"3A4BA9EC-E95F-4639-9F8D-032F5F041830\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "67d5cc6f-be01-4051-a863-e9cf99d4cc41",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 173,
+    "event_data": "{\"id\":\"F9ECD24C-F269-4F3E-9938-AF34B2090C18\",\"createdAt\":1749319929179,\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"strike_swinging\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "3bf44fe2-f0fd-47b9-9e83-f3c8633d7376",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 174,
+    "event_data": "{\"id\":\"98537900-41F7-4BD4-A1E2-9E20E8E2BEEF\",\"code\":\"pitch\",\"createdAt\":1749319951496,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true}}"
+  },
+  {
+    "id": "337f4bda-8658-4420-8d20-c4333a52927e",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 175,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749319971427,\"code\":\"pitch\",\"id\":\"AC7C1878-6C3D-4005-9B39-DEC87C22377B\"}"
+  },
+  {
+    "id": "d61681f6-a11c-461e-ab92-e7d577e9593a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 176,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"advancesRunners\":false,\"result\":\"foul\",\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749320029600,\"id\":\"D610CCAA-372C-4CBC-9B83-9AD387C025FB\"}"
+  },
+  {
+    "id": "627bd43d-8bbe-4dd0-9ff5-2038c41ba17d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 177,
+    "event_data": "{\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"D06C7ECC-9005-4A98-A4C0-2E45F704C1CE\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320075916},{\"code\":\"ball_in_play\",\"id\":\"B4C2043C-A69F-4502-87E3-A12557DFA28D\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out\",\"defenders\":[{\"error\":false,\"position\":\"CF\",\"location\":{\"y\":33.91148424543951,\"x\":112.76948995258084}}],\"playType\":\"fly_ball\"},\"createdAt\":1749320075342}],\"id\":\"8EBC109D-3BEE-40F8-AE18-5754184A20FB\"}"
+  },
+  {
+    "id": "3ff7e248-8be7-4afb-90d0-b9305389514e",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 178,
+    "event_data": "{\"id\":\"92F83176-CA9B-4012-B214-E5D8BD21E8BF\",\"code\":\"fill_position\",\"createdAt\":1749320085345,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playerId\":\"8da8ca75-1844-405f-ad1b-f0b065561470\",\"position\":\"RF\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\"}}"
+  },
+  {
+    "id": "2dedb482-5f28-4488-b678-bd1f5a247b93",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 179,
+    "event_data": "{\"id\":\"C459ED48-B45B-4A0D-B9AF-49E64F111E90\",\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749320212532,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "c84be3ba-b19e-4d71-8530-9c6b05ab0d15",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 180,
+    "event_data": "{\"id\":\"40F6EE8A-14F1-45DB-85A9-277313D92B99\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749320227231,\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "d883d5c8-ab45-458e-a4fa-baa0f1e0feee",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 181,
+    "event_data": "{\"id\":\"0DDADB61-7F95-4B55-9185-D92A57EB8939\",\"compactorAttributes\":{\"stream\":\"main\"},\"events\":[{\"code\":\"pitch\",\"id\":\"A58B4739-8EFE-4A74-977D-3E77923F3ECF\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":false},\"createdAt\":1749320247099},{\"code\":\"end_at_bat\",\"id\":\"B659D7AB-B033-482D-B263-84347D7C9FBA\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"intentional\":false,\"reason\":\"hit_by_pitch\"},\"createdAt\":1749320247099}],\"code\":\"transaction\"}"
+  },
+  {
+    "id": "35aea854-e733-41e0-8156-2039fd08d80c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 182,
+    "event_data": "{\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320272631,\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"B0369E91-AD41-4310-9E7F-8A20AF8D3BA1\",\"code\":\"pitch\"}"
+  },
+  {
+    "id": "d51cc5df-c33c-4f9c-b39f-c569ca33c7c9",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 183,
+    "event_data": "{\"createdAt\":1749320296673,\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"attempted_pickoff\",\"runnerId\":\"4ea56c51-20a2-4eb2-8d43-6a27dc6c334d\",\"base\":1},\"id\":\"F0F238B0-3CD0-4956-AD63-1400524801C4\",\"code\":\"base_running\"}"
+  },
+  {
+    "id": "412f7647-a626-4537-bdb7-143220fb8b5d",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 184,
+    "event_data": "{\"id\":\"E22C5769-A0EC-431B-B825-B9E2BEED889D\",\"createdAt\":1749320316679,\"attributes\":{\"advancesRunners\":false,\"result\":\"ball\",\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "726a6426-a94f-4e38-b483-94f900600cd4",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 185,
+    "event_data": "{\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"id\":\"AFA71FBC-6BD5-448D-8938-84F534602506\",\"createdAt\":1749320334396,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "41785205-f71d-4bae-a236-2f08243306b8",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 186,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"createdAt\":1749320349968,\"id\":\"35C087FD-B494-4DC5-9E4A-2083302FDAB2\"}"
+  },
+  {
+    "id": "1ed5da20-74af-42c6-98ce-d13bc807688a",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 187,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"E1840E1A-B053-4ADD-9C12-4510BF425E1C\",\"createdAt\":1749320375903,\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\"}"
+  },
+  {
+    "id": "4fa856ad-30d9-450f-ac37-865d4f5e90fa",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 188,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"0C9AE8DE-7B13-4C06-B9E5-CBC18FBF4655\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"advancesRunners\":false,\"result\":\"ball_in_play\",\"advancesCount\":true},\"createdAt\":1749320432553},{\"code\":\"ball_in_play\",\"id\":\"A0EBA6B9-E829-4E1D-9FD8-54BB4951A659\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"single\",\"defenders\":[{\"error\":false,\"position\":\"2B\",\"location\":{\"y\":130.85000000000005,\"x\":224}}],\"playType\":\"ground_ball\"},\"createdAt\":1749320432165}],\"code\":\"transaction\",\"id\":\"B8B56E12-C3A9-47E8-8FDC-40411272635C\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "243547e9-5a7a-4b8b-9552-584d2ea19a5c",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 189,
+    "event_data": "{\"createdAt\":1749320461559,\"id\":\"0340B2A2-FDA0-41FA-881E-9F3FF06A51DE\",\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true},\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "8874f33a-bf55-4cc8-90f2-51dd6f08b957",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 190,
+    "event_data": "{\"code\":\"pitch\",\"attributes\":{\"result\":\"foul\",\"advancesRunners\":false,\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"},\"createdAt\":1749320462304,\"id\":\"3C264424-F1C6-463C-8048-CD5F6B931816\"}"
+  },
+  {
+    "id": "17e3e074-e58c-49f0-a23e-fb8ef3b4d78f",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 191,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"E030D15E-4B8B-4DF6-AA67-0B57E76F784D\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320495605},{\"code\":\"ball_in_play\",\"id\":\"4476CCAC-7FAF-4088-961E-10C00C84A86A\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"fielders_choice\",\"defenders\":[{\"error\":false,\"position\":\"C\",\"location\":{\"x\":158.93864418143656,\"y\":294.13862244335576}}],\"playType\":\"ground_ball\"},\"createdAt\":1749320492385},{\"code\":\"base_running\",\"id\":\"2C3B502C-9C15-44F7-BDB4-CBD295ACE6DB\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"out_on_last_play\",\"runnerId\":\"4ea56c51-20a2-4eb2-8d43-6a27dc6c334d\",\"base\":4},\"createdAt\":1749320495579}],\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"51767E33-2738-4B2A-BF8D-44E9585E3661\"}"
+  },
+  {
+    "id": "1d129863-3ccd-4b1b-94aa-2c4085f2b9e5",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 192,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"73DEE026-BEA6-4F8D-BF3E-ACB66278530F\",\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320506415}"
+  },
+  {
+    "id": "77449621-4647-4e22-9f02-40719fd8a839",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 193,
+    "event_data": "{\"compactorAttributes\":{\"stream\":\"main\"},\"id\":\"89F10E05-7866-471C-AE6D-19E32D06A32A\",\"attributes\":{\"defenders\":[],\"playType\":\"attempted_pickoff\",\"runnerId\":\"91d7b6e4-bdc8-4968-91f8-c7741be18c29\",\"base\":3},\"code\":\"base_running\",\"createdAt\":1749320527208}"
+  },
+  {
+    "id": "1864f944-f139-4b9c-99a7-3a873c99ffc8",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 194,
+    "event_data": "{\"id\":\"13631408-E14D-4D6D-8DE6-6953831D71BD\",\"code\":\"pitch\",\"createdAt\":1749320540163,\"attributes\":{\"result\":\"strike_swinging\",\"advancesRunners\":false,\"advancesCount\":true},\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "56429350-cf26-4b99-b1cd-3a5073df8201",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 195,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"99F6427A-A6EC-4505-AB87-C3F77E0681EC\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320572839},{\"code\":\"ball_in_play\",\"id\":\"EA2016DF-6F9B-4FE6-BF57-DF170C6F1316\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"fielders_choice\",\"defenders\":[{\"error\":false,\"position\":\"3B\",\"location\":{\"x\":54.400000000000013,\"y\":188.95833333333337}},{\"error\":false,\"position\":\"C\",\"location\":{\"y\":329.64166666666665,\"x\":160}}],\"playType\":\"ground_ball\"},\"createdAt\":1749320569665},{\"code\":\"base_running\",\"id\":\"34A72060-F0D1-4451-A6FB-698150392481\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"defenders\":[],\"playType\":\"out_on_last_play\",\"runnerId\":\"91d7b6e4-bdc8-4968-91f8-c7741be18c29\",\"base\":4},\"createdAt\":1749320572813}],\"id\":\"F160EDB5-43C3-4D39-9F24-3A57ECB7B852\",\"code\":\"transaction\",\"compactorAttributes\":{\"stream\":\"main\"}}"
+  },
+  {
+    "id": "1beae9c0-276f-4c93-9832-3116c2dcea41",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 196,
+    "event_data": "{\"attributes\":{\"result\":\"ball\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320589971,\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"pitch\",\"id\":\"8AE6E2E9-3276-4C7D-82D9-81D15C5A348F\"}"
+  },
+  {
+    "id": "58cd856e-40c5-4c19-8110-c79d4f471224",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 197,
+    "event_data": "{\"createdAt\":1749320603853,\"id\":\"D3878B9D-0FCB-49AE-B434-2D3F92762711\",\"code\":\"pitch\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"strike_looking\",\"advancesRunners\":false,\"advancesCount\":true}}"
+  },
+  {
+    "id": "fba396fb-85c9-4b5a-a57d-190c6a4774ea",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 198,
+    "event_data": "{\"events\":[{\"code\":\"pitch\",\"id\":\"495B31F2-9FD3-48AA-BDC1-541B1E4ADCAD\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"result\":\"ball_in_play\",\"advancesRunners\":false,\"advancesCount\":true},\"createdAt\":1749320625003},{\"code\":\"ball_in_play\",\"id\":\"1986591F-261E-4B06-BEA8-242B95C0D887\",\"compactorAttributes\":{\"stream\":\"main\"},\"attributes\":{\"playResult\":\"batter_out_advance_runners\",\"defenders\":[{\"error\":false,\"position\":\"P\",\"location\":{\"y\":179.78333333333336,\"x\":160}},{\"error\":false,\"position\":\"1B\",\"location\":{\"x\":265.59999999999997,\"y\":188.95833333333337}}],\"playType\":\"ground_ball\"},\"createdAt\":1749320624087}],\"compactorAttributes\":{\"stream\":\"main\"},\"code\":\"transaction\",\"id\":\"627DA42C-3429-4BF5-8B42-BB633576D117\"}"
+  },
+  {
+    "id": "069a7f98-0a18-4ef8-a4fd-0305eb6c64d0",
+    "stream_id": "fba68a42-0b53-465a-a23a-d7d8f7ab39f1",
+    "sequence_number": 199,
+    "event_data": "{\"events\":[{\"code\":\"pitcher_decision\",\"id\":\"05783418-ACD6-4D39-B7F6-E09CF7A85976\",\"compactorAttributes\":{\"stream\":\"tail\"},\"attributes\":{\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"decision\":\"win\",\"pitcherId\":\"0becc8e5-b63a-4e31-a7c7-c5d8332f6d81\"},\"createdAt\":1749320677669},{\"code\":\"pitcher_decision\",\"id\":\"4DC2FE41-50A9-4C8A-9AF5-C8BF9AB8AAE4\",\"compactorAttributes\":{\"stream\":\"tail\"},\"attributes\":{\"teamId\":\"36cd9067-12d8-439a-8f2e-695e939e7968\",\"decision\":\"loss\",\"pitcherId\":\"a1669784-2548-44ef-9f88-d0ee24752848\"},\"createdAt\":1749320677669},{\"code\":\"pitcher_decision\",\"id\":\"6FAD6DA5-CF5C-4124-A2BE-47C53A3751CF\",\"compactorAttributes\":{\"stream\":\"tail\"},\"attributes\":{\"decision\":\"save\",\"teamId\":\"b6c5cb7a-e049-4336-a459-6ebf4bed6cdf\",\"pitcherId\":\"feddf755-0cf4-4f10-ba87-ebe7c5266bc8\"},\"createdAt\":1749320677669}],\"id\":\"892D547B-4B30-46C6-A814-79D3DA516EB0\",\"compactorAttributes\":{\"stream\":\"tail\"},\"code\":\"transaction\"}"
+  }
+]

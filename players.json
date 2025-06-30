@@ -1,0 +1,233 @@
+[
+  {
+    "id": "0becc8e5-b63a-4e31-a7c7-c5d8332f6d81",
+    "first_name": "Cohen",
+    "last_name": "Rogers",
+    "number": "12",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": null,
+    "person_id": "0becc8e5-b63a-4e31-a7c7-c5d8332f6d81"
+  },
+  {
+    "id": "257bf19d-0c93-4029-8aef-48087a47bcd2",
+    "first_name": "Reichen",
+    "last_name": "Fehrman",
+    "number": "6",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "257bf19d-0c93-4029-8aef-48087a47bcd2",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "257bf19d-0c93-4029-8aef-48087a47bcd2"
+  },
+  {
+    "id": "2f883e7e-3514-49f1-9931-5d6a64695e09",
+    "first_name": "Grayson",
+    "last_name": "Free",
+    "number": "44",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "2f883e7e-3514-49f1-9931-5d6a64695e09",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "2f883e7e-3514-49f1-9931-5d6a64695e09"
+  },
+  {
+    "id": "f397f78b-d840-447c-a7c6-7108cefffe57",
+    "first_name": "Connor",
+    "last_name": "Friesen",
+    "number": "27",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "f397f78b-d840-447c-a7c6-7108cefffe57",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "f397f78b-d840-447c-a7c6-7108cefffe57"
+  },
+  {
+    "id": "93d66dda-ce4d-48df-b22c-d726050805ee",
+    "first_name": "Griffin",
+    "last_name": "Kuntz",
+    "number": "11",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "93d66dda-ce4d-48df-b22c-d726050805ee",
+      "batting_side": "right",
+      "throwing_hand": "left",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "93d66dda-ce4d-48df-b22c-d726050805ee"
+  },
+  {
+    "id": "8da8ca75-1844-405f-ad1b-f0b065561470",
+    "first_name": "Dylan",
+    "last_name": "Drake",
+    "number": "31",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": null,
+    "person_id": "8da8ca75-1844-405f-ad1b-f0b065561470"
+  },
+  {
+    "id": "a8398b03-a0ce-40d5-bbc2-fd8a2d146f95",
+    "first_name": "Mason",
+    "last_name": "Mcleod",
+    "number": "4",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "a8398b03-a0ce-40d5-bbc2-fd8a2d146f95",
+      "batting_side": "left",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "a8398b03-a0ce-40d5-bbc2-fd8a2d146f95"
+  },
+  {
+    "id": "45adfd9e-4f0f-4c01-b1f3-eeaac577c197",
+    "first_name": "Anderson",
+    "last_name": "Moore",
+    "number": "3",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "45adfd9e-4f0f-4c01-b1f3-eeaac577c197",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "45adfd9e-4f0f-4c01-b1f3-eeaac577c197"
+  },
+  {
+    "id": "3c9b976d-c7eb-49d4-81ed-119300de2f24",
+    "first_name": "Blake",
+    "last_name": "Frank",
+    "number": "20",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "3c9b976d-c7eb-49d4-81ed-119300de2f24",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "3c9b976d-c7eb-49d4-81ed-119300de2f24"
+  },
+  {
+    "id": "feddf755-0cf4-4f10-ba87-ebe7c5266bc8",
+    "first_name": "Logan",
+    "last_name": "Garthaus",
+    "number": "48",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "feddf755-0cf4-4f10-ba87-ebe7c5266bc8",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "feddf755-0cf4-4f10-ba87-ebe7c5266bc8"
+  },
+  {
+    "id": "c2cd0308-706a-432c-bc73-92bc1a816591",
+    "first_name": "Bode",
+    "last_name": "Preston",
+    "number": "39",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": {
+      "player_id": "c2cd0308-706a-432c-bc73-92bc1a816591",
+      "batting_side": "right",
+      "throwing_hand": "right",
+      "meta_seq": null,
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z"
+    },
+    "person_id": "c2cd0308-706a-432c-bc73-92bc1a816591"
+  },
+  {
+    "id": "1d5d31cc-5f7c-418b-954e-c545b6ef4a45",
+    "first_name": "Micah",
+    "last_name": "Schroeder",
+    "number": "2",
+    "status": "active",
+    "team_id": "b6c5cb7a-e049-4336-a459-6ebf4bed6cdf",
+    "user_id": null,
+    "meta_seq": 0,
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "bats": null,
+    "person_id": "1d5d31cc-5f7c-418b-954e-c545b6ef4a45"
+  }
+]
