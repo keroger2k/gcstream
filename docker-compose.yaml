@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   gc-proxy-app:
-    build: .
+    image: ghcr.io/keroger2k/gc-proxy:latest # Use the latest image from GitHub Container Registry
     container_name: gc-proxy-app
     ports:
-      - "3000:3000" # Exposes port 3000 on the host
+      - '3000:3000' # Exposes port 3000 on the host
     environment:
       - MONGO_URL=mongodb://mongo:27017/gcdb # Connect to the mongo service
       - PORT=3000 # Port the app inside the container will listen on
@@ -14,20 +14,6 @@ services:
     restart: unless-stopped
     networks:
       - app-network
-
-  mongo:
-    image: mongo:latest
-    container_name: gc-mongo
-    ports:
-      - "27017:27017" # Optional: Expose MongoDB port to host for direct access/debugging
-    volumes:
-      - mongo-data:/data/db # Persist MongoDB data
-    restart: unless-stopped
-    networks:
-      - app-network
-
-volumes:
-  mongo-data: # Defines the named volume for MongoDB data
 
 networks:
   app-network: # Defines a custom bridge network
