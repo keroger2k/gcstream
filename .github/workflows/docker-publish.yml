@@ -17,3 +17,12 @@ jobs:
           docker login --username keroger2k --password ${{ secrets.GH_PAT }} ghcr.io
           docker build . --file ./Dockerfile --tag ghcr.io/keroger2k/gc-proxy-app:latest 
           docker push ghcr.io/keroger2k/gc-proxy-app:latest
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # Specify the desired Python version
+      - run: python -m http.server 8000  # Execute your Python script
