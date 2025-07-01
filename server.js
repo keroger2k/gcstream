@@ -220,47 +220,31 @@ app.get('/refresh_token', async (req, res) => {
             return res.status(502).json({ error: "Unexpected non-JSON success response from GC API after refresh", details: responseBodyText });
         }
 
-        // Assuming the response contains new access_token and optionally a new refresh_token
-        // And structure like: { access_token: "...", expires_in: 3600, refresh_token: "..." (optional) }
-        const newAccessToken = responseBodyJson.access_token;
-        const expiresIn = responseBodyJson.expires_in; // seconds
-        const newRefreshToken = responseBodyJson.refresh_token; // This might or might not be present
+        // Parse the GC API response structure
+        const newAccessToken = responseBodyJson.access && responseBodyJson.access.data;
+        const newAccessExpiresTimestamp = responseBodyJson.access && responseBodyJson.access.expires; // This is an absolute timestamp
+        const newRefreshTokenData = responseBodyJson.refresh && responseBodyJson.refresh.data;
+        const newRefreshExpires = responseBodyJson.refresh && responseBodyJson.refresh.expires;
 
-        if (!newAccessToken || typeof expiresIn === 'undefined') {
-            console.error(`[${new Date().toISOString()}] GC API refresh response missing access_token or expires_in. Response:`, responseBodyJson);
-            return res.status(500).json({ error: "Invalid token data from GC API after refresh" });
+        if (!newAccessToken || typeof newAccessExpiresTimestamp === 'undefined') {
+            console.error(`[${new Date().toISOString()}] GC API refresh response missing access.data or access.expires. Response:`, responseBodyJson);
+            return res.status(500).json({ error: "Invalid token data from GC API after refresh - missing access token or its expiry" });
         }
 
-        const newAccessExpiresTimestamp = getTimestamp() + expiresIn;
-
-        let newRefreshTokenData = refresh.data; // Keep old if not provided
-        let newRefreshExpires = refresh.expires; // Keep old if not provided
-
-        // If GC API provides a new refresh token, we should use it and update its expiry if available or calculable
-        if (newRefreshToken) {
-            newRefreshTokenData = newRefreshToken;
-            // Assuming new refresh token has similar extended validity, e.g., 14 days from now if not specified
-            // This is a guess; the API should ideally provide its expiry or lifespan.
-            // For now, let's assume it also comes with an 'refresh_expires_in' or we keep the old one's relative validity.
-            // For simplicity, if new refresh token is given, we might need to parse its JWT to find exp or set a default.
-            // The example data had refresh.expires, let's assume the new refresh token also has a similar structure or we calculate it.
-            // If the API response included 'refresh_token_expires_in', we'd use that.
-            // For now, if a new refresh token is provided, we'll just update its data.
-            // The original document has 'refresh.expires', so we'd need a way to calculate this.
-            // Let's assume for now the refresh token's own expiry is not changed by this specific call,
-            // or if it is, the API would return a full new structure for 'refresh'.
-            // The provided example token document shows refresh.expires. If the refresh API gives a new refresh token,
-            // it should also give its expiry. If not, we might have to parse the JWT or make an assumption.
-            // For now, only updating data if new refresh token is present. Expiry update is more complex without API spec.
-        }
-
+        // We have new tokens (access and potentially refresh), update them in the DB.
+        // If newRefreshTokenData or newRefreshExpires are undefined (not provided by API),
+        // updateTokensInDB should ideally preserve the old ones if that's the desired behavior.
+        // However, the current updateTokensInDB replaces refresh.data and refresh.expires if new ones are provided.
+        // If the API guarantees to always return full refresh details if it returns a refresh token, this is fine.
+        // If it might only return refresh.data, we might need to adjust updateTokensInDB or logic here.
+        // For now, assume if refresh.data is there, refresh.expires will also be there as per API response example.
 
         await updateTokensInDB(docId, newAccessToken, newAccessExpiresTimestamp, newRefreshTokenData, newRefreshExpires);
 
         console.log(`[${new Date().toISOString()}] Token refreshed successfully. New access token expires at: ${new Date(newAccessExpiresTimestamp * 1000).toISOString()}`);
         res.json({
             token: newAccessToken,
-            expires: newAccessExpiresTimestamp,
+            expires: newAccessExpiresTimestamp, // Send the absolute expiry timestamp
             status: "Token refreshed"
         });
 
