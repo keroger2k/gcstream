@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U8 Video Player</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .video-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+        #videoPlayer {
+            width: 100%;
+            height: auto;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input[type="text"],
+        .input-group textarea {
+            width: 98%;
+            padding: 8px;
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>M3U8 Video Player with CloudFront Cookies</h1>
+        <p><a href="index.html">&laquo; Back to API Caller</a></p>
+
+        <div class="input-group">
+            <label for="m3u8Url">M3U8 URL:</label>
+            <input type="text" id="m3u8Url" placeholder="Enter M3U8 URL">
+        </div>
+
+        <div class="input-group">
+            <label for="cfKeyPairId">CloudFront-Key-Pair-Id:</label>
+            <input type="text" id="cfKeyPairId" placeholder="Enter CloudFront-Key-Pair-Id">
+        </div>
+
+        <div class="input-group">
+            <label for="cfSignature">CloudFront-Signature:</label>
+            <textarea id="cfSignature" rows="3" placeholder="Enter CloudFront-Signature"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="cfPolicy">CloudFront-Policy:</label>
+            <textarea id="cfPolicy" rows="3" placeholder="Enter CloudFront-Policy"></textarea>
+        </div>
+
+        <button id="loadVideoButton">Load Video</button>
+
+        <div class="notice">
+            <strong>Note:</strong> For this player to work with the provided CloudFront cookies, the browser needs to send these cookies with requests to the video server.
+            This page will attempt to use these values in request headers if possible via hls.js.
+            However, CloudFront typically expects these as actual browser cookies, which cannot be reliably set for third-party domains by client-side JavaScript due to security restrictions.
+            Playback success is not guaranteed and may depend on specific CloudFront configurations and browser behavior.
+        </div>
+
+        <div class="video-container">
+            <video id="videoPlayer" controls></video>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('videoPlayer');
+            const m3u8UrlInput = document.getElementById('m3u8Url');
+            const cfKeyPairIdInput = document.getElementById('cfKeyPairId');
+            const cfSignatureInput = document.getElementById('cfSignature');
+            const cfPolicyInput = document.getElementById('cfPolicy');
+            const loadVideoButton = document.getElementById('loadVideoButton');
+            let hls = null;
+
+            loadVideoButton.addEventListener('click', () => {
+                const m3u8Url = m3u8UrlInput.value.trim();
+                const keyPairId = cfKeyPairIdInput.value.trim();
+                const signature = cfSignatureInput.value.trim();
+                const policy = cfPolicyInput.value.trim();
+
+                if (!m3u8Url) {
+                    alert('Please enter the M3U8 URL.');
+                    return;
+                }
+                // Cookies are optional in terms of alerting, but required for playback of protected content
+                if (!keyPairId || !signature || !policy) {
+                    alert('CloudFront cookie information is missing. Playback will likely fail if content is protected.');
+                    // We can still proceed and try, as some streams might not be protected
+                }
+
+                if (hls) {
+                    hls.destroy();
+                }
+                hls = new Hls({
+                    // Debugging can be enabled if needed:
+                    // debug: true,
+                    xhrSetup: function (xhr, url) {
+                        // IMPORTANT: This attempts to send cookie data as headers.
+                        // CloudFront expects actual cookies sent by the browser.
+                        // This custom header approach may NOT work as CloudFront
+                        // typically doesn't look for cookie values in arbitrary headers.
+                        // This is a best-effort attempt in a pure client-side scenario.
+                        // A backend proxy setting cookies would be more reliable.
+
+                        // Constructing a single 'Cookie' header string
+                        // This is how cookies are typically formatted in an HTTP request.
+                        let cookieString = "";
+                        if (keyPairId) cookieString += `CloudFront-Key-Pair-Id=${keyPairId}; `;
+                        if (signature) cookieString += `CloudFront-Signature=${signature}; `;
+                        if (policy) cookieString += `CloudFront-Policy=${policy};`;
+
+                        if (cookieString) {
+                             // Setting 'X-GC-Custom-Cookies' to avoid collision/misinterpretation of 'Cookie'
+                             // header by browser or intermediate proxies if 'Cookie' is protected.
+                             // If the server / CDN could be configured to read this, it would be one way.
+                             // However, CloudFront signed cookies are standard, so it expects 'Cookie'.
+                             // We will try to set the standard 'Cookie' header, but browsers often block this for cross-origin XHR.
+                            try {
+                                // xhr.setRequestHeader('Cookie', cookieString.trim());
+                                // console.log('Attempted to set Cookie header:', cookieString.trim());
+                                // Instead of 'Cookie', which might be restricted, let's try individual custom headers
+                                // This is even less likely to be picked up by CloudFront but safer from browser restrictions.
+                                if (keyPairId) xhr.setRequestHeader('X-CF-Key-Pair-Id', keyPairId);
+                                if (signature) xhr.setRequestHeader('X-CF-Signature', signature);
+                                if (policy) xhr.setRequestHeader('X-CF-Policy', policy);
+                                console.log('Attempted to set X-CF-* custom headers.');
+
+                            } catch (e) {
+                                console.error("Error setting cookie header (likely browser restriction):", e);
+                                alert("Could not set cookie headers due to browser restrictions. Playback will likely fail.");
+                            }
+                        }
+                        // For CloudFront, withCredentials might be relevant if cookies were set by a response
+                        // from the same domain (or a parent domain like .gc.com) earlier.
+                        // Since we are *providing* the cookie values, this is less direct.
+                        // xhr.withCredentials = true;
+                    }
+                });
+
+                hls.loadSource(m3u8Url);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+                });
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                console.error('Fatal network error encountered', data);
+                                alert(`Network error during playback: ${data.details}. Check console for more info. This could be due to CORS or cookie issues.`);
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                console.error('Fatal media error encountered', data);
+                                alert(`Media error during playback: ${data.details}.`);
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                console.error('An unknown fatal error occurred', data);
+                                alert(`An unknown error occurred: ${data.details}`);
+                                hls.destroy();
+                                break;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
