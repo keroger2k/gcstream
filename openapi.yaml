@@ -1,0 +1,206 @@
+openapi: 3.0.3
+info:
+  title: GameChanger API Proxy
+  version: v1.0.0
+  description: A proxy for selected GameChanger API endpoints.
+servers:
+  - url: http://localhost:3000 # Your proxy server URL
+    description: Local development server proxy
+
+paths:
+  /client-authenticate:
+    post:
+      summary: Authenticate Client
+      operationId: post_client_authenticate # Corresponds to Jwr key
+      tags:
+        - Authentication
+      requestBody:
+        description: Client authentication credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id: # Example, actual properties depend on Qt.POST_CLIENT_AUTHENTICATE
+                  type: string
+                  example: "a0b1b2c8-522d-4b94-a6f5-fbab9342903d"
+                # Add other properties as defined by Qt.POST_CLIENT_AUTHENTICATE
+              # required:
+              #   - client_id
+              #   - ...
+      responses:
+        '200':
+          description: Client token received
+          content:
+            application/json:
+              schema:
+                type: object # Based on Ft.CLIENT_TOKEN
+                properties:
+                  access:
+                    type: object
+                    properties:
+                      data:
+                        type: string
+                      expires:
+                        type: integer
+                  refresh: # If applicable for client auth
+                    type: object
+                    properties:
+                      data:
+                        type: string
+                      expires:
+                        type: integer
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+
+  /teams/:
+    post:
+      summary: Create a new Team
+      operationId: post_teams # Corresponds to Jwr key
+      tags:
+        - Teams
+      requestBody:
+        description: Team object to create
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object # Based on Qt.POST_TEAM
+              properties:
+                name:
+                  type: string
+                  example: "The Winners"
+                sport:
+                  type: string
+                  example: "Baseball"
+                # Add other properties as defined by Qt.POST_TEAM
+              required:
+                - name
+                - sport
+      responses:
+        '201':
+          description: Team created successfully
+          content:
+            application/json:
+              schema:
+                type: object # Based on Ft.TEAM
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  # Add other team properties
+        '400':
+          description: Invalid input
+
+  /teams/{teamID}:
+    get:
+      summary: Get Team by ID
+      operationId: get_team # Corresponds to Jwr key
+      tags:
+        - Teams
+      parameters:
+        - name: teamID
+          in: path
+          required: true
+          description: ID of the team to retrieve
+          schema:
+            type: string
+            format: uuid # Assuming teamID is a UUID, adjust if not
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object # Based on Ft.TEAM
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  # Add other team properties
+        '404':
+          description: Team not found
+
+  /teams/{teamID}/managers/{userID}:
+    delete:
+      summary: Delete a Manager from a Team
+      operationId: delete_manager # Corresponds to Jwr key
+      tags:
+        - Teams
+      parameters:
+        - name: teamID
+          in: path
+          required: true
+          description: ID of the team
+          schema:
+            type: string
+            format: uuid
+        - name: userID
+          in: path
+          required: true
+          description: ID of the user (manager) to delete
+          schema:
+            type: string
+            format: uuid # Assuming userID is a UUID
+      responses:
+        '204': # No Content is typical for successful DELETE
+          description: Manager deleted successfully
+        '404':
+          description: Team or User not found
+        '403':
+          description: Forbidden (e.g., not authorized to delete manager)
+
+# Component Schemas (Optional but good practice for more complex objects)
+# components:
+#  schemas:
+#    Team:
+#      type: object
+#      properties:
+#        id:
+#          type: string
+#          format: uuid
+#        name:
+#          type: string
+#        sport:
+#          type: string
+#        # ... other common team properties
+#    ClientAuthRequest:
+#      type: object
+#      # ...
+#    ClientAuthResponse:
+#      type: object
+#      # ...
+
+# Security Schemes (Proxy handles actual GC auth, so this is more for documentation)
+# components:
+#  securitySchemes:
+#    GameChangerAuth: # This is a placeholder, actual GC auth is complex
+#      type: apiKey
+#      in: header
+#      name: Gc-Token # And Gc-Signature, etc.
+# security:
+#  - GameChangerAuth: []
+# The above security definition would imply all endpoints require this.
+# We can also define security at the operation level if some endpoints (like /client-authenticate) are different.
+# For now, since the proxy transparently handles auth based on Jwr, we can omit global security
+# or add it per-operation if desired for documentation clarity in Swagger UI.
+# Example for an endpoint requiring auth:
+# /teams/{teamID}:
+#   get:
+#     security:
+#       - GameChangerAuth: []
+#     ... (rest of definition)
+# /client-authenticate:
+#   post:
+#     security: [] # Explicitly no security for this one
+#     ... (rest of definition)
+# For simplicity in this step, global or per-operation security is omitted from the YAML.
+# The proxy's logic (based on Jwr's 'auth' field) will still apply.
+# Swagger UI will allow making calls; the proxy will then enforce auth.

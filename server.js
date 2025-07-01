@@ -1945,8 +1945,24 @@ app.get('/refresh_token', async (req, res) => {
 
 // Simple root endpoint for testing if server is up
 app.get('/', (req, res) => {
-    res.send('JWT Refresh Proxy Server is running with MongoDB support!');
+    res.send('JWT Refresh Proxy Server is running with MongoDB support! <a href="/api-docs">View API Docs</a>');
 });
+
+// Serve OpenAPI/Swagger specification
+const fs = require('fs');
+const path = require('path');
+app.get('/openapi.yaml', (req, res) => {
+    try {
+        const filePath = path.join(__dirname, 'openapi.yaml');
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        res.setHeader('Content-Type', 'text/yaml'); // Or application/x-yaml
+        res.send(fileContents);
+    } catch (error) {
+        console.error("Error reading openapi.yaml:", error);
+        res.status(500).send("Could not load OpenAPI specification.");
+    }
+});
+
 
 // --- Dynamically create routes from Jwr object ---
 Object.entries(Jwr).forEach(([apiKey, apiDefinition]) => {
