@@ -4,6 +4,1361 @@ const crypto = require('crypto');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
+// Placeholder objects for API logic dependencies
+const gr = {};
+const mr = {};
+const Qt = {};
+const Ft = {};
+const Al = {};
+const pc = function(param) { // pc is a constructor in the provided snippet
+    this.param = param;
+};
+
+const vr = (...e) => e
+  , Zwr = e => e
+  , Jwr = Zwr({
+    post_client_authenticate: {
+        path: "/client-authenticate",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.NONE,
+        inputType: Qt.POST_CLIENT_AUTHENTICATE,
+        outputType: Ft.CLIENT_TOKEN,
+        paginate: !1
+    },
+    post_user_authenticate: {
+        path: "/user-authenticate",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.CLIENT,
+        inputType: Qt.POST_USER_AUTHENTICATE,
+        outputType: Ft.USER_TOKEN,
+        paginate: !1
+    },
+    post_user_authenticate_from_token: {
+        path: "/user-authenticate-from-token",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.CLIENT,
+        inputType: Qt.POST_USER_AUTHENTICATE_FROM_TOKEN,
+        outputType: Ft.USER_TOKEN,
+        paginate: !1
+    },
+    post_users: {
+        path: "/users/",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    put_manager: {
+        path: "/teams/:teamID/managers/",
+        method: gr.PUT,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.PUT_TEAM_MANAGER,
+        outputType: Ft.TEAM_USER,
+        paginate: !1
+    },
+    delete_manager: {
+        path: "/teams/:teamID/managers/:userID",
+        method: gr.DELETE,
+        params: vr("teamID", "userID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_user: {
+        path: "/users/:userId",
+        method: gr.GET,
+        params: vr("userId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_user_status: {
+        path: "/users/:email/status",
+        method: gr.GET,
+        params: vr("email"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    send_login_link: {
+        path: "/users/:email/send-login-link",
+        method: gr.POST,
+        params: vr("email"),
+        auth: mr.USER,
+        inputType: Qt.POST_LOGIN_LINK,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    "send-email-confirmation": {
+        path: "/users/:email/send-email-confirmation",
+        method: gr.POST,
+        params: vr("email"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_teams: {
+        path: "/teams/",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.POST_TEAM,
+        outputType: Ft.TEAM,
+        paginate: !1
+    },
+    get_team: {
+        path: "/teams/:teamID",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: Ft.TEAM,
+        paginate: !1
+    },
+    patch_team: {
+        path: "/teams/:teamID",
+        method: gr.PATCH,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.TEAM,
+        paginate: !1
+    },
+    get_team_associations: {
+        path: "/teams/:teamID/associations",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessRSVP,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.USER_TEAM_ASSOCIATIONS),
+        paginate: !0
+    },
+    get_team_fans: {
+        path: "/teams/:teamID/fans",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.TEAM_FAN),
+        paginate: !0
+    },
+    get_team_relationships: {
+        path: "/teams/:teamID/relationships",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessRSVP,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.USER_PLAYER_RELATIONSHIP),
+        paginate: !0
+    },
+    get_team_users: {
+        path: "/teams/:teamID/users",
+        method: gr.GET,
+        params: vr("teamID"),
+        allowedCapabilities: Al.canAccessRSVP,
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.TEAM_USER),
+        paginate: !0
+    },
+    get_messaging_channel: {
+        path: "/teams/:teamID/messaging-channel",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_team_avatar_image: {
+        path: "/teams/:teamID/avatar-image",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    delete_team_avatar_image: {
+        path: "/teams/:teamID/avatar-image",
+        method: gr.DELETE,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_team_avatar_image: {
+        path: "/teams/:teamID/avatar-image",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: Ft.TEAM_AVATAR_IMAGE,
+        paginate: !1
+    },
+    get_team_notification_setting: {
+        path: "/teams/:teamID/team-notification-setting",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_team_notification_setting: {
+        path: "/teams/:teamID/team-notification-setting",
+        method: gr.PATCH,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_team_high_school_info: {
+        path: "/teams/:teamID/high-school-info",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_team_high_school_info: {
+        path: "/teams/:teamID/high-school-info",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_maxpreps_team_import: {
+        path: "/integrations/teams/maxpreps/import",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.POST_MAXPREPS_TEAM_IMPORT,
+        outputType: Ft.MAXPREPS_IMPORT_RESULT,
+        paginate: !1
+    },
+    post_me_bats_import_initiate: {
+        path: "/me/bats-import/initiate",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.BATS_IMPORT_INITIATE,
+        paginate: !1
+    },
+    get_team_external_associations: {
+        path: "/teams/:teamID/external-associations",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_public_team_summary: {
+        path: "/teams/:teamID/public-summary",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_schedule_events: {
+        path: "/teams/:teamID/schedule",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.EVENT),
+        paginate: !1
+    },
+    post_reimport_external_events: {
+        path: "/teams/:teamID/schedule/reimport-external-events",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_schedule_events: {
+        path: "/teams/:teamID/schedule/events/",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_EVENT,
+        outputType: Ft.EVENT,
+        paginate: !1
+    },
+    patch_schedule_event: {
+        path: "/teams/:teamID/schedule/events/:eventID/",
+        method: gr.PATCH,
+        params: vr("teamID", "eventID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_EVENT,
+        outputType: Ft.EVENT,
+        paginate: !1
+    },
+    delete_schedule_event: {
+        path: "/teams/:teamID/schedule/events/:eventID/",
+        method: gr.PATCH,
+        params: vr("teamID", "eventID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_EVENT,
+        outputType: Ft.EVENT,
+        paginate: !1
+    },
+    get_schedule_event_video_stream: {
+        path: "/teams/:teamID/schedule/events/:eventID/video-stream/",
+        method: gr.GET,
+        params: vr("teamID", "eventID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessEvent,
+        inputType: Qt.NONE,
+        outputType: Ft.SCHEDULE_EVENT_VIDEO_STREAM,
+        paginate: !1
+    },
+    patch_roster_rollover: {
+        path: "/teams/:teamID/rollover",
+        method: gr.PATCH,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_ROSTER_ROLLOVER,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_event: {
+        path: "/events/:eventID",
+        method: gr.GET,
+        params: vr("eventID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessEvent,
+        inputType: Qt.NONE,
+        outputType: Ft.EVENT,
+        paginate: !1
+    },
+    get_event_rsvp: {
+        path: "/teams/:teamID/schedule/events/:eventID/rsvp-responses",
+        method: gr.GET,
+        params: vr("teamID", "eventID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessRSVP,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.RSVP_RESPONSE),
+        paginate: !1
+    },
+    put_event_rsvp_for_player: {
+        path: "/teams/:teamID/schedule/events/:eventID/rsvp-responses/player/:playerID",
+        method: gr.PUT,
+        params: vr("teamID", "eventID", "playerID"),
+        allowedCapabilities: Al.canAccessRSVP,
+        auth: mr.USER,
+        inputType: Qt.PUT_RSVP_RESPONSE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    put_event_rsvp_for_user: {
+        path: "/teams/:teamID/schedule/events/:eventID/rsvp-responses/user/:userID",
+        method: gr.PUT,
+        params: vr("teamID", "eventID", "userID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessRSVP,
+        inputType: Qt.PUT_RSVP_RESPONSE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_schedule_event_series: {
+        path: "/teams/:teamID/schedule/event-series/",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_EVENT_SERIES,
+        outputType: Ft.EVENT_SERIES,
+        paginate: !1
+    },
+    get_schedule_event_series: {
+        path: "/teams/:teamID/schedule/event-series/:seriesID",
+        method: gr.GET,
+        params: vr("teamID", "seriesID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessRSVP,
+        inputType: Qt.NONE,
+        outputType: Ft.EVENT_SERIES,
+        paginate: !1
+    },
+    get_schedule_event_series_events: {
+        path: "/teams/:teamID/schedule/event-series/:seriesID/events",
+        method: gr.GET,
+        params: vr("teamID", "seriesID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_schedule_event_series: {
+        path: "/teams/:teamID/schedule/event-series/:seriesID/",
+        method: gr.PATCH,
+        params: vr("teamID", "seriesID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_EVENT_SERIES,
+        outputType: Ft.EVENT_SERIES,
+        paginate: !1
+    },
+    delete_schedule_event_series: {
+        path: "/teams/:teamID/schedule/event-series/:seriesID/",
+        method: gr.PATCH,
+        params: vr("teamID", "seriesID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_EVENT_SERIES,
+        outputType: Ft.EVENT_SERIES,
+        paginate: !1
+    },
+    get_team_game_summaries: {
+        path: "/teams/:teamID/game-summaries",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.GAME_SUMMARY),
+        paginate: !0
+    },
+    get_team_game_summary: {
+        path: "/teams/:teamID/game-summaries/:eventID",
+        method: gr.GET,
+        params: vr("teamID", "eventID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.GAME_SUMMARY,
+        paginate: !1
+    },
+    get_batch_simple_scorekeeping_game_data_result: {
+        path: "/teams/:teamID/schedule/batch-simple-scorekeeping-data",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.BATCH_SIMPLE_SCOREKEEPING_GAME_DATA_RESULT),
+        paginate: !1
+    },
+    get_simple_scorekeeping_game_data: {
+        path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data",
+        method: gr.GET,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.SIMPLE_SCOREKEEPING_GAME_DATA,
+        paginate: !1
+    },
+    post_simple_scorekeeping_game_data: {
+        path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data",
+        method: gr.POST,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_simple_scorekeeping_game_data: {
+        path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data",
+        method: gr.PATCH,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_simple_scorekeeping_game_data_after_game: {
+        path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data-after-game",
+        method: gr.PATCH,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_simple_scorekeeping_game_data_after_game: {
+        path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data-after-game",
+        method: gr.POST,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_simple_scorekeeping_share_time: {
+        path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/share-time",
+        method: gr.POST,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_event_bats_scorekeeping_data: {
+        path: "/teams/:teamID/schedule/events/:eventId/scorekeeping-data/bats",
+        method: gr.GET,
+        params: vr("teamID", "eventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_players: {
+        path: "/teams/:teamID/players",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.PLAYER),
+        paginate: !0
+    },
+    post_players: {
+        path: "/teams/:teamID/players/",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_PLAYER,
+        outputType: Ft.PLAYER,
+        paginate: !1
+    },
+    patch_player: {
+        path: "/players/:playerID",
+        method: gr.PATCH,
+        params: vr("playerID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_PLAYER,
+        outputType: Ft.PLAYER,
+        paginate: !1
+    },
+    delete_player: {
+        path: "/players/:playerID",
+        method: gr.DELETE,
+        params: vr("playerID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_player_family_relationships: {
+        path: "/players/:playerID/family-relationships",
+        method: gr.PATCH,
+        params: vr("playerID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_PLAYER_FAMILY_RELATIONSHIPS,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_simple_scorekeeping_team_config: {
+        path: "/teams/:teamID/simple-scorekeeping/config",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_simple_scorekeeping_team_config: {
+        path: "/teams/:teamID/simple-scorekeeping/config",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_opponent_team: {
+        path: "/teams/:owningTeamId/opponent/",
+        method: gr.POST,
+        params: vr("owningTeamId"),
+        auth: mr.USER,
+        inputType: Qt.POST_OPPONENT_TEAM,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_opponent_team: {
+        path: "/teams/:owningTeamID/opponent/:rootTeamID",
+        method: gr.GET,
+        params: vr("owningTeamID", "rootTeamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.OPPONENT_TEAM,
+        paginate: !1
+    },
+    get_me_user: {
+        path: "/me/user",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessRSVP,
+        inputType: Qt.NONE,
+        outputType: Ft.USER,
+        paginate: !1
+    },
+    get_me_subscription_information: {
+        path: "/me/subscription-information",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.SUBSCRIPTION_INFORMATION,
+        paginate: !1
+    },
+    get_me_team: {
+        path: "/me/teams",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.TEAM),
+        paginate: !1
+    },
+    get_me_team_stats: {
+        path: "/teams/:teamID/season-stats",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.TEAM_SEASON_STATS,
+        paginate: !1
+    },
+    get_player_stats: {
+        path: "/teams/:teamID/players/:playerID/stats",
+        method: gr.GET,
+        params: vr("teamID", "playerID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessPlayerProfile,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.PLAYER_STATS),
+        paginate: !1
+    },
+    get_player_game_stats: {
+        path: "/teams/:teamID/schedule/events/:eventID/player-stats",
+        method: gr.GET,
+        params: vr("teamID", "eventID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.PLAYER_GAME_STATS,
+        paginate: !1
+    },
+    put_game_stat_edit_collection: {
+        path: "/game-streams/:gameStreamID/game-stat-edit-collection/:lastGameStreamEventID",
+        method: gr.PUT,
+        params: vr("gameStreamID", "lastGameStreamEventID"),
+        auth: mr.USER,
+        inputType: Qt.PUT_GAME_STAT_EDIT_COLLECTION,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_game_stat_edit_collection: {
+        path: "/game-streams/:gameStreamID/game-stat-edit-collection/:lastGameStreamEventID",
+        method: gr.GET,
+        params: vr("gameStreamID", "lastGameStreamEventID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.GAME_STAT_EDIT_COLLECTION,
+        paginate: !1
+    },
+    get_me_permissions: {
+        path: "/me/permissions",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_me_permissions_v2: {
+        path: "/me/permissions/:scopingEntityType/:scopingEntityId",
+        method: gr.GET,
+        params: vr("scopingEntityType", "scopingEntityId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_me_permissions_v2_all: {
+        path: "/me/permissions/all",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_me_password: {
+        path: "/me/password",
+        method: gr.PATCH,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.PATCH_PASSWORD,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_me_external_calendar_sync_url: {
+        path: "/me/external-calendar-sync-url",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_me_pending_teams: {
+        path: "/me/pending-teams",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_me_client_backup: {
+        path: "/me/client-backups",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    delete_me_relationship_requests: {
+        path: "/me/relationship-requests/:teamID",
+        method: gr.DELETE,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_me_twilio_chat: {
+        path: "/me/tokens/twilio-chat",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_me_organizations: {
+        path: "/me/organizations",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.ORGANIZATION_WITH_ROLE),
+        paginate: !0
+    },
+    post_me_firebase_token: {
+        path: "/me/tokens/firebase",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_team_updates: {
+        path: "/sync-topics/teams/:teamID/updates",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_team_topic_state: {
+        path: "/sync-topics/teams/:teamID/topic-state",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_global_topic_state: {
+        path: "/sync-topics/global/topic-state",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_messaging_channel_image: {
+        path: "/channels/:channelId/images/:imageId",
+        method: gr.GET,
+        params: vr("channelId", "imageId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_messaging_channel_images: {
+        path: "/channels/:channelId/images",
+        method: gr.GET,
+        params: vr("channelId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_messaging_channel_image: {
+        path: "/channels/:channelId/images",
+        method: gr.POST,
+        params: vr("channelId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_messaging_channel_video: {
+        path: "/channels/:channelId/videos",
+        method: gr.POST,
+        params: vr("channelId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_messaging_channel_video: {
+        path: "/channels/:channelId/videos/:videoId",
+        method: gr.GET,
+        params: vr("channelId", "videoId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_messaging_channel_videos: {
+        path: "/channels/:channelId/videos",
+        method: gr.GET,
+        params: vr("channelId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    delete_messaging_media: {
+        path: "/channels/:channelId/media/:mediaId",
+        method: gr.DELETE,
+        params: vr("channelId", "mediaId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_simple_scorekeeping_configs: {
+        path: "/simple-scorekeeping-configs/",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_provider_user_authenticate: {
+        path: "/authentication-provider/:provider/user-authenticate",
+        method: gr.POST,
+        params: vr("provider"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_bsb_teams: {
+        path: "/integrations/teams",
+        method: gr.GET,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_team_import: {
+        path: "/integrations/teams/import",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_bats_player_attributes: {
+        path: "/player-attributes/:playerId/bats/",
+        method: gr.GET,
+        params: vr("playerId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_bats_player_attributes: {
+        path: "/player-attributes/:playerId/bats/",
+        method: gr.POST,
+        params: vr("playerId"),
+        auth: mr.USER,
+        inputType: Qt.POST_BATS_PLAYER_ATTRIBUTES,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_bats_player_attributes: {
+        path: "/player-attributes/:playerId/bats/",
+        method: gr.PATCH,
+        params: vr("playerId"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_BATS_PLAYER_ATTRIBUTES,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_bats_scorekeeping_data: {
+        path: "/scorekeeping-data/bats/:batsScorekeepingDataId/",
+        method: gr.POST,
+        params: vr("batsScorekeepingDataId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_bats_scorekeeping_data: {
+        path: "/scorekeeping-data/bats/:batsScorekeepingDataId/",
+        method: gr.PATCH,
+        params: vr("batsScorekeepingDataId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_bats_scorekeeping_data: {
+        path: "/scorekeeping-data/bats/:batsScorekeepingDataId/",
+        method: gr.GET,
+        params: vr("batsScorekeepingDataId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_bats_scorekeeping_data_event_ids: {
+        path: "/scorekeeping-data/bats/:batsScorekeepingDataId/event-ids",
+        method: gr.GET,
+        params: vr("batsScorekeepingDataId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_bats_scorekeeping_event: {
+        path: "/scorekeeping-events/bats/:batsScorekeepingEventId/",
+        method: gr.POST,
+        params: vr("batsScorekeepingEventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_bats_scorekeeping_event: {
+        path: "/scorekeeping-events/bats/:batsScorekeepingEventId/",
+        method: gr.GET,
+        params: vr("batsScorekeepingEventId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_pregame_data: {
+        path: "/pregame-data/",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_pregame_data: {
+        path: "/pregame-data/:pregameDataId",
+        method: gr.GET,
+        params: vr("pregameDataId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    opponent_search: {
+        path: "/search/opponent-import",
+        method: gr.GET,
+        params: vr("startAt", "name", "ageGroup", "competitionLevel", "city", "state", "country", "season", "year", "sport", "filterSeasons", "filterIncludeOlderSeasons", "filterCity", "filterState", "filterLat", "filterLong"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.OPPONENT_TEAM_IMPORT_SEARCH_RESULT,
+        paginate: !1
+    },
+    get_maxpreps_school_search: {
+        path: "/search/maxpreps-school",
+        method: gr.GET,
+        params: vr("name", "start_at"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.MAXPREPS_SCHOOL_SEARCH_RESULTS,
+        paginate: !1
+    },
+    post_opponent_team_import: {
+        path: "/teams/:teamID/opponent/import",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_OPPONENT_TEAM_IMPORT,
+        outputType: Ft.OPPONENT_TEAM_ID,
+        paginate: !1
+    },
+    post_opponent_team_legacy_import: {
+        path: "/teams/:teamID/opponent/legacy-import",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_OPPONENT_TEAM_LEGACY_IMPORT,
+        outputType: Ft.OPPONENT_TEAM_ID,
+        paginate: !1
+    },
+    get_event_best_stream_id: {
+        path: "/events/:eventID/best-game-stream-id",
+        method: gr.GET,
+        params: vr("eventID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessEvent,
+        inputType: Qt.NONE,
+        outputType: Ft.EVENT_BEST_STREAM_ID,
+        paginate: !1
+    },
+    get_game_stream: {
+        path: "/game-streams/:streamID",
+        method: gr.GET,
+        params: vr("streamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: Ft.GAME_STREAM,
+        paginate: !1
+    },
+    get_game_stream_events: {
+        path: "/game-streams/:streamID/events",
+        method: gr.GET,
+        params: vr("streamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessTeam,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.GAME_STREAM_EVENT),
+        paginate: !1
+    },
+    get_game_stream_viewer_payload_lite: {
+        path: "/game-streams/gamestream-viewer-payload-lite/:eventID",
+        method: gr.GET,
+        params: vr("eventID"),
+        auth: mr.USER,
+        paginate: !1,
+        inputType: Qt.NONE,
+        outputType: Ft.GAME_STREAM_VIEWER_PAYLOAD_LITE
+    },
+    get_bats_starting_lineup: {
+        path: "/bats-starting-lineups/:lineupId",
+        method: gr.GET,
+        params: vr("lineupId"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.BATS_STARTING_LINEUP,
+        paginate: !1
+    },
+    patch_bats_starting_lineup: {
+        path: "/bats-starting-lineups/:lineupId",
+        method: gr.PATCH,
+        params: vr("lineupId"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_BATS_STARTING_LINEUP,
+        outputType: Ft.BATS_STARTING_LINEUP,
+        paginate: !1
+    },
+    post_bats_starting_lineup: {
+        path: "/bats-starting-lineups/",
+        method: gr.POST,
+        params: vr(),
+        auth: mr.USER,
+        inputType: Qt.POST_BATS_STARTING_LINEUP,
+        outputType: Ft.BATS_STARTING_LINEUP,
+        paginate: !1
+    },
+    get_latest_bats_starting_lineup: {
+        path: "/bats-starting-lineups/latest/:teamID",
+        method: gr.GET,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.LATEST_BATS_STARTING_LINEUP,
+        paginate: !1
+    },
+    get_player_profile_photo: {
+        path: "/players/:playerID/profile-photo",
+        method: gr.GET,
+        params: vr("playerID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessPlayerProfile,
+        inputType: Qt.NONE,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_organization: {
+        path: "/organizations/:orgID",
+        method: gr.GET,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.ORGANIZATION,
+        paginate: !1
+    },
+    get_organization_teams: {
+        path: "/organizations/:orgID/teams",
+        method: gr.GET,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.ORGANIZATION_TEAM),
+        paginate: !0
+    },
+    get_organization_users: {
+        path: "/organizations/:orgID/users",
+        method: gr.GET,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.ORGANIZATION_USER_ASSOCIATIONS,
+        paginate: !1
+    },
+    post_organization_schedule_event: {
+        path: "/organizations/:orgID/events",
+        method: gr.POST,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.POST_ORGANIZATION_SCHEDULE_EVENT,
+        outputType: Ft.ORGANIZATION_SCHEDULE_EVENT,
+        paginate: !1
+    },
+    post_organization_schedule_event_bulk: {
+        path: "/organizations/:orgID/events/bulk",
+        method: gr.POST,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.POST_ORGANIZATION_SCHEDULE_EVENT_BULK,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_organization_schedule_event_bulk_validate: {
+        path: "/organizations/:orgID/events/bulk/validate",
+        method: gr.POST,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.POST_ORGANIZATION_SCHEDULE_EVENT_BULK_VALIDATE,
+        outputType: Ft.ORGANIZATION_SCHEDULE_EVENT_BULK_VALIDATE,
+        paginate: !1
+    },
+    post_organization_teams: {
+        path: "/organizations/:orgID/teams",
+        method: gr.POST,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.POST_ORGANIZATION_TEAMS,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    patch_organization_schedule_event: {
+        path: "/organizations/:orgID/events/:eventID",
+        method: gr.PATCH,
+        params: vr("orgID", "eventID"),
+        auth: mr.USER,
+        inputType: Qt.PATCH_ORGANIZATION_SCHEDULE_EVENT,
+        outputType: Ft.ORGANIZATION_SCHEDULE_EVENT,
+        paginate: !1
+    },
+    get_organization_schedule_event_bulk_upload_template: {
+        path: "/organizations/:orgID/events/bulk/template",
+        method: gr.GET,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.ORGANIZATION_SCHEDULE_EVENT_BULK_UPLOAD_TEMPLATE,
+        paginate: !1
+    },
+    get_organization_leaderboards: {
+        path: "/organizations/:orgID/leaderboards",
+        method: gr.GET,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.ORGANIZATION_LEADERBOARDS,
+        paginate: !1
+    },
+    get_organization_schedule_event_results_export: {
+        path: "/organizations/:orgID/events/results/export",
+        method: gr.GET,
+        params: vr("orgID"),
+        auth: mr.USER,
+        inputType: Qt.NONE,
+        outputType: Ft.ORGANIZATION_SCHEDULE_EVENT_RESULTS_EXPORT,
+        paginate: !1
+    },
+    get_player_video_clip_asset_metadata: {
+        path: "/teams/:teamID/video-clips/player/:playerID/clips",
+        method: gr.GET,
+        params: vr("playerID", "teamID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessPlayerProfile,
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.VIDEO_CLIP_ASSET_METADATA),
+        paginate: !0
+    },
+    get_video_clip: {
+        path: "/teams/:teamID/video-clips/playable-clip/:clipID/clip",
+        method: gr.GET,
+        params: vr("teamID", "clipID"),
+        auth: mr.USER,
+        allowedCapabilities: Al.canAccessPlaybackClip,
+        inputType: Qt.NONE,
+        outputType: Ft.VIDEO_CLIP,
+        paginate: !1
+    },
+    get_all_schedule_event_stream_asset_metadata: {
+        path: "/teams/:teamID/schedule/events/:eventID/video-stream/assets",
+        method: gr.GET,
+        auth: mr.USER,
+        params: vr("teamID", "eventID"),
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.VIDEO_STREAM_ASSET_METADATA),
+        paginate: !1
+    },
+    get_stream_asset_playback_data: {
+        path: "/teams/:teamID/schedule/events/:eventID/video-stream/assets/playback",
+        method: gr.GET,
+        auth: mr.USER,
+        params: vr("teamID", "eventID"),
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.VIDEO_STREAM_ASSET_PLAYBACK_DATA),
+        paginate: !1
+    },
+    get_all_team_stream_asset_metadata: {
+        path: "/teams/:teamID/video-stream/assets",
+        method: gr.GET,
+        auth: mr.USER,
+        params: vr("teamID"),
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.VIDEO_STREAM_ASSET_METADATA),
+        paginate: !0
+    },
+    patch_stream_asset_metadata: {
+        path: "/teams/:teamID/schedule/events/:eventID/video-stream/assets/:assetID/hidden",
+        method: gr.PATCH,
+        auth: mr.USER,
+        params: vr("teamID", "eventID", "assetID"),
+        inputType: Qt.PATCH_STREAM_ASSET_METADATA,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    post_team_community_pass: {
+        path: "/teams/:teamID/community-pass",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_TEAM_COMMUNITY_PASS,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_opponent_teams: {
+        path: "/teams/:teamID/opponents",
+        method: gr.GET,
+        auth: mr.USER,
+        params: vr("teamID"),
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.OPPONENT_TEAM),
+        paginate: !0
+    },
+    patch_opponent_team: {
+        path: "/teams/:teamID/opponent/:opponentTeamID",
+        method: gr.PATCH,
+        auth: mr.USER,
+        params: vr("teamID", "opponentTeamID"),
+        inputType: Qt.PATCH_OPPONENT_TEAM,
+        outputType: Ft.NONE,
+        paginate: !1
+    },
+    get_athlete_profile_by_handle_public: {
+        path: "/public/athlete-profile/:handle",
+        method: gr.GET,
+        auth: mr.NONE,
+        params: vr("handle"),
+        inputType: Qt.NONE,
+        outputType: Ft.ATHLETE_PROFILE_PUBLIC,
+        paginate: !1
+    },
+    get_athlete_profile_clips_public: {
+        path: "/public/athlete-profile/:athleteProfileID/clips",
+        method: gr.GET,
+        auth: mr.NONE,
+        allowedCapabilities: Al.canAccessAthleteProfileClips,
+        params: vr("athleteProfileID"),
+        inputType: Qt.NONE,
+        outputType: new pc(Ft.ATHLETE_PROFILE_CLIPS_PUBLIC),
+        paginate: !1
+    },
+    get_athlete_profile_authenticated_clip_url_public: {
+        path: "/public/athlete-profile/:athleteProfileID/clips/:clipID/authenticatedUrl",
+        method: gr.GET,
+        auth: mr.NONE,
+        allowedCapabilities: Al.canAccessAthleteProfileClips,
+        params: vr("athleteProfileID", "clipID"),
+        inputType: Qt.NONE,
+        outputType: Ft.VIDEO_STREAM_PLAYBACK_DATA,
+        paginate: !1
+    },
+    get_athlete_profile_career_stats_public: {
+        path: "/public/athlete-profile/:athleteProfileID/career-stats",
+        method: gr.GET,
+        auth: mr.NONE,
+        allowedCapabilities: Al.canAccessAthleteProfileCareerStats,
+        params: vr("athleteProfileID"),
+        inputType: Qt.NONE,
+        outputType: Ft.ATHLETE_PROFILE_CAREER_STATS_PUBLIC,
+        paginate: !1
+    },
+    get_team_public_profile_id: {
+        path: "/teams/:teamID/public-team-profile-id",
+        method: gr.GET,
+        auth: mr.USER,
+        params: vr("teamID"),
+        inputType: Qt.NONE,
+        outputType: Ft.TEAM_PUBLIC_PROFILE_ID,
+        paginate: !1
+    }
+});
+
 const app = express();
 const port = process.env.PORT || 3000;
 
