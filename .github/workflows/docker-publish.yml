@@ -1,0 +1,74 @@
+name: Docker Image CI for GC Proxy
+
+on:
+  push:
+    branches: [ "main" ] # Or "master", depending on your default branch
+  pull_request:
+    branches: [ "main" ] # Also build on PRs to main for testing
+
+jobs:
+  build-and-push-docker-image:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' # Only login and push on merge to main
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # If you were using GitHub Container Registry (GHCR) instead of Docker Hub:
+      # - name: Log in to GitHub Container Registry
+      #   if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      #   uses: docker/login-action@v3
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }} # Push only on merge to main
+          tags: | # Replace with your Docker Hub username and image name
+            yourdockerhubusername/gc-proxy-app:latest
+            yourdockerhubusername/gc-proxy-app:${{ github.sha }}
+          # Example for GHCR:
+          # tags: |
+          #   ghcr.io/${{ github.repository_owner }}/gc-proxy-app:latest
+          #   ghcr.io/${{ github.repository_owner }}/gc-proxy-app:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Image digest
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: echo "Pushed image digest ${{ steps.docker_build.outputs.digest }}"
+
+# Instructions for user:
+# 1. Replace 'yourdockerhubusername/gc-proxy-app' with your actual Docker Hub username and desired image name.
+# 2. Create secrets in your GitHub repository settings for DOCKERHUB_USERNAME and DOCKERHUB_TOKEN.
+#    - DOCKERHUB_USERNAME: Your Docker Hub username.
+#    - DOCKERHUB_TOKEN: An access token generated from Docker Hub (recommended over using your password).
+# 3. If using GitHub Container Registry (GHCR) instead:
+#    - Uncomment the GHCR login step and update the tags format.
+#    - GITHUB_TOKEN is automatically available to Actions, but ensure it has `write:packages` permission.
+#      You might need to adjust repository settings or workflow permissions.
+#    - Update image name in tags to `ghcr.io/YOUR_GITHUB_USERNAME_OR_ORG/gc-proxy-app`.
+#
+# This workflow will:
+# - Trigger on pushes and pull requests to the "main" branch.
+# - Build the Docker image.
+# - If the event is a push to "main" (i.e., a merge):
+#   - Log in to Docker Hub (or GHCR).
+#   - Push the built image with 'latest' and commit SHA tags.
+# - It uses Buildx for more efficient builds and GHA caching for faster subsequent builds.

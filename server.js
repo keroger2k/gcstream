@@ -1480,12 +1480,18 @@ const API_URL = "https://api.team-manager.gc.com";
 const AUTH_ENDPOINT = "/auth"; // Corrected endpoint
 const DEVICE_ID = "b1be8358d171ea1f6e037fbde6297e3a";
 const WEB_CLIENT_ID = "a0b1b2c8-522d-4b94-a6f5-fbab9342903d";
-const WEB_EDEN_AUTH_KEY_B64 = "fWQBLAla8kD+qhuOfDpnKUvl3dy/EOv/+kdJ6Q3sRs0=";
+const WEB_EDEN_AUTH_KEY_B64 = "fWQBLAla8kD+qhuOfDpnKUvl3dy/EOv/+kdJ6Q3sRs0="; // This could also be an env var if it changes
 
-// MongoDB Constants
-const MONGO_URL = "mongodb://192.168.10.67:27017";
-const MONGO_DB_NAME = "gcdb";
-const MONGO_COLLECTION_NAME = "TokenCollection";
+// MongoDB Configuration (Prioritize Environment Variable)
+const MONGO_URL = process.env.MONGO_URL || "mongodb://192.168.10.67:27017/gcdb";
+// MONGO_DB_NAME is now part of MONGO_URL if set via env, or part of the default.
+// If MONGO_URL from env var does not include the db name, MongoClient will use 'test' or require it to be specified.
+// The docker-compose MONGO_URL includes /gcdb. If running locally without docker-compose and MONGO_URL env var,
+// ensure the default points to the correct database or adjust MongoClient connection.
+// For simplicity, assuming MONGO_URL contains the db name or a default db is acceptable if not specified.
+// MongoClient will handle parsing the db name from the URL if present.
+
+const MONGO_COLLECTION_NAME = "TokenCollection"; // This could also be an env var
 
 // CORS configuration
 const corsOptions = {
@@ -1554,8 +1560,12 @@ async function getTokensFromDB() {
     const client = new MongoClient(MONGO_URL);
     try {
         await client.connect();
-        console.log(`[${new Date().toISOString()}] Connected to MongoDB at ${MONGO_URL}`);
-        const db = client.db(MONGO_DB_NAME);
+        // MONGO_DB_NAME is derived from MONGO_URL by MongoClient if specified in the URL path
+        // e.g. mongodb://host:port/dbname. If not, a default or 'test' might be used.
+        // The following line is not strictly necessary if dbname is in MONGO_URL.
+        // const db = client.db(); // Or client.db(specific_db_name_if_not_in_url)
+        const db = client.db(); // MongoClient uses the db from the connection string
+        console.log(`[${new Date().toISOString()}] Connected to MongoDB at ${MONGO_URL}, using DB: ${db.databaseName}`);
         const collection = db.collection(MONGO_COLLECTION_NAME);
         // Assuming there's only one document or we need the first one that matches 'token' type.
         const tokenDoc = await collection.findOne({ type: "token" });
@@ -1579,7 +1589,7 @@ async function updateTokensInDB(originalDocId, newAccessToken, newAccessExpires,
     const client = new MongoClient(MONGO_URL);
     try {
         await client.connect();
-        const db = client.db(MONGO_DB_NAME);
+        const db = client.db(); // MongoClient uses the db from the connection string
         const collection = db.collection(MONGO_COLLECTION_NAME);
 
         const updateFields = {
