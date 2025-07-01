@@ -8,16 +8,53 @@
 </head>
 <body>
     <div class="container">
-        <h1>Refresh JWT Token</h1>
-        <p>Paste your JWT refresh token below and click "Submit" to get a new access and refresh token pair.</p>
-        <textarea id="refreshToken" placeholder="Enter your refresh token here..."></textarea>
-        <button id="submitToken">Submit</button>
+        <h1>Get Access Token</h1>
+        <p>Click the button below to retrieve or refresh your access token from the server.</p>
+        <button id="getTokenButton">Get Token</button>
         <div id="loader" class="loader" style="display: none;"></div>
-        <h2>New Token:</h2>
-        <div id="result" class="result-box">
-            <p>Your new token will appear here.</p>
+        <h2>Token Information:</h2>
+        <div id="tokenInfo" class="result-box">
+            <p>Token details will appear here.</p>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const getTokenButton = document.getElementById('getTokenButton');
+            const tokenInfoDiv = document.getElementById('tokenInfo');
+            const loader = document.getElementById('loader');
+            const serverUrl = 'http://localhost:3000'; // Assuming server.js runs on port 3000
+
+            getTokenButton.addEventListener('click', async () => {
+                loader.style.display = 'block';
+                tokenInfoDiv.innerHTML = '<p>Fetching token...</p>';
+
+                try {
+                    const response = await fetch(`${serverUrl}/refresh_token`);
+                    const data = await response.json();
+
+                    loader.style.display = 'none';
+
+                    if (response.ok) {
+                        const expiryDate = new Date(data.expires * 1000);
+                        tokenInfoDiv.innerHTML = `
+                            <p><strong>Status:</strong> ${data.status}</p>
+                            <p><strong>Access Token:</strong></p>
+                            <textarea readonly>${data.token}</textarea>
+                            <p><strong>Expires:</strong> ${expiryDate.toLocaleString()}</p>
+                        `;
+                    } else {
+                        tokenInfoDiv.innerHTML = `
+                            <p><strong>Error:</strong> ${data.error || response.statusText}</p>
+                            <p><strong>Details:</strong> ${data.details || 'N/A'}</p>
+                        `;
+                    }
+                } catch (error) {
+                    loader.style.display = 'none';
+                    tokenInfoDiv.innerHTML = `<p><strong>Network or client-side error:</strong> ${error.message}</p>`;
+                    console.error('Error fetching token:', error);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
