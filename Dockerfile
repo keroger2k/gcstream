@@ -13,7 +13,8 @@ COPY package.json ./
 # Using --only=production to ensure only production dependencies are installed.
 # If you have a package-lock.json and want to use `npm ci` for faster, more reliable builds:
 # RUN npm ci --only=production
-RUN npm install --omit=dev
+RUN apk add --no-cache python3 py3-pip && \
+    npm install --omit=dev
 # Note: --omit=dev is the equivalent of --only=production for npm v7+ which node:18-alpine should have.
 # If using an older npm, use --only=production.
 
