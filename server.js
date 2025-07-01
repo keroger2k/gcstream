@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 // API Constants
 const API_URL = "https://api.team-manager.gc.com";
-const AUTH_ENDPOINT = "/api/v1/auth/token/refresh"; // Corrected endpoint
+const AUTH_ENDPOINT = "/auth"; // Corrected endpoint
 const DEVICE_ID = "b1be8358d171ea1f6e037fbde6297e3a";
 const WEB_CLIENT_ID = "a0b1b2c8-522d-4b94-a6f5-fbab9342903d";
 const WEB_EDEN_AUTH_KEY_B64 = "fWQBLAla8kD+qhuOfDpnKUvl3dy/EOv/+kdJ6Q3sRs0=";
