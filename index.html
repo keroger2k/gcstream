@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Refresh Token UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Refresh JWT Token</h1>
+        <p>Paste your JWT refresh token below and click "Submit" to get a new access and refresh token pair.</p>
+        <textarea id="refreshToken" placeholder="Enter your refresh token here..."></textarea>
+        <button id="submitToken">Submit</button>
+        <div id="loader" class="loader" style="display: none;"></div>
+        <h2>New Token:</h2>
+        <div id="result" class="result-box">
+            <p>Your new token will appear here.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
