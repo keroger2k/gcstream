@@ -5,13 +5,126 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
 // Placeholder objects for API logic dependencies
-const gr = {};
-const mr = {};
-const Qt = {};
-const Ft = {};
-const Al = {};
-const pc = function(param) { // pc is a constructor in the provided snippet
+const gr = {
+    POST: 'POST',
+    GET: 'GET',
+    PUT: 'PUT',
+    PATCH: 'PATCH',
+    DELETE: 'DELETE'
+};
+const mr = {
+    NONE: 'NONE',
+    CLIENT: 'CLIENT',
+    USER: 'USER'
+};
+// Qt, Ft, Al are mostly used as type markers or for enums.
+// For now, their exact values might not be critical for routing and basic forwarding,
+// but they would be if detailed input/output validation or type-specific logic were implemented.
+// We'll give them string values for now for completeness, based on their names.
+const Qt = {
+    POST_CLIENT_AUTHENTICATE: 'POST_CLIENT_AUTHENTICATE',
+    POST_USER_AUTHENTICATE: 'POST_USER_AUTHENTICATE',
+    POST_USER_AUTHENTICATE_FROM_TOKEN: 'POST_USER_AUTHENTICATE_FROM_TOKEN',
+    NONE: 'NONE',
+    PUT_TEAM_MANAGER: 'PUT_TEAM_MANAGER',
+    POST_LOGIN_LINK: 'POST_LOGIN_LINK',
+    POST_TEAM: 'POST_TEAM',
+    POST_MAXPREPS_TEAM_IMPORT: 'POST_MAXPREPS_TEAM_IMPORT',
+    POST_EVENT: 'POST_EVENT',
+    PATCH_EVENT: 'PATCH_EVENT',
+    PATCH_ROSTER_ROLLOVER: 'PATCH_ROSTER_ROLLOVER',
+    PUT_RSVP_RESPONSE: 'PUT_RSVP_RESPONSE',
+    POST_EVENT_SERIES: 'POST_EVENT_SERIES',
+    PATCH_EVENT_SERIES: 'PATCH_EVENT_SERIES',
+    POST_PLAYER: 'POST_PLAYER',
+    PATCH_PLAYER: 'PATCH_PLAYER',
+    PATCH_PLAYER_FAMILY_RELATIONSHIPS: 'PATCH_PLAYER_FAMILY_RELATIONSHIPS',
+    POST_OPPONENT_TEAM: 'POST_OPPONENT_TEAM',
+    PUT_GAME_STAT_EDIT_COLLECTION: 'PUT_GAME_STAT_EDIT_COLLECTION',
+    PATCH_PASSWORD: 'PATCH_PASSWORD',
+    POST_BATS_PLAYER_ATTRIBUTES: 'POST_BATS_PLAYER_ATTRIBUTES',
+    PATCH_BATS_PLAYER_ATTRIBUTES: 'PATCH_BATS_PLAYER_ATTRIBUTES',
+    POST_OPPONENT_TEAM_IMPORT: 'POST_OPPONENT_TEAM_IMPORT',
+    POST_OPPONENT_TEAM_LEGACY_IMPORT: 'POST_OPPONENT_TEAM_LEGACY_IMPORT',
+    PATCH_BATS_STARTING_LINEUP: 'PATCH_BATS_STARTING_LINEUP',
+    POST_BATS_STARTING_LINEUP: 'POST_BATS_STARTING_LINEUP',
+    POST_ORGANIZATION_SCHEDULE_EVENT: 'POST_ORGANIZATION_SCHEDULE_EVENT',
+    POST_ORGANIZATION_SCHEDULE_EVENT_BULK: 'POST_ORGANIZATION_SCHEDULE_EVENT_BULK',
+    POST_ORGANIZATION_SCHEDULE_EVENT_BULK_VALIDATE: 'POST_ORGANIZATION_SCHEDULE_EVENT_BULK_VALIDATE',
+    POST_ORGANIZATION_TEAMS: 'POST_ORGANIZATION_TEAMS',
+    PATCH_ORGANIZATION_SCHEDULE_EVENT: 'PATCH_ORGANIZATION_SCHEDULE_EVENT',
+    PATCH_STREAM_ASSET_METADATA: 'PATCH_STREAM_ASSET_METADATA',
+    POST_TEAM_COMMUNITY_PASS: 'POST_TEAM_COMMUNITY_PASS',
+    PATCH_OPPONENT_TEAM: 'PATCH_OPPONENT_TEAM'
+};
+const Ft = { // Output types, less critical for proxy logic beyond logging/potential transformation
+    CLIENT_TOKEN: 'CLIENT_TOKEN',
+    USER_TOKEN: 'USER_TOKEN',
+    NONE: 'NONE',
+    TEAM_USER: 'TEAM_USER',
+    TEAM: 'TEAM',
+    USER_TEAM_ASSOCIATIONS: 'USER_TEAM_ASSOCIATIONS',
+    TEAM_FAN: 'TEAM_FAN',
+    USER_PLAYER_RELATIONSHIP: 'USER_PLAYER_RELATIONSHIP',
+    TEAM_AVATAR_IMAGE: 'TEAM_AVATAR_IMAGE',
+    MAXPREPS_IMPORT_RESULT: 'MAXPREPS_IMPORT_RESULT',
+    BATS_IMPORT_INITIATE: 'BATS_IMPORT_INITIATE',
+    EVENT: 'EVENT',
+    SCHEDULE_EVENT_VIDEO_STREAM: 'SCHEDULE_EVENT_VIDEO_STREAM',
+    RSVP_RESPONSE: 'RSVP_RESPONSE',
+    EVENT_SERIES: 'EVENT_SERIES',
+    GAME_SUMMARY: 'GAME_SUMMARY',
+    BATCH_SIMPLE_SCOREKEEPING_GAME_DATA_RESULT: 'BATCH_SIMPLE_SCOREKEEPING_GAME_DATA_RESULT',
+    SIMPLE_SCOREKEEPING_GAME_DATA: 'SIMPLE_SCOREKEEPING_GAME_DATA',
+    PLAYER: 'PLAYER',
+    OPPONENT_TEAM: 'OPPONENT_TEAM',
+    USER: 'USER',
+    SUBSCRIPTION_INFORMATION: 'SUBSCRIPTION_INFORMATION',
+    TEAM_SEASON_STATS: 'TEAM_SEASON_STATS',
+    PLAYER_STATS: 'PLAYER_STATS',
+    PLAYER_GAME_STATS: 'PLAYER_GAME_STATS',
+    GAME_STAT_EDIT_COLLECTION: 'GAME_STAT_EDIT_COLLECTION',
+    ORGANIZATION_WITH_ROLE: 'ORGANIZATION_WITH_ROLE',
+    OPPONENT_TEAM_IMPORT_SEARCH_RESULT: 'OPPONENT_TEAM_IMPORT_SEARCH_RESULT',
+    MAXPREPS_SCHOOL_SEARCH_RESULTS: 'MAXPREPS_SCHOOL_SEARCH_RESULTS',
+    OPPONENT_TEAM_ID: 'OPPONENT_TEAM_ID',
+    EVENT_BEST_STREAM_ID: 'EVENT_BEST_STREAM_ID',
+    GAME_STREAM: 'GAME_STREAM',
+    GAME_STREAM_EVENT: 'GAME_STREAM_EVENT',
+    GAME_STREAM_VIEWER_PAYLOAD_LITE: 'GAME_STREAM_VIEWER_PAYLOAD_LITE',
+    BATS_STARTING_LINEUP: 'BATS_STARTING_LINEUP',
+    LATEST_BATS_STARTING_LINEUP: 'LATEST_BATS_STARTING_LINEUP',
+    ORGANIZATION: 'ORGANIZATION',
+    ORGANIZATION_TEAM: 'ORGANIZATION_TEAM',
+    ORGANIZATION_USER_ASSOCIATIONS: 'ORGANIZATION_USER_ASSOCIATIONS',
+    ORGANIZATION_SCHEDULE_EVENT: 'ORGANIZATION_SCHEDULE_EVENT',
+    ORGANIZATION_SCHEDULE_EVENT_BULK_VALIDATE: 'ORGANIZATION_SCHEDULE_EVENT_BULK_VALIDATE',
+    ORGANIZATION_SCHEDULE_EVENT_BULK_UPLOAD_TEMPLATE: 'ORGANIZATION_SCHEDULE_EVENT_BULK_UPLOAD_TEMPLATE',
+    ORGANIZATION_LEADERBOARDS: 'ORGANIZATION_LEADERBOARDS',
+    ORGANIZATION_SCHEDULE_EVENT_RESULTS_EXPORT: 'ORGANIZATION_SCHEDULE_EVENT_RESULTS_EXPORT',
+    VIDEO_CLIP_ASSET_METADATA: 'VIDEO_CLIP_ASSET_METADATA',
+    VIDEO_CLIP: 'VIDEO_CLIP',
+    VIDEO_STREAM_ASSET_METADATA: 'VIDEO_STREAM_ASSET_METADATA',
+    VIDEO_STREAM_ASSET_PLAYBACK_DATA: 'VIDEO_STREAM_ASSET_PLAYBACK_DATA',
+    ATHLETE_PROFILE_PUBLIC: 'ATHLETE_PROFILE_PUBLIC',
+    ATHLETE_PROFILE_CLIPS_PUBLIC: 'ATHLETE_PROFILE_CLIPS_PUBLIC',
+    ATHLETE_PROFILE_CAREER_STATS_PUBLIC: 'ATHLETE_PROFILE_CAREER_STATS_PUBLIC',
+    TEAM_PUBLIC_PROFILE_ID: 'TEAM_PUBLIC_PROFILE_ID'
+};
+const Al = { // Allowed Capabilities, used for authorization checks (more advanced, not fully proxied yet)
+    canAccessTeam: 'canAccessTeam',
+    canAccessRSVP: 'canAccessRSVP',
+    canAccessEvent: 'canAccessEvent',
+    canAccessPlayerProfile: 'canAccessPlayerProfile',
+    canAccessAthleteProfileClips: 'canAccessAthleteProfileClips',
+    canAccessAthleteProfileCareerStats: 'canAccessAthleteProfileCareerStats',
+    canAccessPlaybackClip: 'canAccessPlaybackClip'
+    // ... other capabilities would go here
+};
+const pc = function(param) { // pc is a constructor for paginated types
     this.param = param;
+    // This could be enhanced if the proxy needed to understand the wrapped type for pagination.
+    // For now, it's just a marker.
 };
 
 const vr = (...e) => e
@@ -1493,6 +1606,226 @@ async function updateTokensInDB(originalDocId, newAccessToken, newAccessExpires,
     }
 }
 
+// --- Helper Function to get a valid token ---
+async function getValidToken(authType) {
+    // For now, only mr.USER and mr.CLIENT will trigger token refresh.
+    // mr.NONE will not require a token.
+    // This function will be expanded to differentiate client/user tokens if needed.
+    if (authType === mr.NONE) {
+        return null; // No token needed
+    }
+
+    // Attempt to get token by calling our own /refresh_token endpoint logic
+    // This reuses the existing token refresh and DB storage mechanism
+    console.log(`[${new Date().toISOString()}] Internal call to refresh/fetch token logic for authType: ${authType}`);
+    const tokenDoc = await getTokensFromDB();
+    if (!tokenDoc || !tokenDoc.access || !tokenDoc.refresh) {
+        throw new Error('Token data not found or invalid in database for internal call.');
+    }
+
+    const { access, refresh, _id: docId } = tokenDoc;
+    const currentTimeSeconds = Math.floor(Date.now() / 1000);
+
+    if (access.expires > currentTimeSeconds + 60) {
+        console.log(`[${new Date().toISOString()}] Internal: Access token from DB is still valid.`);
+        return access.data;
+    }
+
+    console.log(`[${new Date().toISOString()}] Internal: Access token expired or nearing expiry. Attempting refresh.`);
+    const context = {
+        nonce: base64Encode(randomString(32)),
+        timestamp: getTimestamp(),
+        previousSignature: ""
+    };
+    const payloadToSign = { type: "refresh" };
+    const clientRequestSignature = signPayloadNode(context, payloadToSign);
+    const fullApiUrl = API_URL + AUTH_ENDPOINT;
+    const headersToGcApi = {
+        'Content-Type': 'application/json',
+        'Gc-Signature': `${context.nonce}.${clientRequestSignature}`,
+        'Gc-Token': refresh.data,
+        'Gc-App-Version': '0.0.0',
+        'Gc-Device-Id': DEVICE_ID,
+        'Gc-Client-Id': WEB_CLIENT_ID,
+        'Gc-App-Name': 'web',
+        'Gc-Timestamp': context.timestamp.toString()
+    };
+
+    const apiResponse = await fetch(fullApiUrl, {
+        method: 'POST',
+        headers: headersToGcApi,
+        body: JSON.stringify(payloadToSign)
+    });
+
+    const responseBodyText = await apiResponse.text();
+    if (!apiResponse.ok) {
+        throw new Error(`Internal: Error from GC API during refresh: ${apiResponse.status} - ${responseBodyText}`);
+    }
+
+    let responseBodyJson;
+    try {
+        responseBodyJson = JSON.parse(responseBodyText);
+    } catch (e) {
+        throw new Error(`Internal: GC API refresh response was OK but not valid JSON. Body: ${responseBodyText}`);
+    }
+
+    const newAccessToken = responseBodyJson.access && responseBodyJson.access.data;
+    const newAccessExpiresTimestamp = responseBodyJson.access && responseBodyJson.access.expires;
+    const newRefreshTokenData = responseBodyJson.refresh && responseBodyJson.refresh.data;
+    const newRefreshExpires = responseBodyJson.refresh && responseBodyJson.refresh.expires;
+
+    if (!newAccessToken || typeof newAccessExpiresTimestamp === 'undefined') {
+        throw new Error("Internal: Invalid token data from GC API after refresh.");
+    }
+
+    await updateTokensInDB(docId, newAccessToken, newAccessExpiresTimestamp, newRefreshTokenData, newRefreshExpires);
+    console.log(`[${new Date().toISOString()}] Internal: Token refreshed successfully.`);
+    return newAccessToken;
+}
+
+// --- Generic API Call Forwarder ---
+async function forwardApiCall(req, res, apiDefinition) {
+    try {
+        const { method, path: apiPath, auth: authType, params: expectedParams, inputType, outputType, paginate } = apiDefinition;
+
+        // 1. Authentication (Get Token if needed)
+        let gcToken = null;
+        if (authType !== mr.NONE) {
+            try {
+                gcToken = await getValidToken(authType);
+                if (!gcToken) {
+                    // This case should ideally be handled by getValidToken throwing an error if token is required but not obtainable
+                    return res.status(401).json({ error: "Authentication required but no token could be obtained." });
+                }
+            } catch (authError) {
+                console.error(`[${new Date().toISOString()}] Authentication error for ${method} ${req.path}:`, authError);
+                return res.status(500).json({ error: "Failed to authenticate for GC API", details: authError.message });
+            }
+        }
+
+        // 2. Construct Target URL
+        // Replace path parameters (e.g., :teamID) with values from req.params
+        let effectivePath = apiPath;
+        for (const paramName of (expectedParams || [])) {
+            if (req.params[paramName]) {
+                effectivePath = effectivePath.replace(`:${paramName}`, req.params[paramName]);
+            } else if (req.query[paramName] && (method === gr.GET || method === gr.DELETE)) { // Also check query for GET/DELETE
+                // Query params will be added later by `new URL` if not part of path
+            } else if (!effectivePath.includes(`:${paramName}`)) {
+                // Param is expected but not in path, assume it's a query param
+            } else {
+                 // Only warn if it's a path parameter that's missing. Query params are optional unless specified by inputType
+                console.warn(`[${new Date().toISOString()}] Path parameter :${paramName} missing for ${method} ${req.path}`);
+            }
+        }
+
+        const targetUrl = new URL(API_URL + effectivePath);
+
+        // Add query parameters from req.query that are either in expectedParams or if no expectedParams are defined (less strict)
+        // More sophisticated input validation based on `inputType` would go here.
+        if (method === gr.GET || method === gr.DELETE) { // Common for GET, sometimes DELETE
+            Object.entries(req.query).forEach(([key, value]) => {
+                targetUrl.searchParams.append(key, value);
+            });
+        }
+
+        // 3. Prepare Payload and Signature (if not GET/DELETE or if body is allowed)
+        let requestBody = null;
+        const context = {
+            nonce: base64Encode(randomString(32)),
+            timestamp: getTimestamp(),
+            previousSignature: "" // Adjust if needed for specific endpoints
+        };
+        let signaturePayload = {}; // Default to empty object for signing if no body
+
+        if (method !== gr.GET && method !== gr.DELETE && Object.keys(req.body).length > 0) {
+            requestBody = JSON.stringify(req.body);
+            signaturePayload = req.body; // Sign the actual request body
+        } else if (method === gr.GET || method === gr.DELETE) {
+            // For GET/DELETE, signature payload might be empty or based on query params if API requires.
+            // The provided Jwr definitions don't specify signing query params, so assume empty or path-based.
+            // If specific GET/DELETE requests need signed query params, this needs adjustment.
+            // For now, let's assume an empty payload for signing if no body.
+        }
+
+
+        const clientRequestSignature = signPayloadNode(context, signaturePayload);
+
+        // 4. Construct Headers
+        const headersToGcApi = {
+            'Content-Type': 'application/json', // Assume JSON, adjust if inputType suggests otherwise
+            'Gc-Signature': `${context.nonce}.${clientRequestSignature}`,
+            'Gc-App-Version': '0.0.0', // Example version, make configurable if needed
+            'Gc-Device-Id': DEVICE_ID,
+            'Gc-Client-Id': WEB_CLIENT_ID,
+            'Gc-App-Name': 'web',
+            'Gc-Timestamp': context.timestamp.toString()
+        };
+        if (gcToken) {
+            headersToGcApi['Gc-Token'] = gcToken;
+        }
+
+        // 5. Make the call to GC API
+        console.log(`[${new Date().toISOString()}] Forwarding ${method} to GC API: ${targetUrl.toString()}`);
+        if(requestBody) console.log(`[${new Date().toISOString()}] Request Body: ${requestBody.substring(0,500)}...`);
+
+
+        const apiResponse = await fetch(targetUrl.toString(), {
+            method: method, // Use the mapped method string
+            headers: headersToGcApi,
+            body: requestBody // null if GET/DELETE or no body
+        });
+
+        // 6. Handle Response
+        const responseBodyText = await apiResponse.text();
+        console.log(`[${new Date().toISOString()}] GC API Response Status for ${method} ${req.path}: ${apiResponse.status}`);
+
+        // Forward status code
+        res.status(apiResponse.status);
+
+        // Forward headers (optional, but can be useful for content-type, etc.)
+        // Be selective to avoid forwarding sensitive headers
+        // apiResponse.headers.forEach((value, name) => {
+        //   if (name.toLowerCase() === 'content-type' || name.toLowerCase().startsWith('gc-')) {
+        //     res.setHeader(name, value);
+        //   }
+        // });
+        if(apiResponse.headers.get('content-type')) {
+            res.setHeader('Content-Type', apiResponse.headers.get('content-type'));
+        }
+
+
+        if (!apiResponse.ok) {
+            console.error(`[${new Date().toISOString()}] Error from GC API for ${method} ${req.path}: ${apiResponse.status} - ${responseBodyText}`);
+            // Attempt to send as JSON if possible, otherwise text
+            try {
+                return res.send(JSON.parse(responseBodyText));
+            } catch (e) {
+                return res.send(responseBodyText);
+            }
+        }
+
+        // For successful responses, send the body
+        // Add pagination logic here if apiDefinition.paginate is true
+        // This is a simplified version; actual pagination might involve multiple requests
+        // or parsing 'next' links from headers/body.
+        if (paginate) {
+            console.log(`[${new Date().toISOString()}] Pagination enabled for ${method} ${req.path}, but not fully implemented in proxy.`);
+            // Potentially look for Gc-Next-Start-At header or similar
+        }
+
+        try {
+            return res.send(JSON.parse(responseBodyText));
+        } catch (e) {
+            return res.send(responseBodyText); // Send as text if not JSON
+        }
+
+    } catch (error) {
+        console.error(`[${new Date().toISOString()}] Internal proxy error for ${apiDefinition.method} ${req.path}:`, error);
+        res.status(500).json({ error: 'Proxy server internal error during API forwarding', details: error.message });
+    }
+}
+
 
 // --- New API Endpoint to get/refresh token ---
 app.get('/refresh_token', async (req, res) => {
@@ -1615,10 +1948,34 @@ app.get('/', (req, res) => {
     res.send('JWT Refresh Proxy Server is running with MongoDB support!');
 });
 
+// --- Dynamically create routes from Jwr object ---
+Object.entries(Jwr).forEach(([apiKey, apiDefinition]) => {
+    const httpMethod = apiDefinition.method; // This will be e.g., gr.POST, which needs to be mapped
+    const path = apiDefinition.path;
+
+    // Ensure httpMethod is a string like 'GET', 'POST', etc.
+    // This relies on gr.POST being 'POST', gr.GET being 'GET' etc.
+    // which will be set in the next step (refining placeholder objects)
+    const expressMethod = String(httpMethod).toLowerCase();
+
+    if (app[expressMethod]) {
+        console.log(`[${new Date().toISOString()}] Creating route: ${String(httpMethod).toUpperCase()} ${path} (mapped from ${apiKey})`);
+        app[expressMethod](path, async (req, res) => {
+            // Attach the full apiDefinition to the request object for the forwarder to use
+            // req.apiDefinition = apiDefinition;
+            // It's cleaner to pass it directly to forwardApiCall
+            await forwardApiCall(req, res, apiDefinition);
+        });
+    } else {
+        console.error(`[${new Date().toISOString()}] Invalid or unsupported HTTP method: ${httpMethod} for path ${path}`);
+    }
+});
+
 app.listen(port, () => {
     console.log(`Proxy server listening at http://localhost:${port}`);
     console.log('CORS enabled for origins: ' + corsOptions.origin.join(', '));
     console.log('Endpoints:');
     console.log(`  GET  http://localhost:${port}/refresh_token (gets/refreshes token from MongoDB)`);
     console.log(`  GET  http://localhost:${port}/ (test endpoint)`);
+    console.log('Dynamically created GC API proxy endpoints from Jwr will also be available.');
 });
