@@ -1,22 +1,23 @@
 {
-  "name": "gc-stream",
+  "name": "jwt-refresh-ui-proxy",
   "version": "1.0.0",
-  "description": "Game processor for streaming data",
-  "main": "dist/game_processor.js",
+  "description": "A simple UI with a Node.js proxy for refreshing JWT tokens.",
+  "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/game_processor.js",
-    "dev": "ts-node game_processor.ts",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@types/node": "^20.4.2",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.44.0",
-    "prettier": "^3.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+  "keywords": [
+    "jwt",
+    "refresh-token",
+    "proxy"
+  ],
+  "author": "Jules AI Agent",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^2.7.0"
   }
 }
