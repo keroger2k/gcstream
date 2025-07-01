@@ -36,13 +36,13 @@ You need to run **two separate servers** simultaneously in two different termina
    ```bash
    node server.js
    ```
-   By default, this server will start on `http://localhost:3000`. You should see output like:
+   By default, this server will start on `http://localhost:3001`. You should see output like:
    ```
-   Proxy server listening at http://localhost:3000
+   Proxy server listening at http://localhost:3001
    CORS enabled for origins: http://localhost:8000, http://127.0.0.1:8000, ...
    Endpoints:
-     POST http://localhost:3000/api/refresh-token
-     GET  http://localhost:3000/ (test endpoint)
+     POST http://localhost:3001/api/refresh-token
+     GET  http://localhost:3001/ (test endpoint)
    ```
 
 **Terminal 2: Start the Frontend HTTP Server (to serve `index.html`)**
@@ -78,7 +78,7 @@ You need to run **two separate servers** simultaneously in two different termina
 
 4.  Click the "Submit" button.
 
-5.  The `script.js` in your browser will send the token to your local Node.js proxy server (`http://localhost:3000/api/refresh-token`).
+5.  The `script.js` in your browser will send the token to your local Node.js proxy server (`http://localhost:3001/api/refresh-token`).
 
 6.  The Node.js proxy server will then securely sign the request and forward it to the actual GameChanger API (`https://api.team-manager.gc.com/auth`).
 

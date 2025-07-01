@@ -22,7 +22,7 @@ RUN apk add --no-cache python3 py3-pip && \
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 3001
 EXPOSE 8000
 
 # Make start.sh executable

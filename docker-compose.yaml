@@ -3,10 +3,10 @@ services:
     image: ghcr.io/keroger2k/gc-proxy-app:latest # Use the latest image from GitHub Container Registry
     container_name: gc-proxy-app
     ports:
-      - '3001:3001' # Exposes port 3000 on the host
+      - '3001:3001' # Exposes port 3001 on the host
     environment:
       - MONGO_URL=mongodb://192.168.10.67:27017/gcdb # Connect to the mongo service
-      - PORT=30001 # Port the app inside the container will listen on
+      - PORT=3001 # Port the app inside the container will listen on
     restart: unless-stopped
     networks:
       - app-network
