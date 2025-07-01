@@ -6,6 +6,8 @@ info:
 servers:
   - url: http://localhost:3001
     description: Local development server proxy
+  - url: ${DEPLOY_URL}
+    description: Production deployment (set DEPLOY_URL env variable)
 
 paths:
   /client-authenticate:
