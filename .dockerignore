@@ -1,0 +1,26 @@
+# Node.js
+node_modules
+npm-debug.log
+*.log
+
+# Development / Git / OS specific
+.git
+.gitignore
+.vscode
+.devcontainer
+Dockerfile
+.dockerignore
+README.md
+INSTRUCTIONS.md
+TECHNICAL.md
+*.md # General markdown, adjust if some are needed in image
+
+# Docker Compose (not needed in the image itself)
+docker-compose.yaml
+
+# GitHub Actions workflow (not needed in the image itself)
+.github/
+
+# Any other local development files or sensitive information
+# e.g., .env files if they were not gitignored already (they should be)
+*.env

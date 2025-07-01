@@ -8,32 +8,387 @@
 </head>
 <body>
     <div class="container">
-        <h1>Get Access Token</h1>
-        <p>Click the button below to retrieve or refresh your access token from the server.</p>
-        <button id="getTokenButton">Get Token</button>
-        <div id="loader" class="loader" style="display: none;"></div>
-        <h2>Token Information:</h2>
+        <h1>GameChanger API Proxy UI</h1>
+        <p><em><a href="player.html">Go to M3U8 Video Player &raquo;</a></em> | <em><a href="api-docs.html">View API Documentation (Swagger UI) &raquo;</a></em></p>
+        <hr>
+        <h2>1. Get/Refresh Access Token</h2>
+        <p>Ensure you have a valid token before making authenticated API calls.</p>
+        <button id="getTokenButton">Get/Refresh Token</button>
+        <div id="tokenLoader" class="loader" style="display: none;"></div>
+        <h3>Token Information:</h3>
         <div id="tokenInfo" class="result-box">
             <p>Token details will appear here.</p>
         </div>
+        <hr>
+        <h2>2. Call API Endpoint</h2>
+        <div>
+            <label for="apiEndpointSelect">Select Endpoint:</label>
+            <select id="apiEndpointSelect">
+                <option value="">-- Select an Endpoint --</option>
+            </select>
+        </div>
+        <div id="apiMethod" style="margin-top: 10px; font-style: italic;"></div>
+        <div id="parameterInputs" style="margin-top: 10px;">
+            <!-- Dynamic input fields will be generated here -->
+        </div>
+        <button id="sendRequestButton" style="margin-top: 15px;" disabled>Send API Request</button>
+        <div id="requestLoader" class="loader" style="display: none;"></div>
+        <h3>API Response:</h3>
+        <div id="apiResponse" class="result-box">
+            <p>API response will appear here.</p>
+        </div>
     </div>
+
     <script>
+        // Client-side representation of Jwr. In a real app, this might be fetched from the server.
+        // Manually constructing a simplified version here for demonstration.
+        // Only 'method' and 'params' are strictly needed for the UI generation.
+        // 'path' is used for constructing the URL.
+        const clientJwr = {
+            post_client_authenticate: { path: "/client-authenticate", method: "POST", params: [] },
+            post_user_authenticate: { path: "/user-authenticate", method: "POST", params: [] },
+            post_user_authenticate_from_token: { path: "/user-authenticate-from-token", method: "POST", params: [] },
+            post_users: { path: "/users/", method: "POST", params: [] },
+            put_manager: { path: "/teams/:teamID/managers/", method: "PUT", params: ["teamID"] },
+            delete_manager: { path: "/teams/:teamID/managers/:userID", method: "DELETE", params: ["teamID", "userID"] },
+            get_user: { path: "/users/:userId", method: "GET", params: ["userId"] },
+            get_user_status: { path: "/users/:email/status", method: "GET", params: ["email"] },
+            send_login_link: { path: "/users/:email/send-login-link", method: "POST", params: ["email"] },
+            "send-email-confirmation": { path: "/users/:email/send-email-confirmation", method: "POST", params: ["email"] },
+            post_teams: { path: "/teams/", method: "POST", params: [] },
+            get_team: { path: "/teams/:teamID", method: "GET", params: ["teamID"] },
+            patch_team: { path: "/teams/:teamID", method: "PATCH", params: ["teamID"] },
+            get_team_associations: { path: "/teams/:teamID/associations", method: "GET", params: ["teamID"] },
+            get_team_fans: { path: "/teams/:teamID/fans", method: "GET", params: ["teamID"] },
+            get_team_relationships: { path: "/teams/:teamID/relationships", method: "GET", params: ["teamID"] },
+            get_team_users: { path: "/teams/:teamID/users", method: "GET", params: ["teamID"] },
+            get_messaging_channel: { path: "/teams/:teamID/messaging-channel", method: "GET", params: ["teamID"] },
+            post_team_avatar_image: { path: "/teams/:teamID/avatar-image", method: "POST", params: ["teamID"] },
+            delete_team_avatar_image: { path: "/teams/:teamID/avatar-image", method: "DELETE", params: ["teamID"] },
+            get_team_avatar_image: { path: "/teams/:teamID/avatar-image", method: "GET", params: ["teamID"] },
+            get_team_notification_setting: { path: "/teams/:teamID/team-notification-setting", method: "GET", params: ["teamID"] },
+            patch_team_notification_setting: { path: "/teams/:teamID/team-notification-setting", method: "PATCH", params: ["teamID"] },
+            get_team_high_school_info: { path: "/teams/:teamID/high-school-info", method: "GET", params: ["teamID"] },
+            post_team_high_school_info: { path: "/teams/:teamID/high-school-info", method: "POST", params: ["teamID"] },
+            post_maxpreps_team_import: { path: "/integrations/teams/maxpreps/import", method: "POST", params: [] },
+            post_me_bats_import_initiate: { path: "/me/bats-import/initiate", method: "POST", params: [] },
+            get_team_external_associations: { path: "/teams/:teamID/external-associations", method: "GET", params: ["teamID"] },
+            get_public_team_summary: { path: "/teams/:teamID/public-summary", method: "GET", params: ["teamID"] },
+            get_schedule_events: { path: "/teams/:teamID/schedule", method: "GET", params: ["teamID"] },
+            post_reimport_external_events: { path: "/teams/:teamID/schedule/reimport-external-events", method: "POST", params: ["teamID"] },
+            post_schedule_events: { path: "/teams/:teamID/schedule/events/", method: "POST", params: ["teamID"] },
+            patch_schedule_event: { path: "/teams/:teamID/schedule/events/:eventID/", method: "PATCH", params: ["teamID", "eventID"] },
+            delete_schedule_event: { path: "/teams/:teamID/schedule/events/:eventID/", method: "PATCH", params: ["teamID", "eventID"] }, // Note: method is PATCH in Jwr
+            get_schedule_event_video_stream: { path: "/teams/:teamID/schedule/events/:eventID/video-stream/", method: "GET", params: ["teamID", "eventID"] },
+            patch_roster_rollover: { path: "/teams/:teamID/rollover", method: "PATCH", params: ["teamID"] },
+            get_event: { path: "/events/:eventID", method: "GET", params: ["eventID"] },
+            get_event_rsvp: { path: "/teams/:teamID/schedule/events/:eventID/rsvp-responses", method: "GET", params: ["teamID", "eventID"] },
+            put_event_rsvp_for_player: { path: "/teams/:teamID/schedule/events/:eventID/rsvp-responses/player/:playerID", method: "PUT", params: ["teamID", "eventID", "playerID"] },
+            put_event_rsvp_for_user: { path: "/teams/:teamID/schedule/events/:eventID/rsvp-responses/user/:userID", method: "PUT", params: ["teamID", "eventID", "userID"] },
+            post_schedule_event_series: { path: "/teams/:teamID/schedule/event-series/", method: "POST", params: ["teamID"] },
+            get_schedule_event_series: { path: "/teams/:teamID/schedule/event-series/:seriesID", method: "GET", params: ["teamID", "seriesID"] },
+            get_schedule_event_series_events: { path: "/teams/:teamID/schedule/event-series/:seriesID/events", method: "GET", params: ["teamID", "seriesID"] },
+            patch_schedule_event_series: { path: "/teams/:teamID/schedule/event-series/:seriesID/", method: "PATCH", params: ["teamID", "seriesID"] },
+            delete_schedule_event_series: { path: "/teams/:teamID/schedule/event-series/:seriesID/", method: "PATCH", params: ["teamID", "seriesID"] }, // Note: method is PATCH in Jwr
+            get_team_game_summaries: { path: "/teams/:teamID/game-summaries", method: "GET", params: ["teamID"] },
+            get_team_game_summary: { path: "/teams/:teamID/game-summaries/:eventID", method: "GET", params: ["teamID", "eventID"] },
+            get_batch_simple_scorekeeping_game_data_result: { path: "/teams/:teamID/schedule/batch-simple-scorekeeping-data", method: "GET", params: ["teamID"] },
+            get_simple_scorekeeping_game_data: { path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data", method: "GET", params: ["teamID", "eventId"] },
+            post_simple_scorekeeping_game_data: { path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data", method: "POST", params: ["teamID", "eventId"] },
+            patch_simple_scorekeeping_game_data: { path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data", method: "PATCH", params: ["teamID", "eventId"] },
+            patch_simple_scorekeeping_game_data_after_game: { path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data-after-game", method: "PATCH", params: ["teamID", "eventId"] },
+            post_simple_scorekeeping_game_data_after_game: { path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/game-data-after-game", method: "POST", params: ["teamID", "eventId"] },
+            post_simple_scorekeeping_share_time: { path: "/teams/:teamID/schedule/events/:eventId/simple-scorekeeping/share-time", method: "POST", params: ["teamID", "eventId"] },
+            get_event_bats_scorekeeping_data: { path: "/teams/:teamID/schedule/events/:eventId/scorekeeping-data/bats", method: "GET", params: ["teamID", "eventId"] },
+            get_players: { path: "/teams/:teamID/players", method: "GET", params: ["teamID"] },
+            post_players: { path: "/teams/:teamID/players/", method: "POST", params: ["teamID"] },
+            patch_player: { path: "/players/:playerID", method: "PATCH", params: ["playerID"] },
+            delete_player: { path: "/players/:playerID", method: "DELETE", params: ["playerID"] },
+            patch_player_family_relationships: { path: "/players/:playerID/family-relationships", method: "PATCH", params: ["playerID"] },
+            get_simple_scorekeeping_team_config: { path: "/teams/:teamID/simple-scorekeeping/config", method: "GET", params: ["teamID"] },
+            post_simple_scorekeeping_team_config: { path: "/teams/:teamID/simple-scorekeeping/config", method: "POST", params: ["teamID"] },
+            post_opponent_team: { path: "/teams/:owningTeamId/opponent/", method: "POST", params: ["owningTeamId"] },
+            get_opponent_team: { path: "/teams/:owningTeamID/opponent/:rootTeamID", method: "GET", params: ["owningTeamID", "rootTeamID"] },
+            get_me_user: { path: "/me/user", method: "GET", params: [] },
+            get_me_subscription_information: { path: "/me/subscription-information", method: "GET", params: [] },
+            get_me_team: { path: "/me/teams", method: "GET", params: [] },
+            get_me_team_stats: { path: "/teams/:teamID/season-stats", method: "GET", params: ["teamID"] }, // JWR has params: vr() but path indicates teamID
+            get_player_stats: { path: "/teams/:teamID/players/:playerID/stats", method: "GET", params: ["teamID", "playerID"] },
+            get_player_game_stats: { path: "/teams/:teamID/schedule/events/:eventID/player-stats", method: "GET", params: ["teamID", "eventID"] },
+            put_game_stat_edit_collection: { path: "/game-streams/:gameStreamID/game-stat-edit-collection/:lastGameStreamEventID", method: "PUT", params: ["gameStreamID", "lastGameStreamEventID"] },
+            get_game_stat_edit_collection: { path: "/game-streams/:gameStreamID/game-stat-edit-collection/:lastGameStreamEventID", method: "GET", params: ["gameStreamID", "lastGameStreamEventID"] },
+            get_me_permissions: { path: "/me/permissions", method: "GET", params: [] },
+            get_me_permissions_v2: { path: "/me/permissions/:scopingEntityType/:scopingEntityId", method: "GET", params: ["scopingEntityType", "scopingEntityId"] },
+            get_me_permissions_v2_all: { path: "/me/permissions/all", method: "GET", params: [] },
+            patch_me_password: { path: "/me/password", method: "PATCH", params: [] },
+            get_me_external_calendar_sync_url: { path: "/me/external-calendar-sync-url", method: "GET", params: [] },
+            get_me_pending_teams: { path: "/me/pending-teams", method: "GET", params: [] },
+            post_me_client_backup: { path: "/me/client-backups", method: "POST", params: [] },
+            delete_me_relationship_requests: { path: "/me/relationship-requests/:teamID", method: "DELETE", params: ["teamID"] },
+            get_me_twilio_chat: { path: "/me/tokens/twilio-chat", method: "GET", params: [] },
+            get_me_organizations: { path: "/me/organizations", method: "GET", params: [] },
+            post_me_firebase_token: { path: "/me/tokens/firebase", method: "POST", params: [] },
+            get_team_updates: { path: "/sync-topics/teams/:teamID/updates", method: "GET", params: ["teamID"] },
+            get_team_topic_state: { path: "/sync-topics/teams/:teamID/topic-state", method: "GET", params: ["teamID"] },
+            get_global_topic_state: { path: "/sync-topics/global/topic-state", method: "GET", params: [] },
+            get_messaging_channel_image: { path: "/channels/:channelId/images/:imageId", method: "GET", params: ["channelId", "imageId"] },
+            get_messaging_channel_images: { path: "/channels/:channelId/images", method: "GET", params: ["channelId"] },
+            post_messaging_channel_image: { path: "/channels/:channelId/images", method: "POST", params: ["channelId"] },
+            post_messaging_channel_video: { path: "/channels/:channelId/videos", method: "POST", params: ["channelId"] },
+            get_messaging_channel_video: { path: "/channels/:channelId/videos/:videoId", method: "GET", params: ["channelId", "videoId"] },
+            get_messaging_channel_videos: { path: "/channels/:channelId/videos", method: "GET", params: ["channelId"] },
+            delete_messaging_media: { path: "/channels/:channelId/media/:mediaId", method: "DELETE", params: ["channelId", "mediaId"] },
+            get_simple_scorekeeping_configs: { path: "/simple-scorekeeping-configs/", method: "GET", params: [] },
+            post_provider_user_authenticate: { path: "/authentication-provider/:provider/user-authenticate", method: "POST", params: ["provider"] },
+            get_bsb_teams: { path: "/integrations/teams", method: "GET", params: [] },
+            post_team_import: { path: "/integrations/teams/import", method: "POST", params: [] },
+            get_bats_player_attributes: { path: "/player-attributes/:playerId/bats/", method: "GET", params: ["playerId"] },
+            post_bats_player_attributes: { path: "/player-attributes/:playerId/bats/", method: "POST", params: ["playerId"] },
+            patch_bats_player_attributes: { path: "/player-attributes/:playerId/bats/", method: "PATCH", params: ["playerId"] },
+            post_bats_scorekeeping_data: { path: "/scorekeeping-data/bats/:batsScorekeepingDataId/", method: "POST", params: ["batsScorekeepingDataId"] },
+            patch_bats_scorekeeping_data: { path: "/scorekeeping-data/bats/:batsScorekeepingDataId/", method: "PATCH", params: ["batsScorekeepingDataId"] },
+            get_bats_scorekeeping_data: { path: "/scorekeeping-data/bats/:batsScorekeepingDataId/", method: "GET", params: ["batsScorekeepingDataId"] },
+            get_bats_scorekeeping_data_event_ids: { path: "/scorekeeping-data/bats/:batsScorekeepingDataId/event-ids", method: "GET", params: ["batsScorekeepingDataId"] },
+            post_bats_scorekeeping_event: { path: "/scorekeeping-events/bats/:batsScorekeepingEventId/", method: "POST", params: ["batsScorekeepingEventId"] },
+            get_bats_scorekeeping_event: { path: "/scorekeeping-events/bats/:batsScorekeepingEventId/", method: "GET", params: ["batsScorekeepingEventId"] },
+            post_pregame_data: { path: "/pregame-data/", method: "POST", params: [] },
+            get_pregame_data: { path: "/pregame-data/:pregameDataId", method: "GET", params: ["pregameDataId"] },
+            opponent_search: { path: "/search/opponent-import", method: "GET", params: ["startAt", "name", "ageGroup", "competitionLevel", "city", "state", "country", "season", "year", "sport", "filterSeasons", "filterIncludeOlderSeasons", "filterCity", "filterState", "filterLat", "filterLong"] },
+            get_maxpreps_school_search: { path: "/search/maxpreps-school", method: "GET", params: ["name", "start_at"] },
+            post_opponent_team_import: { path: "/teams/:teamID/opponent/import", method: "POST", params: ["teamID"] },
+            post_opponent_team_legacy_import: { path: "/teams/:teamID/opponent/legacy-import", method: "POST", params: ["teamID"] },
+            get_event_best_stream_id: { path: "/events/:eventID/best-game-stream-id", method: "GET", params: ["eventID"] },
+            get_game_stream: { path: "/game-streams/:streamID", method: "GET", params: ["streamID"] },
+            get_game_stream_events: { path: "/game-streams/:streamID/events", method: "GET", params: ["streamID"] },
+            get_game_stream_viewer_payload_lite: { path: "/game-streams/gamestream-viewer-payload-lite/:eventID", method: "GET", params: ["eventID"] },
+            get_bats_starting_lineup: { path: "/bats-starting-lineups/:lineupId", method: "GET", params: ["lineupId"] },
+            patch_bats_starting_lineup: { path: "/bats-starting-lineups/:lineupId", method: "PATCH", params: ["lineupId"] },
+            post_bats_starting_lineup: { path: "/bats-starting-lineups/", method: "POST", params: [] },
+            get_latest_bats_starting_lineup: { path: "/bats-starting-lineups/latest/:teamID", method: "GET", params: ["teamID"] },
+            get_player_profile_photo: { path: "/players/:playerID/profile-photo", method: "GET", params: ["playerID"] },
+            get_organization: { path: "/organizations/:orgID", method: "GET", params: ["orgID"] },
+            get_organization_teams: { path: "/organizations/:orgID/teams", method: "GET", params: ["orgID"] },
+            get_organization_users: { path: "/organizations/:orgID/users", method: "GET", params: ["orgID"] },
+            post_organization_schedule_event: { path: "/organizations/:orgID/events", method: "POST", params: ["orgID"] },
+            post_organization_schedule_event_bulk: { path: "/organizations/:orgID/events/bulk", method: "POST", params: ["orgID"] },
+            post_organization_schedule_event_bulk_validate: { path: "/organizations/:orgID/events/bulk/validate", method: "POST", params: ["orgID"] },
+            post_organization_teams: { path: "/organizations/:orgID/teams", method: "POST", params: ["orgID"] },
+            patch_organization_schedule_event: { path: "/organizations/:orgID/events/:eventID", method: "PATCH", params: ["orgID", "eventID"] },
+            get_organization_schedule_event_bulk_upload_template: { path: "/organizations/:orgID/events/bulk/template", method: "GET", params: ["orgID"] },
+            get_organization_leaderboards: { path: "/organizations/:orgID/leaderboards", method: "GET", params: ["orgID"] },
+            get_organization_schedule_event_results_export: { path: "/organizations/:orgID/events/results/export", method: "GET", params: ["orgID"] },
+            get_player_video_clip_asset_metadata: { path: "/teams/:teamID/video-clips/player/:playerID/clips", method: "GET", params: ["playerID", "teamID"] },
+            get_video_clip: { path: "/teams/:teamID/video-clips/playable-clip/:clipID/clip", method: "GET", params: ["teamID", "clipID"] },
+            get_all_schedule_event_stream_asset_metadata: { path: "/teams/:teamID/schedule/events/:eventID/video-stream/assets", method: "GET", params: ["teamID", "eventID"] },
+            get_stream_asset_playback_data: { path: "/teams/:teamID/schedule/events/:eventID/video-stream/assets/playback", method: "GET", params: ["teamID", "eventID"] },
+            get_all_team_stream_asset_metadata: { path: "/teams/:teamID/video-stream/assets", method: "GET", params: ["teamID"] },
+            patch_stream_asset_metadata: { path: "/teams/:teamID/schedule/events/:eventID/video-stream/assets/:assetID/hidden", method: "PATCH", params: ["teamID", "eventID", "assetID"] },
+            post_team_community_pass: { path: "/teams/:teamID/community-pass", method: "POST", params: ["teamID"] },
+            get_opponent_teams: { path: "/teams/:teamID/opponents", method: "GET", params: ["teamID"] },
+            patch_opponent_team: { path: "/teams/:teamID/opponent/:opponentTeamID", method: "PATCH", params: ["teamID", "opponentTeamID"] },
+            get_athlete_profile_by_handle_public: { path: "/public/athlete-profile/:handle", method: "GET", params: ["handle"] },
+            get_athlete_profile_clips_public: { path: "/public/athlete-profile/:athleteProfileID/clips", method: "GET", params: ["athleteProfileID"] },
+            get_athlete_profile_authenticated_clip_url_public: { path: "/public/athlete-profile/:athleteProfileID/clips/:clipID/authenticatedUrl", method: "GET", params: ["athleteProfileID", "clipID"] },
+            get_athlete_profile_career_stats_public: { path: "/public/athlete-profile/:athleteProfileID/career-stats", method: "GET", params: ["athleteProfileID"] },
+            get_team_public_profile_id: { path: "/teams/:teamID/public-team-profile-id", method: "GET", params: ["teamID"] }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             const getTokenButton = document.getElementById('getTokenButton');
             const tokenInfoDiv = document.getElementById('tokenInfo');
-            const loader = document.getElementById('loader');
-            const serverUrl = 'http://localhost:3000'; // Assuming server.js runs on port 3000
+            const tokenLoader = document.getElementById('tokenLoader');
+            const serverUrl = 'http://localhost:3000';
 
+            const apiEndpointSelect = document.getElementById('apiEndpointSelect');
+            const parameterInputsDiv = document.getElementById('parameterInputs');
+            const sendRequestButton = document.getElementById('sendRequestButton');
+            const apiResponseDiv = document.getElementById('apiResponse');
+            const requestLoader = document.getElementById('requestLoader');
+            const apiMethodDiv = document.getElementById('apiMethod');
+
+            // Populate dropdown
+            Object.keys(clientJwr).sort().forEach(apiKey => {
+                const option = document.createElement('option');
+                option.value = apiKey;
+                option.textContent = apiKey;
+                apiEndpointSelect.appendChild(option);
+            });
+
+            apiEndpointSelect.addEventListener('change', () => {
+                parameterInputsDiv.innerHTML = ''; // Clear previous inputs
+                apiMethodDiv.textContent = '';
+                sendRequestButton.disabled = true;
+                const selectedApiKey = apiEndpointSelect.value;
+
+                if (selectedApiKey && clientJwr[selectedApiKey]) {
+                    sendRequestButton.disabled = false;
+                    const endpoint = clientJwr[selectedApiKey];
+                    apiMethodDiv.textContent = `Method: ${endpoint.method} | Path: ${endpoint.path}`;
+
+                    // Path parameters (extracted from path string)
+                    const pathParams = endpoint.path.match(/:[a-zA-Z0-9_]+/g) || [];
+                    pathParams.forEach(param => {
+                        const paramName = param.substring(1); // Remove ":"
+                        const label = document.createElement('label');
+                        label.textContent = `Path Param - ${paramName}:`;
+                        label.style.display = 'block';
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.name = `path_${paramName}`;
+                        input.placeholder = paramName;
+                        input.className = 'param-input';
+                        parameterInputsDiv.appendChild(label);
+                        parameterInputsDiv.appendChild(input);
+                    });
+
+                    // Explicitly defined query parameters (from endpoint.params, if not already a path param)
+                    // This part assumes `endpoint.params` lists all potential query & path params.
+                    // A more robust solution would differentiate them or have a separate list for query params.
+                    if (endpoint.params && endpoint.params.length > 0) {
+                         endpoint.params.forEach(paramName => {
+                            // Add as query param input if not already a path param
+                            if (!pathParams.includes(`:${paramName}`)) {
+                                const label = document.createElement('label');
+                                label.textContent = `Query Param - ${paramName}:`;
+                                label.style.display = 'block';
+                                const input = document.createElement('input');
+                                input.type = 'text';
+                                input.name = `query_${paramName}`;
+                                input.placeholder = `${paramName} (optional)`;
+                                input.className = 'param-input';
+                                parameterInputsDiv.appendChild(label);
+                                parameterInputsDiv.appendChild(input);
+                            }
+                        });
+                    }
+                    // Add a generic query params field for any other query params
+                    const qLabel = document.createElement('label');
+                    qLabel.textContent = `Additional Query Params (e.g., key1=value1&key2=value2):`;
+                    qLabel.style.display = 'block';
+                    const qInput = document.createElement('input');
+                    qInput.type = 'text';
+                    qInput.name = 'additional_query_params';
+                    qInput.placeholder = 'key=value&key2=value2...';
+                    qInput.className = 'param-input';
+                    parameterInputsDiv.appendChild(qLabel);
+                    parameterInputsDiv.appendChild(qInput);
+
+
+                    if (['POST', 'PUT', 'PATCH'].includes(endpoint.method.toUpperCase())) {
+                        const label = document.createElement('label');
+                        label.textContent = 'Request Body (JSON):';
+                        label.style.display = 'block';
+                        const textarea = document.createElement('textarea');
+                        textarea.name = 'requestBody';
+                        textarea.rows = 5;
+                        textarea.placeholder = 'Enter JSON body here';
+                        textarea.className = 'param-input';
+                        parameterInputsDiv.appendChild(label);
+                        parameterInputsDiv.appendChild(textarea);
+                    }
+                }
+            });
+
+            sendRequestButton.addEventListener('click', async () => {
+                const selectedApiKey = apiEndpointSelect.value;
+                if (!selectedApiKey || !clientJwr[selectedApiKey]) {
+                    apiResponseDiv.innerHTML = '<p>Please select a valid endpoint.</p>';
+                    return;
+                }
+
+                const endpoint = clientJwr[selectedApiKey];
+                let path = endpoint.path;
+                const queryParams = new URLSearchParams();
+                let requestBody = null;
+
+                // Collect path parameters
+                const pathParamInputs = parameterInputsDiv.querySelectorAll('input[name^="path_"]');
+                pathParamInputs.forEach(input => {
+                    const paramName = input.name.substring(5); // "path_".length
+                    if (input.value) {
+                        path = path.replace(`:${paramName}`, encodeURIComponent(input.value));
+                    }
+                });
+
+                // Collect query parameters
+                const queryParamInputs = parameterInputsDiv.querySelectorAll('input[name^="query_"]');
+                queryParamInputs.forEach(input => {
+                     const paramName = input.name.substring(6); // "query_".length
+                    if (input.value) {
+                        queryParams.set(paramName, input.value);
+                    }
+                });
+
+                const additionalParamsInput = parameterInputsDiv.querySelector('input[name="additional_query_params"]');
+                if (additionalParamsInput && additionalParamsInput.value) {
+                    const additional = new URLSearchParams(additionalParamsInput.value);
+                    additional.forEach((value, key) => queryParams.set(key, value));
+                }
+
+                const queryString = queryParams.toString();
+                if (queryString) {
+                    path += `?${queryString}`;
+                }
+
+                const fetchOptions = {
+                    method: endpoint.method.toUpperCase(),
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // Authorization header with token will be added by server.js proxy if needed
+                    }
+                };
+
+                if (['POST', 'PUT', 'PATCH'].includes(endpoint.method.toUpperCase())) {
+                    const bodyTextarea = parameterInputsDiv.querySelector('textarea[name="requestBody"]');
+                    if (bodyTextarea && bodyTextarea.value) {
+                        try {
+                            requestBody = JSON.parse(bodyTextarea.value);
+                            fetchOptions.body = JSON.stringify(requestBody);
+                        } catch (e) {
+                            apiResponseDiv.innerHTML = `<p style="color:red;">Invalid JSON in request body: ${e.message}</p>`;
+                            return;
+                        }
+                    } else if (endpoint.method.toUpperCase() !== 'GET' && endpoint.method.toUpperCase() !== 'DELETE') {
+                        // Send empty JSON object if body is expected but not provided,
+                        // as some POST/PUT/PATCH might expect Content-Type application/json even with empty body.
+                         fetchOptions.body = JSON.stringify({});
+                    }
+                }
+
+                requestLoader.style.display = 'block';
+                apiResponseDiv.innerHTML = '<p>Sending request...</p>';
+
+                try {
+                    const response = await fetch(`${serverUrl}${path}`, fetchOptions);
+                    const responseData = await response.text(); // Get as text first
+                    requestLoader.style.display = 'none';
+
+                    let formattedResponse;
+                    try {
+                        // Try to parse as JSON for pretty printing
+                        const jsonData = JSON.parse(responseData);
+                        formattedResponse = `<p>Status: ${response.status} ${response.statusText}</p><pre>${JSON.stringify(jsonData, null, 2)}</pre>`;
+                    } catch (e) {
+                        // If not JSON, display as plain text
+                        formattedResponse = `<p>Status: ${response.status} ${response.statusText}</p><pre>${responseData}</pre>`;
+                    }
+                    apiResponseDiv.innerHTML = formattedResponse;
+
+                } catch (error) {
+                    requestLoader.style.display = 'none';
+                    apiResponseDiv.innerHTML = `<p style="color:red;"><strong>Network or client-side error:</strong> ${error.message}</p>`;
+                    console.error('Error sending API request:', error);
+                }
+            });
+
+            // getTokenButton functionality (existing, but using tokenLoader)
             getTokenButton.addEventListener('click', async () => {
-                loader.style.display = 'block';
+                tokenLoader.style.display = 'block';
                 tokenInfoDiv.innerHTML = '<p>Fetching token...</p>';
-
                 try {
                     const response = await fetch(`${serverUrl}/refresh_token`);
                     const data = await response.json();
-
-                    loader.style.display = 'none';
-
+                    tokenLoader.style.display = 'none';
                     if (response.ok) {
                         const expiryDate = new Date(data.expires * 1000);
                         tokenInfoDiv.innerHTML = `
@@ -49,11 +404,14 @@
                         `;
                     }
                 } catch (error) {
-                    loader.style.display = 'none';
+                    tokenLoader.style.display = 'none';
                     tokenInfoDiv.innerHTML = `<p><strong>Network or client-side error:</strong> ${error.message}</p>`;
                     console.error('Error fetching token:', error);
                 }
             });
+
+            // JavaScript for populating dropdown, generating inputs, and sending requests
+            // will be added in the next step.
         });
     </script>
 </body>
