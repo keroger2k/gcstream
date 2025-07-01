@@ -1493,9 +1493,13 @@ const MONGO_URL = process.env.MONGO_URL || "mongodb://192.168.10.67:27017/gcdb";
 
 const MONGO_COLLECTION_NAME = "TokenCollection"; // This could also be an env var
 
+const DEPLOY_URL = process.env.DEPLOY_URL || null;
+
 // CORS configuration
 const corsOptions = {
-  origin: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8080', 'http://127.0.0.1:8080'],
+  origin: DEPLOY_URL
+    ? [DEPLOY_URL, 'http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8080', 'http://127.0.0.1:8080']
+    : ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8080', 'http://127.0.0.1:8080'],
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -1998,10 +2002,11 @@ Object.entries(Jwr).forEach(([apiKey, apiDefinition]) => {
 });
 
 app.listen(port, () => {
-    console.log(`Proxy server listening at http://localhost:${port}`);
+    const baseUrl = process.env.DEPLOY_URL || `http://localhost:${port}`;
+    console.log(`Proxy server listening at ${baseUrl}`);
     console.log('CORS enabled for origins: ' + corsOptions.origin.join(', '));
     console.log('Endpoints:');
-    console.log(`  GET  http://localhost:${port}/refresh_token (gets/refreshes token from MongoDB)`);
-    console.log(`  GET  http://localhost:${port}/ (test endpoint)`);
+    console.log(`  GET  ${baseUrl}/refresh_token (gets/refreshes token from MongoDB)`);
+    console.log(`  GET  ${baseUrl}/ (test endpoint)`);
     console.log('Dynamically created GC API proxy endpoints from Jwr will also be available.');
 });
