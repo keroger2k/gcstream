@@ -2011,19 +2011,9 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: `http://localhost:${port}/`, // Ensure trailing slash for base path
-      description: 'Local Development Server API',
-    },
-    {
       url: 'https://gc-stats-api.36technology.com/', // Ensure trailing slash
       description: 'Production API Server',
     }
-    // Note: The DEPLOY_URL logic was removed temporarily to simplify and debug.
-    // It can be added back carefully if needed, ensuring it produces clean base URLs.
-    // For example, if DEPLOY_URL is set to 'https://gc-stats-api.36technology.com', the URL for swagger should be 'https://gc-stats-api.36technology.com/'
-    // A robust way to handle DEPLOY_URL:
-    // const productionBaseUrl = (process.env.DEPLOY_URL || 'https://gc-stats-api.36technology.com').replace(/\/$/, '') + '/';
-    // then use productionBaseUrl in the servers array.
   ],
   components: {
     securitySchemes: {
