@@ -1721,23 +1721,27 @@ async function forwardApiCall(req, res, apiDefinition) {
 
         // 2. Construct Target URL
         // Replace path parameters (e.g., :teamID) with values from req.params
-        let effectivePath = apiPath;
-        for (const paramName of (expectedParams || [])) {
-            if (req.params[paramName]) {
-                effectivePath = effectivePath.replace(`:${paramName}`, req.params[paramName]);
-            } else if (req.query[paramName] && (method === gr.GET || method === gr.DELETE)) { // Also check query for GET/DELETE
-                // Query params will be added later by `new URL` if not part of path
-            } else if (!effectivePath.includes(`:${paramName}`)) {
-                // Param is expected but not in path, assume it's a query param
-            } else {
-                 // Only warn if it's a path parameter that's missing. Query params are optional unless specified by inputType
-                console.warn(`[${new Date().toISOString()}] Path parameter :${paramName} missing for ${method} ${req.path}`);
+        let effectivePath = apiPath; // Example: "/teams/:teamID/managers/:userID"
+
+        // Iterate over the keys in req.params (e.g., { teamID: "actual_value", userID: "another_value" })
+        // These keys are determined by Express based on the route definition.
+        for (const key in req.params) {
+            if (Object.prototype.hasOwnProperty.call(req.params, key)) {
+                const placeholder = `:${key}`; // e.g., ":teamID"
+                // Ensure global replacement if a param name could appear multiple times (unlikely in standard REST paths but safer)
+                const regex = new RegExp(placeholder, 'g');
+                if (effectivePath.includes(placeholder)) {
+                    effectivePath = effectivePath.replace(regex, req.params[key]);
+                    console.log(`[${new Date().toISOString()}] Path param substitution: ${placeholder} -> ${req.params[key]}. New path: ${effectivePath}`);
+                }
             }
         }
 
         const targetUrl = new URL(API_URL + effectivePath);
 
-        // Add query parameters from req.query that are either in expectedParams or if no expectedParams are defined (less strict)
+        // Add query parameters from req.query.
+        // The previous logic for expectedParams for query params might need review if issues persist there,
+        // but path parameters are the current focus.
         // More sophisticated input validation based on `inputType` would go here.
         if (method === gr.GET || method === gr.DELETE) { // Common for GET, sometimes DELETE
             Object.entries(req.query).forEach(([key, value]) => {
