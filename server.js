@@ -3,6 +3,8 @@ const fetch = require('node-fetch');
 const crypto = require('crypto');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 // Placeholder objects for API logic dependencies
 const gr = {
@@ -1719,23 +1721,27 @@ async function forwardApiCall(req, res, apiDefinition) {
 
         // 2. Construct Target URL
         // Replace path parameters (e.g., :teamID) with values from req.params
-        let effectivePath = apiPath;
-        for (const paramName of (expectedParams || [])) {
-            if (req.params[paramName]) {
-                effectivePath = effectivePath.replace(`:${paramName}`, req.params[paramName]);
-            } else if (req.query[paramName] && (method === gr.GET || method === gr.DELETE)) { // Also check query for GET/DELETE
-                // Query params will be added later by `new URL` if not part of path
-            } else if (!effectivePath.includes(`:${paramName}`)) {
-                // Param is expected but not in path, assume it's a query param
-            } else {
-                 // Only warn if it's a path parameter that's missing. Query params are optional unless specified by inputType
-                console.warn(`[${new Date().toISOString()}] Path parameter :${paramName} missing for ${method} ${req.path}`);
+        let effectivePath = apiPath; // Example: "/teams/:teamID/managers/:userID"
+
+        // Iterate over the keys in req.params (e.g., { teamID: "actual_value", userID: "another_value" })
+        // These keys are determined by Express based on the route definition.
+        for (const key in req.params) {
+            if (Object.prototype.hasOwnProperty.call(req.params, key)) {
+                const placeholder = `:${key}`; // e.g., ":teamID"
+                // Ensure global replacement if a param name could appear multiple times (unlikely in standard REST paths but safer)
+                const regex = new RegExp(placeholder, 'g');
+                if (effectivePath.includes(placeholder)) {
+                    effectivePath = effectivePath.replace(regex, req.params[key]);
+                    console.log(`[${new Date().toISOString()}] Path param substitution: ${placeholder} -> ${req.params[key]}. New path: ${effectivePath}`);
+                }
             }
         }
 
         const targetUrl = new URL(API_URL + effectivePath);
 
-        // Add query parameters from req.query that are either in expectedParams or if no expectedParams are defined (less strict)
+        // Add query parameters from req.query.
+        // The previous logic for expectedParams for query params might need review if issues persist there,
+        // but path parameters are the current focus.
         // More sophisticated input validation based on `inputType` would go here.
         if (method === gr.GET || method === gr.DELETE) { // Common for GET, sometimes DELETE
             Object.entries(req.query).forEach(([key, value]) => {
@@ -1962,22 +1968,6 @@ app.get('/', (req, res) => {
     res.send('JWT Refresh Proxy Server is running with MongoDB support! <a href="/api-docs">View API Docs</a>');
 });
 
-// Serve OpenAPI/Swagger specification
-const fs = require('fs');
-const path = require('path');
-app.get('/openapi.yaml', (req, res) => {
-    try {
-        const filePath = path.join(__dirname, 'openapi.yaml');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        res.setHeader('Content-Type', 'text/yaml'); // Or application/x-yaml
-        res.send(fileContents);
-    } catch (error) {
-        console.error("Error reading openapi.yaml:", error);
-        res.status(500).send("Could not load OpenAPI specification.");
-    }
-});
-
-
 // --- Dynamically create routes from Jwr object ---
 Object.entries(Jwr).forEach(([apiKey, apiDefinition]) => {
     const httpMethod = apiDefinition.method; // This will be e.g., gr.POST, which needs to be mapped
@@ -2009,4 +1999,172 @@ app.listen(port, () => {
     console.log(`  GET  ${baseUrl}/refresh_token (gets/refreshes token from MongoDB)`);
     console.log(`  GET  ${baseUrl}/ (test endpoint)`);
     console.log('Dynamically created GC API proxy endpoints from Jwr will also be available.');
+});
+
+// --- OpenAPI Specification Setup ---
+const swaggerDefinition = {
+  openapi: '3.0.3',
+  info: {
+    title: 'GameChanger API Proxy (Dynamic)',
+    version: 'v1.0.0',
+    description: 'A dynamically generated OpenAPI specification for the GameChanger API proxy. All endpoints are proxied to the GameChanger API.',
+  },
+  servers: [
+    {
+      url: `http://localhost:${port}/`, // Ensure trailing slash for base path
+      description: 'Local Development Server API',
+    },
+    {
+      url: 'https://gc-stats-api.36technology.com/', // Ensure trailing slash
+      description: 'Production API Server',
+    }
+    // Note: The DEPLOY_URL logic was removed temporarily to simplify and debug.
+    // It can be added back carefully if needed, ensuring it produces clean base URLs.
+    // For example, if DEPLOY_URL is set to 'https://gc-stats-api.36technology.com', the URL for swagger should be 'https://gc-stats-api.36technology.com/'
+    // A robust way to handle DEPLOY_URL:
+    // const productionBaseUrl = (process.env.DEPLOY_URL || 'https://gc-stats-api.36technology.com').replace(/\/$/, '') + '/';
+    // then use productionBaseUrl in the servers array.
+  ],
+  components: {
+    securitySchemes: {
+      // If your API uses security schemes like Bearer token, define them here
+      // For example:
+      // bearerAuth: {
+      //   type: 'http',
+      //   scheme: 'bearer',
+      //   bearerFormat: 'JWT',
+      // },
+    },
+    schemas: {
+        // Define common schemas here if any. For now, most are generic objects.
+        GenericRequest: {
+            type: 'object',
+            description: 'Generic request body. Specific properties vary by endpoint.'
+        },
+        GenericResponse: {
+            type: 'object',
+            description: 'Generic response body. Specific properties vary by endpoint.'
+        },
+        ErrorResponse: {
+            type: 'object',
+            properties: {
+                error: { type: 'string' },
+                details: { type: 'string' }
+            }
+        }
+    }
+  },
+  paths: {} // Paths will be populated dynamically
+};
+
+// Function to transform Jwr entries to OpenAPI paths
+function generateOpenApiPaths(jwrObject) {
+  const paths = {};
+  for (const apiKey in jwrObject) {
+    const apiDef = jwrObject[apiKey];
+    const path = apiDef.path;
+    const method = apiDef.method.toLowerCase(); // e.g., 'get', 'post'
+
+    if (!paths[path]) {
+      paths[path] = {};
+    }
+
+    // Basic parameter mapping (from path, e.g., /teams/:teamID)
+    const parameters = (apiDef.params || []).map(paramName => {
+      if (path.includes(`:${paramName}`)) {
+        return {
+          name: paramName,
+          in: 'path',
+          required: true,
+          schema: { type: 'string' }, // Assuming string for now
+          description: `Parameter ${paramName}`
+        };
+      }
+      // Query parameters would need more info from JWR or a convention
+      // For GET/DELETE, other params might be query params.
+      // This is a simplification. The original openapi.yaml has more details for query params.
+      // We'd need to enhance JWR or make assumptions to fully replicate.
+      return null; // Placeholder for non-path params for now
+    }).filter(p => p !== null);
+
+    // Add query parameters for GET requests if they are in apiDef.params but not in path
+    if (method === 'get' && apiDef.params) {
+        apiDef.params.forEach(paramName => {
+            if (!path.includes(`:${paramName}`) && !parameters.some(p => p.name === paramName)) {
+                parameters.push({
+                    name: paramName,
+                    in: 'query',
+                    required: false, // Assuming query params are optional unless specified
+                    schema: { type: 'string' },
+                    description: `Query parameter ${paramName}`
+                });
+            }
+        });
+    }
+
+
+    paths[path][method] = {
+      summary: apiKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), // Generate a summary from the key
+      operationId: apiKey,
+      tags: path.split('/')[1] ? [path.split('/')[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())] : ['Default'], // Basic tagging
+      parameters: parameters.length > 0 ? parameters : undefined,
+      requestBody: (method === 'post' || method === 'put' || method === 'patch') ? {
+        description: `Request body for ${apiKey}`,
+        required: true, // Assuming body is required for these methods if defined
+        content: {
+          'application/json': {
+            schema: { $ref: '#/components/schemas/GenericRequest' } // Placeholder
+          }
+        }
+      } : undefined,
+      responses: {
+        '200': {
+          description: 'Successful response',
+          content: {
+            'application/json': {
+              schema: { $ref: '#/components/schemas/GenericResponse' } // Placeholder
+            }
+          }
+        },
+        '400': {
+          description: 'Bad Request',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        },
+        '401': {
+          description: 'Unauthorized',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        },
+        '404': {
+          description: 'Not Found',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        },
+        '500': {
+          description: 'Internal Server Error',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        }
+        // Add other common responses or derive from apiDef.outputType if possible
+      },
+      // security: authType !== mr.NONE ? [{ bearerAuth: [] }] : [], // Example security
+    };
+  }
+  return paths;
+}
+
+swaggerDefinition.paths = generateOpenApiPaths(Jwr);
+
+// Options for swagger-jsdoc
+const options = {
+  swaggerDefinition,
+  apis: [], // We are not using file paths here, as definition is constructed programmatically
+};
+
+const openapiSpecification = swaggerJsdoc(options);
+
+// Serve Swagger UI at /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+
+// Endpoint to serve the raw OpenAPI JSON specification
+app.get('/openapi.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(openapiSpecification);
 });
