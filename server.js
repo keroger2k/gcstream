@@ -2011,10 +2011,6 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: `http://localhost:${port}/`, // Ensure trailing slash for base path
-      description: 'Local Development Server API',
-    },
-    {
       url: 'https://gc-stats-api.36technology.com/', // Ensure trailing slash
       description: 'Production API Server',
     }
