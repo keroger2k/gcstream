@@ -2011,18 +2011,9 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: DEPLOY_URL && DEPLOY_URL.includes('gc-stats-api') ? DEPLOY_URL : (process.env.NODE_ENV === 'production' ? 'https://gc-stats-api.36technology.com/' : `http://localhost:${port}`),
-      description: DEPLOY_URL && DEPLOY_URL.includes('gc-stats-api') ? 'Production API Server' : (process.env.NODE_ENV === 'production' ? 'Production API Server (Fallback)' : 'Local Development Server API'),
-    },
-    {
-      url: DEPLOY_URL && DEPLOY_URL.includes('gc-stats.36technology.com') ? DEPLOY_URL.replace('gc-stats.36technology.com', 'gc-stats-api.36technology.com') : 'https://gc-stats-api.36technology.com/',
-      description: 'Production API Server (Explicit)'
-    },
-    // It might be useful to also list the UI server if Swagger UI is hosted there and makes calls to a different API URL.
-    // For now, focusing on API server URLs. The user mentioned two URLs:
-    // https://gc-stats.36technology.com (website)
-    // https://gc-stats-api.36technology.com (API)
-    // The DEPLOY_URL environment variable will determine the primary server URL.
+      url: 'https://gc-stats-api.36technology.com/', // Ensure trailing slash
+      description: 'Production API Server',
+    }
   ],
   components: {
     securitySchemes: {
