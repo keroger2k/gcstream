@@ -29,7 +29,7 @@ EXPOSE 8000
 RUN chmod +x ./start.sh
 
 # Set DEPLOY_URL environment variable for production deployments
-ENV DEPLOY_URL=proxy.36technology.com
+ENV DEPLOY_URL=gc-stats-api.36technology.com
 
 # Define the command to run both servers
 CMD ["./start.sh"]
