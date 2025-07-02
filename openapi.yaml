@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://localhost:3001
     description: Local development server proxy
-  - url: ${DEPLOY_URL}
+  - url: https://gc-stats-api.36technology.com/
     description: Production deployment (set DEPLOY_URL env variable)
 
 paths:
@@ -26,7 +26,7 @@ paths:
               properties:
                 client_id:
                   type: string
-                  example: "a0b1b2c8-522d-4b94-a6f5-fbab9342903d"
+                  example: 'a0b1b2c8-522d-4b94-a6f5-fbab9342903d'
       responses:
         '200':
           description: Client token received
@@ -282,10 +282,10 @@ paths:
               properties:
                 name:
                   type: string
-                  example: "The Winners"
+                  example: 'The Winners'
                 sport:
                   type: string
-                  example: "Baseball"
+                  example: 'Baseball'
       responses:
         '201':
           description: Team created successfully
@@ -1376,8 +1376,8 @@ paths:
       summary: Post Simple Scorekeeping Game Data After Game
       operationId: post_simple_scorekeeping_game_data_after_game
       tags:
-          - Teams
-          - Scorekeeping
+        - Teams
+        - Scorekeeping
       parameters:
         - name: teamID
           in: path
@@ -1409,8 +1409,8 @@ paths:
       summary: Patch Simple Scorekeeping Game Data After Game
       operationId: patch_simple_scorekeeping_game_data_after_game
       tags:
-          - Teams
-          - Scorekeeping
+        - Teams
+        - Scorekeeping
       parameters:
         - name: teamID
           in: path
@@ -3920,70 +3920,70 @@ paths:
         '404':
           description: Team not found
 
-# Example of how delete_schedule_event and delete_schedule_event_series could be handled if they were actual DELETE methods
-# This is for illustration; current implementation follows JWR's PATCH methods.
-#  /teams/{teamID}/schedule/events/{eventID}/:
-#    delete:
-#      summary: Delete Schedule Event
-#      operationId: delete_schedule_event_standard_delete
-#      tags:
-#        - Teams
-#        - Schedule
-#      parameters:
-#        - name: teamID
-#          in: path
-#          required: true
-#          schema:
-#            type: string
-#        - name: eventID
-#          in: path
-#          required: true
-#          schema:
-#            type: string
-#      responses:
-#        '204':
-#          description: Event deleted
-#        '404':
-#          description: Not found
+  # Example of how delete_schedule_event and delete_schedule_event_series could be handled if they were actual DELETE methods
+  # This is for illustration; current implementation follows JWR's PATCH methods.
+  #  /teams/{teamID}/schedule/events/{eventID}/:
+  #    delete:
+  #      summary: Delete Schedule Event
+  #      operationId: delete_schedule_event_standard_delete
+  #      tags:
+  #        - Teams
+  #        - Schedule
+  #      parameters:
+  #        - name: teamID
+  #          in: path
+  #          required: true
+  #          schema:
+  #            type: string
+  #        - name: eventID
+  #          in: path
+  #          required: true
+  #          schema:
+  #            type: string
+  #      responses:
+  #        '204':
+  #          description: Event deleted
+  #        '404':
+  #          description: Not found
 
-#  /teams/{teamID}/schedule/event-series/{seriesID}/:
-#    delete:
-#      summary: Delete Schedule Event Series
-#      operationId: delete_schedule_event_series_standard_delete
-#      tags:
-#        - Teams
-#        - Schedule
-#      parameters:
-#        - name: teamID
-#          in: path
-#          required: true
-#          schema:
-#            type: string
-#        - name: seriesID
-#          in: path
-#          required: true
-#          schema:
-#            type: string
-#      responses:
-#        '204':
-#          description: Event series deleted
-#        '404':
-#          description: Not found
-#
-# Note on duplicate PATCH operations for delete_schedule_event and delete_schedule_event_series:
-# OpenAPI requires unique operationId. If paths and methods are identical, they are considered the same operation.
-# The JWR has "delete_schedule_event" and "patch_schedule_event" both as PATCH to the same path.
-# This has been consolidated under "patch_schedule_event".
-# If "delete_schedule_event" is a PATCH with a specific body to signify deletion,
-# that should be documented as a specific use case of the PATCH operation.
-# The same applies to "delete_schedule_event_series".
-# I have added placeholder entries for the JWR's "delete_*" that are PATCH,
-# giving them unique operationIds for now, but this is not ideal OpenAPI.
-# A better approach would be to have a single PATCH and use the request body to differentiate actions,
-# or use proper DELETE HTTP methods if the API supports it.
-# For now, I will create entries for the "delete_*" PATCH methods from JWR if they are not already covered.
-# The current `patch_schedule_event` is for general updates.
-# The JWR `delete_schedule_event` with method PATCH is added below with a distinct operationId.
+  #  /teams/{teamID}/schedule/event-series/{seriesID}/:
+  #    delete:
+  #      summary: Delete Schedule Event Series
+  #      operationId: delete_schedule_event_series_standard_delete
+  #      tags:
+  #        - Teams
+  #        - Schedule
+  #      parameters:
+  #        - name: teamID
+  #          in: path
+  #          required: true
+  #          schema:
+  #            type: string
+  #        - name: seriesID
+  #          in: path
+  #          required: true
+  #          schema:
+  #            type: string
+  #      responses:
+  #        '204':
+  #          description: Event series deleted
+  #        '404':
+  #          description: Not found
+  #
+  # Note on duplicate PATCH operations for delete_schedule_event and delete_schedule_event_series:
+  # OpenAPI requires unique operationId. If paths and methods are identical, they are considered the same operation.
+  # The JWR has "delete_schedule_event" and "patch_schedule_event" both as PATCH to the same path.
+  # This has been consolidated under "patch_schedule_event".
+  # If "delete_schedule_event" is a PATCH with a specific body to signify deletion,
+  # that should be documented as a specific use case of the PATCH operation.
+  # The same applies to "delete_schedule_event_series".
+  # I have added placeholder entries for the JWR's "delete_*" that are PATCH,
+  # giving them unique operationIds for now, but this is not ideal OpenAPI.
+  # A better approach would be to have a single PATCH and use the request body to differentiate actions,
+  # or use proper DELETE HTTP methods if the API supports it.
+  # For now, I will create entries for the "delete_*" PATCH methods from JWR if they are not already covered.
+  # The current `patch_schedule_event` is for general updates.
+  # The JWR `delete_schedule_event` with method PATCH is added below with a distinct operationId.
 
   /teams/{teamID}/schedule/events/{eventID}/delete: # Making path slightly different for clarity if method is same
     patch: # As per JWR, method is PATCH
