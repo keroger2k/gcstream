@@ -2011,9 +2011,19 @@ const swaggerDefinition = {
   },
   servers: [
     {
+      url: `http://localhost:${port}/`, // Ensure trailing slash for base path
+      description: 'Local Development Server API',
+    },
+    {
       url: 'https://gc-stats-api.36technology.com/', // Ensure trailing slash
       description: 'Production API Server',
     }
+    // Note: The DEPLOY_URL logic was removed temporarily to simplify and debug.
+    // It can be added back carefully if needed, ensuring it produces clean base URLs.
+    // For example, if DEPLOY_URL is set to 'https://gc-stats-api.36technology.com', the URL for swagger should be 'https://gc-stats-api.36technology.com/'
+    // A robust way to handle DEPLOY_URL:
+    // const productionBaseUrl = (process.env.DEPLOY_URL || 'https://gc-stats-api.36technology.com').replace(/\/$/, '') + '/';
+    // then use productionBaseUrl in the servers array.
   ],
   components: {
     securitySchemes: {
@@ -2052,18 +2062,22 @@ function generateOpenApiPaths(jwrObject) {
   const paths = {};
   for (const apiKey in jwrObject) {
     const apiDef = jwrObject[apiKey];
-    const path = apiDef.path;
+    // Transform path from Express format (e.g., /teams/:teamID) to OpenAPI format (e.g., /teams/{teamID})
+    const openApiPath = apiDef.path.replace(/:([a-zA-Z0-9_]+)/g, '{$1}');
+    const originalPathForParamCheck = apiDef.path; // Keep original for checking param existence
     const method = apiDef.method.toLowerCase(); // e.g., 'get', 'post'
 
-    if (!paths[path]) {
-      paths[path] = {};
+    if (!paths[openApiPath]) {
+      paths[openApiPath] = {};
     }
 
     // Basic parameter mapping (from path, e.g., /teams/:teamID)
+    // Parameters names should be the plain names, e.g., "teamID"
     const parameters = (apiDef.params || []).map(paramName => {
-      if (path.includes(`:${paramName}`)) {
+      // Check if the parameter is a path parameter using the original path format
+      if (originalPathForParamCheck.includes(`:${paramName}`)) {
         return {
-          name: paramName,
+          name: paramName, // Plain name, e.g., "teamID"
           in: 'path',
           required: true,
           schema: { type: 'string' }, // Assuming string for now
@@ -2071,16 +2085,14 @@ function generateOpenApiPaths(jwrObject) {
         };
       }
       // Query parameters would need more info from JWR or a convention
-      // For GET/DELETE, other params might be query params.
-      // This is a simplification. The original openapi.yaml has more details for query params.
-      // We'd need to enhance JWR or make assumptions to fully replicate.
-      return null; // Placeholder for non-path params for now
+      return null;
     }).filter(p => p !== null);
 
     // Add query parameters for GET requests if they are in apiDef.params but not in path
     if (method === 'get' && apiDef.params) {
         apiDef.params.forEach(paramName => {
-            if (!path.includes(`:${paramName}`) && !parameters.some(p => p.name === paramName)) {
+            // Ensure it's not already added as a path parameter and it's not a path param from original path structure
+            if (!originalPathForParamCheck.includes(`:${paramName}`) && !parameters.some(p => p.name === paramName)) {
                 parameters.push({
                     name: paramName,
                     in: 'query',
@@ -2092,11 +2104,11 @@ function generateOpenApiPaths(jwrObject) {
         });
     }
 
-
-    paths[path][method] = {
+    // Use openApiPath (e.g., /teams/{teamID}) as the key for the paths object
+    paths[openApiPath][method] = {
       summary: apiKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), // Generate a summary from the key
       operationId: apiKey,
-      tags: path.split('/')[1] ? [path.split('/')[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())] : ['Default'], // Basic tagging
+      tags: openApiPath.split('/')[1] ? [openApiPath.split('/')[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()).replace(/{|}/g, '')] : ['Default'], // Basic tagging, remove braces for tag name
       parameters: parameters.length > 0 ? parameters : undefined,
       requestBody: (method === 'post' || method === 'put' || method === 'patch') ? {
         description: `Request body for ${apiKey}`,
