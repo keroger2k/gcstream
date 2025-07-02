@@ -3,6 +3,8 @@ const fetch = require('node-fetch');
 const crypto = require('crypto');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 // Placeholder objects for API logic dependencies
 const gr = {
@@ -1962,22 +1964,6 @@ app.get('/', (req, res) => {
     res.send('JWT Refresh Proxy Server is running with MongoDB support! <a href="/api-docs">View API Docs</a>');
 });
 
-// Serve OpenAPI/Swagger specification
-const fs = require('fs');
-const path = require('path');
-app.get('/openapi.yaml', (req, res) => {
-    try {
-        const filePath = path.join(__dirname, 'openapi.yaml');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        res.setHeader('Content-Type', 'text/yaml'); // Or application/x-yaml
-        res.send(fileContents);
-    } catch (error) {
-        console.error("Error reading openapi.yaml:", error);
-        res.status(500).send("Could not load OpenAPI specification.");
-    }
-});
-
-
 // --- Dynamically create routes from Jwr object ---
 Object.entries(Jwr).forEach(([apiKey, apiDefinition]) => {
     const httpMethod = apiDefinition.method; // This will be e.g., gr.POST, which needs to be mapped
@@ -2009,4 +1995,171 @@ app.listen(port, () => {
     console.log(`  GET  ${baseUrl}/refresh_token (gets/refreshes token from MongoDB)`);
     console.log(`  GET  ${baseUrl}/ (test endpoint)`);
     console.log('Dynamically created GC API proxy endpoints from Jwr will also be available.');
+});
+
+// --- OpenAPI Specification Setup ---
+const swaggerDefinition = {
+  openapi: '3.0.3',
+  info: {
+    title: 'GameChanger API Proxy (Dynamic)',
+    version: 'v1.0.0',
+    description: 'A dynamically generated OpenAPI specification for the GameChanger API proxy. All endpoints are proxied to the GameChanger API.',
+  },
+  servers: [
+    {
+      url: DEPLOY_URL && DEPLOY_URL.includes('gc-stats-api') ? DEPLOY_URL : (process.env.NODE_ENV === 'production' ? 'https://gc-stats-api.36technology.com/' : `http://localhost:${port}`),
+      description: DEPLOY_URL && DEPLOY_URL.includes('gc-stats-api') ? 'Production API Server' : (process.env.NODE_ENV === 'production' ? 'Production API Server (Fallback)' : 'Local Development Server API'),
+    },
+    {
+      url: DEPLOY_URL && DEPLOY_URL.includes('gc-stats.36technology.com') ? DEPLOY_URL.replace('gc-stats.36technology.com', 'gc-stats-api.36technology.com') : 'https://gc-stats-api.36technology.com/',
+      description: 'Production API Server (Explicit)'
+    },
+    // It might be useful to also list the UI server if Swagger UI is hosted there and makes calls to a different API URL.
+    // For now, focusing on API server URLs. The user mentioned two URLs:
+    // https://gc-stats.36technology.com (website)
+    // https://gc-stats-api.36technology.com (API)
+    // The DEPLOY_URL environment variable will determine the primary server URL.
+  ],
+  components: {
+    securitySchemes: {
+      // If your API uses security schemes like Bearer token, define them here
+      // For example:
+      // bearerAuth: {
+      //   type: 'http',
+      //   scheme: 'bearer',
+      //   bearerFormat: 'JWT',
+      // },
+    },
+    schemas: {
+        // Define common schemas here if any. For now, most are generic objects.
+        GenericRequest: {
+            type: 'object',
+            description: 'Generic request body. Specific properties vary by endpoint.'
+        },
+        GenericResponse: {
+            type: 'object',
+            description: 'Generic response body. Specific properties vary by endpoint.'
+        },
+        ErrorResponse: {
+            type: 'object',
+            properties: {
+                error: { type: 'string' },
+                details: { type: 'string' }
+            }
+        }
+    }
+  },
+  paths: {} // Paths will be populated dynamically
+};
+
+// Function to transform Jwr entries to OpenAPI paths
+function generateOpenApiPaths(jwrObject) {
+  const paths = {};
+  for (const apiKey in jwrObject) {
+    const apiDef = jwrObject[apiKey];
+    const path = apiDef.path;
+    const method = apiDef.method.toLowerCase(); // e.g., 'get', 'post'
+
+    if (!paths[path]) {
+      paths[path] = {};
+    }
+
+    // Basic parameter mapping (from path, e.g., /teams/:teamID)
+    const parameters = (apiDef.params || []).map(paramName => {
+      if (path.includes(`:${paramName}`)) {
+        return {
+          name: paramName,
+          in: 'path',
+          required: true,
+          schema: { type: 'string' }, // Assuming string for now
+          description: `Parameter ${paramName}`
+        };
+      }
+      // Query parameters would need more info from JWR or a convention
+      // For GET/DELETE, other params might be query params.
+      // This is a simplification. The original openapi.yaml has more details for query params.
+      // We'd need to enhance JWR or make assumptions to fully replicate.
+      return null; // Placeholder for non-path params for now
+    }).filter(p => p !== null);
+
+    // Add query parameters for GET requests if they are in apiDef.params but not in path
+    if (method === 'get' && apiDef.params) {
+        apiDef.params.forEach(paramName => {
+            if (!path.includes(`:${paramName}`) && !parameters.some(p => p.name === paramName)) {
+                parameters.push({
+                    name: paramName,
+                    in: 'query',
+                    required: false, // Assuming query params are optional unless specified
+                    schema: { type: 'string' },
+                    description: `Query parameter ${paramName}`
+                });
+            }
+        });
+    }
+
+
+    paths[path][method] = {
+      summary: apiKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), // Generate a summary from the key
+      operationId: apiKey,
+      tags: path.split('/')[1] ? [path.split('/')[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())] : ['Default'], // Basic tagging
+      parameters: parameters.length > 0 ? parameters : undefined,
+      requestBody: (method === 'post' || method === 'put' || method === 'patch') ? {
+        description: `Request body for ${apiKey}`,
+        required: true, // Assuming body is required for these methods if defined
+        content: {
+          'application/json': {
+            schema: { $ref: '#/components/schemas/GenericRequest' } // Placeholder
+          }
+        }
+      } : undefined,
+      responses: {
+        '200': {
+          description: 'Successful response',
+          content: {
+            'application/json': {
+              schema: { $ref: '#/components/schemas/GenericResponse' } // Placeholder
+            }
+          }
+        },
+        '400': {
+          description: 'Bad Request',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        },
+        '401': {
+          description: 'Unauthorized',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        },
+        '404': {
+          description: 'Not Found',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        },
+        '500': {
+          description: 'Internal Server Error',
+          content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } }
+        }
+        // Add other common responses or derive from apiDef.outputType if possible
+      },
+      // security: authType !== mr.NONE ? [{ bearerAuth: [] }] : [], // Example security
+    };
+  }
+  return paths;
+}
+
+swaggerDefinition.paths = generateOpenApiPaths(Jwr);
+
+// Options for swagger-jsdoc
+const options = {
+  swaggerDefinition,
+  apis: [], // We are not using file paths here, as definition is constructed programmatically
+};
+
+const openapiSpecification = swaggerJsdoc(options);
+
+// Serve Swagger UI at /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+
+// Endpoint to serve the raw OpenAPI JSON specification
+app.get('/openapi.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(openapiSpecification);
 });
