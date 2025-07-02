@@ -4,10 +4,10 @@ info:
   version: v1.0.0
   description: A proxy for selected GameChanger API endpoints.
 servers:
+  - url: https://gc-stats-api.36technology.com/
+    description: Production deployment
   - url: http://localhost:3001
     description: Local development server proxy
-  - url: https://gc-stats-api.36technology.com/
-    description: Production deployment (set DEPLOY_URL env variable)
 
 paths:
   /client-authenticate:
