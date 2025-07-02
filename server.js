@@ -754,7 +754,7 @@ const vr = (...e) => e
     get_me_team_stats: {
         path: "/teams/:teamID/season-stats",
         method: gr.GET,
-        params: vr(),
+        params: vr("teamID"),
         auth: mr.USER,
         inputType: Qt.NONE,
         outputType: Ft.TEAM_SEASON_STATS,
