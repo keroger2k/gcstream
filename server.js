@@ -231,6 +231,15 @@ const vr = (...e) => e
         outputType: Ft.TEAM,
         paginate: !1
     },
+    post_teams_follow: {
+        path: "/teams/:teamID/follow",
+        method: gr.POST,
+        params: vr("teamID"),
+        auth: mr.USER,
+        inputType: Qt.POST_TEAM,
+        outputType: Ft.TEAM,
+        paginate: !1
+    },
     get_team: {
         path: "/teams/:teamID",
         method: gr.GET,
